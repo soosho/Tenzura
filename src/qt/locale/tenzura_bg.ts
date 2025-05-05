@@ -1987,8 +1987,8 @@ Recommended action: Fully sync your wallet before sending a transaction.
         <translation>Салдо</translation>
     </message>
     <message>
-        <source>123.456 RVN</source>
-        <translation>123.456 RVN</translation>
+        <source>123.456 TENZ</source>
+        <translation>123.456 TENZ</translation>
     </message>
     <message>
         <source>Copy quantity</source>

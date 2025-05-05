@@ -108,11 +108,11 @@ const QString TenzuraGUI::DEFAULT_WALLET = "~Default";
 /* Bit of a bodge, c++ really doesn't want you to predefine values
  * in only header files, so we do one-time value assignment here. */
 std::array<CurrencyUnitDetails, 5> CurrencyUnits::CurrencyOptions = { {
-    { "BTC",    "RVNBTC"  , 1,          8},
-    { "mBTC",   "RVNBTC"  , 1000,       5},
-    { "µBTC",   "RVNBTC"  , 1000000,    2},
-    { "Satoshi","RVNBTC"  , 100000000,  0},
-    { "USDT",   "RVNUSDT" , 1,          5}
+    { "BTC",    "TENZBTC"  , 1,          8},
+    { "mBTC",   "TENZBTC"  , 1000,       5},
+    { "µBTC",   "TENZBTC"  , 1000000,    2},
+    { "Satoshi","TENZBTC"  , 100000000,  0},
+    { "USDT",   "TENZUSDT" , 1,          5}
 } };
 
 static bool ThreadSafeMessageBox(TenzuraGUI *gui, const std::string& message, const std::string& caption, unsigned int style);
@@ -171,7 +171,7 @@ TenzuraGUI::TenzuraGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
         setCentralWidget(rpcConsole);
     }
 
-    /** RVN START */
+    /** TENZ START */
     labelCurrentMarket = new QLabel();
     labelCurrentPrice = new QLabel();
     headerWidget = new QWidget();
@@ -181,7 +181,7 @@ TenzuraGUI::TenzuraGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
     labelVersionUpdate = new QLabel();
     networkVersionManager = new QNetworkAccessManager();
     versionRequest = new QNetworkRequest();
-    /** RVN END */
+    /** TENZ END */
 
     // Accept D&D of URIs
     setAcceptDrops(true);
@@ -366,7 +366,7 @@ void TenzuraGUI::createActions()
     historyAction->setFont(font);
     tabGroup->addAction(historyAction);
 
-    /** RVN START */
+    /** TENZ START */
     createAssetAction = new QAction(platformStyle->SingleColorIconOnOff(":/icons/asset_create_selected", ":/icons/asset_create"), tr("&Create Assets"), this);
     createAssetAction->setStatusTip(tr("Create new assets"));
     createAssetAction->setToolTip(createAssetAction->statusTip());
@@ -376,7 +376,7 @@ void TenzuraGUI::createActions()
     tabGroup->addAction(createAssetAction);
 
     transferAssetAction = new QAction(platformStyle->SingleColorIconOnOff(":/icons/asset_transfer_selected", ":/icons/asset_transfer"), tr("&Transfer Assets"), this);
-    transferAssetAction->setStatusTip(tr("Transfer assets to RVN addresses"));
+    transferAssetAction->setStatusTip(tr("Transfer assets to TENZ addresses"));
     transferAssetAction->setToolTip(transferAssetAction->statusTip());
     transferAssetAction->setCheckable(true);
     transferAssetAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
@@ -415,7 +415,7 @@ void TenzuraGUI::createActions()
     restrictedAssetAction->setFont(font);
     tabGroup->addAction(restrictedAssetAction);
 
-    /** RVN END */
+    /** TENZ END */
 
 #ifdef ENABLE_WALLET
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins
@@ -584,7 +584,7 @@ void TenzuraGUI::createToolBars()
         QSettings settings;
         bool IconsOnly = settings.value("fToolbarIconsOnly", false).toBool();
 
-        /** RVN START */
+        /** TENZ START */
         // Create the background and the vertical tool bar
         QWidget* toolbarWidget = new QWidget();
 
@@ -604,7 +604,7 @@ void TenzuraGUI::createToolBars()
         }
         labelToolbar->setStyleSheet(".QLabel{background-color: transparent;}");
 
-        /** RVN END */
+        /** TENZ END */
 
         m_toolbar = new QToolBar();
         m_toolbar->setStyle(style());
@@ -640,7 +640,7 @@ void TenzuraGUI::createToolBars()
         stringToUse = normalString;
 #endif
 
-        /** RVN START */
+        /** TENZ START */
         QString tbStyleSheet = ".QToolBar {background-color : transparent; border-color: transparent; }  "
                                ".QToolButton {background-color: transparent; border-color: transparent; width: 249px; color: %1; border: none;} "
                                ".QToolButton:checked {background: none; background-color: none; selection-background-color: none; color: %2; border: none; font: %4} "
@@ -813,7 +813,7 @@ void TenzuraGUI::createToolBars()
         connect(pricingTimer, SIGNAL(timeout()), this, SLOT(getPriceInfo()));
         pricingTimer->start(10000);
         getPriceInfo();
-        /** RVN END */
+        /** TENZ END */
 
         // Get the latest Tenzura release and let the user know if they are using the latest version
         // Network request code for the header widget
@@ -1041,14 +1041,14 @@ void TenzuraGUI::setWalletActionsEnabled(bool enabled)
     usedReceivingAddressesAction->setEnabled(enabled);
     openAction->setEnabled(enabled);
 
-    /** RVN START */
+    /** TENZ START */
     transferAssetAction->setEnabled(false);
     createAssetAction->setEnabled(false);
     manageAssetAction->setEnabled(false);
     messagingAction->setEnabled(false);
     votingAction->setEnabled(false);
     restrictedAssetAction->setEnabled(false);
-    /** RVN END */
+    /** TENZ END */
 }
 
 void TenzuraGUI::createTrayIcon(const NetworkStyle *networkStyle)
@@ -1199,7 +1199,7 @@ void TenzuraGUI::gotoVerifyMessageTab(QString addr)
     if (walletFrame) walletFrame->gotoVerifyMessageTab(addr);
 }
 
-/** RVN START */
+/** TENZ START */
 void TenzuraGUI::gotoAssetsPage()
 {
     transferAssetAction->setChecked(true);
@@ -1223,7 +1223,7 @@ void TenzuraGUI::gotoRestrictedAssetsPage()
     restrictedAssetAction->setChecked(true);
     if (walletFrame) walletFrame->gotoRestrictedAssetsPage();
 };
-/** RVN END */
+/** TENZ END */
 #endif // ENABLE_WALLET
 
 void TenzuraGUI::updateNetworkState()
@@ -1499,7 +1499,7 @@ void TenzuraGUI::incomingTransaction(const QString& date, int unit, const CAmoun
 {
     // On new transaction, make an info balloon
     QString msg = tr("Date: %1\n").arg(date);
-    if (assetName == "RVN")
+    if (assetName == "TENZ")
         msg += tr("Amount: %1\n").arg(TenzuraUnits::formatWithUnit(unit, amount, true));
     else
         msg += tr("Amount: %1\n").arg(TenzuraUnits::formatWithCustomName(assetName, amount, MAX_ASSET_UNITS, true));
@@ -1519,7 +1519,7 @@ void TenzuraGUI::checkAssets()
     // Check that status of RIP2 and activate the assets icon if it is active
     if(AreAssetsDeployed()) {
         transferAssetAction->setDisabled(false);
-        transferAssetAction->setToolTip(tr("Transfer assets to RVN addresses"));
+        transferAssetAction->setToolTip(tr("Transfer assets to TENZ addresses"));
         createAssetAction->setDisabled(false);
         createAssetAction->setToolTip(tr("Create new assets"));
         manageAssetAction->setDisabled(false);

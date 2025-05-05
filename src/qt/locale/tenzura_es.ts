@@ -1803,8 +1803,8 @@
         <translation>&amp;Transferir Activos</translation>
     </message>
     <message>
-        <source>Transfer assets to RVN addresses</source>
-        <translation>Transferir Activos a la dirección RVN</translation>
+        <source>Transfer assets to TENZ addresses</source>
+        <translation>Transferir Activos a la dirección TENZ</translation>
     </message>
     <message>
         <source>&amp;Manage Assets</source>

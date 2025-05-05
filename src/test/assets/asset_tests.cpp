@@ -48,19 +48,19 @@ BOOST_FIXTURE_TEST_SUITE(asset_tests, BasicTestingSetup)
         BOOST_CHECK(!IsAssetNameValid("AB_.C", type));
 
         //- Versions of TENZURA NOT allowed
-        BOOST_CHECK(!IsAssetNameValid("RVN", type));
+        BOOST_CHECK(!IsAssetNameValid("TENZ", type));
         BOOST_CHECK(!IsAssetNameValid("TENZURA", type));
         BOOST_CHECK(!IsAssetNameValid("TENZURA", type));
 
         //- Versions of TENZURA ALLOWED
         BOOST_CHECK(IsAssetNameValid("TENZURA.COIN", type));
         BOOST_CHECK(IsAssetNameValid("TENZURA_COIN", type));
-        BOOST_CHECK(IsAssetNameValid("RVNSPYDER", type));
-        BOOST_CHECK(IsAssetNameValid("SPYDERRVN", type));
+        BOOST_CHECK(IsAssetNameValid("TENZSPYDER", type));
+        BOOST_CHECK(IsAssetNameValid("SPYDERTENZ", type));
         BOOST_CHECK(IsAssetNameValid("TENZURASPYDER", type));
         BOOST_CHECK(IsAssetNameValid("SPYDETENZURA", type));
         BOOST_CHECK(IsAssetNameValid("BLACK_TENZURAS", type));
-        BOOST_CHECK(IsAssetNameValid("SERVNOT", type));
+        BOOST_CHECK(IsAssetNameValid("SETENZOT", type));
 
         // subs
         BOOST_CHECK(IsAssetNameValid("ABC/A", type));

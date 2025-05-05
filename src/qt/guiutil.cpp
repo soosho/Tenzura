@@ -271,7 +271,7 @@ bool parseTenzuraURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!TenzuraUnits::parse(TenzuraUnits::RVN, i->second, &rv.amount))
+                if(!TenzuraUnits::parse(TenzuraUnits::TENZ, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -310,7 +310,7 @@ QString formatTenzuraURI(const SendCoinsRecipient &info)
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(TenzuraUnits::format(TenzuraUnits::RVN, info.amount, false, TenzuraUnits::separatorNever));
+        ret += QString("?amount=%1").arg(TenzuraUnits::format(TenzuraUnits::TENZ, info.amount, false, TenzuraUnits::separatorNever));
         paramCount++;
     }
 

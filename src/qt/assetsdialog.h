@@ -108,10 +108,10 @@ private Q_SLOTS:
 
     void customFeeFeatureChanged(bool);
 
-    /** RVN START */
+    /** TENZ START */
     void assetControlUpdateSendCoinsDialog();
     void focusAsset(const QModelIndex& index);
-    /** RVN END */
+    /** TENZ END */
 
     Q_SIGNALS:
             // Fired when a message should be reported to the user

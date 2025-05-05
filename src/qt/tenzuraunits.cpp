@@ -18,9 +18,9 @@ TenzuraUnits::TenzuraUnits(QObject *parent):
 QList<TenzuraUnits::Unit> TenzuraUnits::availableUnits()
 {
     QList<TenzuraUnits::Unit> unitlist;
-    unitlist.append(RVN);
-    unitlist.append(mRVN);
-    unitlist.append(uRVN);
+    unitlist.append(TENZ);
+    unitlist.append(mTENZ);
+    unitlist.append(uTENZ);
     return unitlist;
 }
 
@@ -28,9 +28,9 @@ bool TenzuraUnits::valid(int unit)
 {
     switch(unit)
     {
-    case RVN:
-    case mRVN:
-    case uRVN:
+    case TENZ:
+    case mTENZ:
+    case uTENZ:
         return true;
     default:
         return false;
@@ -41,9 +41,9 @@ QString TenzuraUnits::name(int unit)
 {
     switch(unit)
     {
-    case RVN: return QString("RVN");
-    case mRVN: return QString("mRVN");
-    case uRVN: return QString::fromUtf8("μRVN");
+    case TENZ: return QString("TENZ");
+    case mTENZ: return QString("mTENZ");
+    case uTENZ: return QString::fromUtf8("μTENZ");
     default: return QString("???");
     }
 }
@@ -52,9 +52,9 @@ QString TenzuraUnits::description(int unit)
 {
     switch(unit)
     {
-    case RVN: return QString("Tenzuras");
-    case mRVN: return QString("Milli-Tenzuras (1 / 1" THIN_SP_UTF8 "000)");
-    case uRVN: return QString("Micro-Tenzuras (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case TENZ: return QString("Tenzuras");
+    case mTENZ: return QString("Milli-Tenzuras (1 / 1" THIN_SP_UTF8 "000)");
+    case uTENZ: return QString("Micro-Tenzuras (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -63,9 +63,9 @@ qint64 TenzuraUnits::factor(int unit)
 {
     switch(unit)
     {
-    case RVN:  return 100000000;
-    case mRVN: return 100000;
-    case uRVN: return 100;
+    case TENZ:  return 100000000;
+    case mTENZ: return 100000;
+    case uTENZ: return 100;
     default:   return 100000000;
     }
 }
@@ -91,9 +91,9 @@ int TenzuraUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case RVN: return 8;
-    case mRVN: return 5;
-    case uRVN: return 2;
+    case TENZ: return 8;
+    case mTENZ: return 5;
+    case uTENZ: return 2;
     default: return 0;
     }
 }
@@ -150,7 +150,7 @@ QString TenzuraUnits::formatWithUnit(int unit, const CAmount& amount, bool pluss
 
 QString TenzuraUnits::formatWithCustomName(QString customName, const CAmount& amount, int unit, bool plussign, SeparatorStyle separators)
 {
-    return format(RVN, amount / factorAsset(MAX_ASSET_UNITS - unit), plussign, separators, unit) + QString(" ") + customName;
+    return format(TENZ, amount / factorAsset(MAX_ASSET_UNITS - unit), plussign, separators, unit) + QString(" ") + customName;
 }
 
 QString TenzuraUnits::formatHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)

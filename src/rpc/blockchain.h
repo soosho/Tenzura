@@ -14,7 +14,7 @@ class UniValue;
 
 
 // To be used by local rpc GPU mining only
-extern std::map<std::string, CBlock> mapRVNKAWBlockTemplates;
+extern std::map<std::string, CBlock> mapTENZKAWBlockTemplates;
 
 /**
  * Get the difficulty of the net wrt to the given block index, or the chain tip if

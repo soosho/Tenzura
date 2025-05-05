@@ -76,7 +76,7 @@ void OptionsModel::Init(bool resetSettings)
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", TenzuraUnits::RVN);
+        settings.setValue("nDisplayUnit", TenzuraUnits::TENZ);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
     
     if (!settings.contains("nDisplayCurrencyIndex"))

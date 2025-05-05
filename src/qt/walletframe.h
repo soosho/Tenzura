@@ -96,14 +96,14 @@ public Q_SLOTS:
     /** Pass on signal over requested out-of-sync-warning information */
     void outOfSyncWarningClicked();
 
-    /** RVN START */
+    /** TENZ START */
 
     /** Switch to assets page */
     void gotoAssetsPage();
     void gotoCreateAssetsPage();
     void gotoManageAssetsPage();
     void gotoRestrictedAssetsPage();
-    /** RVN END */
+    /** TENZ END */
 };
 
 #endif // TENZURA_QT_WALLETFRAME_H

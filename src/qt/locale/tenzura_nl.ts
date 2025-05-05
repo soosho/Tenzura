@@ -613,8 +613,8 @@
         <translation>Wis</translation>
     </message>
     <message>
-        <source>123.456 RVN</source>
-        <translation>123.456 RVN</translation>
+        <source>123.456 TENZ</source>
+        <translation>123.456 TENZ</translation>
     </message>
     <message>
         <source>Warning: Invalid Tenzura address</source>
@@ -1300,8 +1300,8 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
         <translation>Uw totale saldo</translation>
     </message>
     <message>
-        <source>RVN Balances</source>
-        <translation>RVN Balance</translation>
+        <source>TENZ Balances</source>
+        <translation>TENZ Balance</translation>
     </message>
     <message>
         <source>Your current balance in watch-only addresses</source>

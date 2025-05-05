@@ -62,7 +62,7 @@ class RawAssetTransactionsTest(TenzuraTestFramework):
         self.num_nodes = 3
 
     def activate_assets(self):
-        self.log.info("Generating RVN for node[0] and activating assets...")
+        self.log.info("Generating TENZ for node[0] and activating assets...")
         n0 = self.nodes[0]
 
         n0.generate(1)
@@ -264,13 +264,13 @@ class RawAssetTransactionsTest(TenzuraTestFramework):
         f = BytesIO(hex_str_to_bytes(tx_issue_hex))
         tx.deserialize(f)
         rvno = '72766e6f'  # rvno
-        RVNO = '52564e4f'  # RVNO
+        TENZO = '52564e4f'  # TENZO
         # change the owner output script type to be invalid
         for n in range(0, len(tx.vout)):
             out = tx.vout[n]
             if rvno in bytes_to_hex_str(out.scriptPubKey):
                 owner_script_hex = bytes_to_hex_str(out.scriptPubKey)
-                tampered_script = owner_script_hex.replace(rvno, RVNO)
+                tampered_script = owner_script_hex.replace(rvno, TENZO)
                 tx.vout[n].scriptPubKey = hex_str_to_bytes(tampered_script)
         tx_bad_issue = bytes_to_hex_str(tx.serialize())
         tx_bad_issue_signed = n0.signrawtransaction(tx_bad_issue)['hex']
@@ -1498,7 +1498,7 @@ class RawAssetTransactionsTest(TenzuraTestFramework):
         ########################################
         # rvn for assets
 
-        # n1 buys 400 ANDUIN from n2 for 4000 RVN
+        # n1 buys 400 ANDUIN from n2 for 4000 TENZ
         price = 4000
         amount = 400
         fee = 0.01
@@ -1547,7 +1547,7 @@ class RawAssetTransactionsTest(TenzuraTestFramework):
         ########################################
         # rvn for owner
 
-        # n2 buys JAINA! from n1 for 20000 RVN
+        # n2 buys JAINA! from n1 for 20000 TENZ
         price = 20000
         amount = 1
         balance1 = newbalance1
@@ -1740,7 +1740,7 @@ class RawAssetTransactionsTest(TenzuraTestFramework):
         self.log.info("Testing fundrawtransaction with transfer outputs...")
         n0 = self.nodes[0]
         n2 = self.nodes[2]
-        asset_name = "DONT_FUND_RVN"
+        asset_name = "DONT_FUND_TENZ"
         asset_amount = 100
         rvn_amount = 100
 
