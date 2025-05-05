@@ -36,4 +36,4 @@ reverse_range<T> reverse_iterate(T &x)
     return reverse_range<T>(x);
 }
 
-#endif // RAVEN_REVERSE_ITERATOR_H
+#endif // TENZURA_REVERSE_ITERATOR_H

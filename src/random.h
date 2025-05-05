@@ -1,7 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -168,4 +167,4 @@ bool Random_SanityCheck();
 /** Initialize the RNG. */
 void RandomInit();
 
-#endif // RAVEN_RANDOM_H
+#endif // TENZURA_RANDOM_H

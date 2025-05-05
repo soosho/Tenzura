@@ -7,9 +7,9 @@ User=tenzura
 Group=tenzura
 
 Type=forking
-PIDFile=/var/lib/ravend/ravend.pid
-ExecStart=/usr/bin/ravend -daemon -pid=/var/lib/ravend/ravend.pid \
--conf=/etc/tenzura/tenzura.conf -datadir=/var/lib/ravend -disablewallet
+PIDFile=/var/lib/tenzurad/tenzurad.pid
+ExecStart=/usr/bin/tenzurad -daemon -pid=/var/lib/tenzurad/tenzurad.pid \
+-conf=/etc/tenzura/tenzura.conf -datadir=/var/lib/tenzurad -disablewallet
 
 Restart=always
 PrivateTmp=true

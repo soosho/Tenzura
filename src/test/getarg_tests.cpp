@@ -1,11 +1,10 @@
 // Copyright (c) 2012-2015 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2019 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "util.h"
-#include "test/test_raven.h"
+#include "test/test_tenzura.h"
 
 #include <string>
 #include <vector>
@@ -22,7 +21,7 @@ BOOST_FIXTURE_TEST_SUITE(getarg_tests, BasicTestingSetup)
             boost::split(vecArg, strArg, boost::is_space(), boost::token_compress_on);
 
         // Insert dummy executable name:
-        vecArg.insert(vecArg.begin(), "testraven");
+        vecArg.insert(vecArg.begin(), "testtenzura");
 
         // Convert to char*:
         std::vector<const char *> vecChar;

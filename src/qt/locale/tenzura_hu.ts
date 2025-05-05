@@ -758,7 +758,7 @@
     </message>
 </context>
 <context>
-    <name>RavenGUI</name>
+    <name>TenzuraGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation type="vanished">Üzenet aláírása...</translation>
@@ -1540,7 +1540,7 @@
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation type="vanished">Nincs elég ravenod.</translation>
+        <translation type="vanished">Nincs elég tenzuraod.</translation>
     </message>
     <message>
         <source>Loading block index...</source>

@@ -1,6 +1,5 @@
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2019 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -57,7 +56,7 @@ int main(int argc, char *argv[])
     SelectParams(CBaseChainParams::MAIN);
     noui_connect();
     ClearDatadirCache();
-    fs::path pathTemp = fs::temp_directory_path() / strprintf("test_raven-qt_%lu_%i", (unsigned long) GetTime(), (int) GetRand(100000));
+    fs::path pathTemp = fs::temp_directory_path() / strprintf("test_tenzura-qt_%lu_%i", (unsigned long) GetTime(), (int) GetRand(100000));
     fs::create_directories(pathTemp);
     gArgs.ForceSetArg("-datadir", pathTemp.string());
 

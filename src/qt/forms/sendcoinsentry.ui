@@ -39,12 +39,12 @@
     <item row="2" column="1">
      <layout class="QHBoxLayout" name="horizontalLayoutAmount" stretch="0,1">
       <item>
-       <widget class="RavenAmountField" name="payAmount"/>
+       <widget class="TenzuraAmountField" name="payAmount"/>
       </item>
       <item>
        <widget class="QCheckBox" name="checkboxSubtractFeeFromAmount">
         <property name="toolTip">
-         <string>The fee will be deducted from the amount being sent. The recipient will receive less ravens than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</string>
+         <string>The fee will be deducted from the amount being sent. The recipient will receive less tenzuras than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</string>
         </property>
         <property name="text">
          <string>S&amp;ubtract fee from amount</string>
@@ -695,7 +695,7 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="RavenAmountField" name="payAmount_is">
+     <widget class="TenzuraAmountField" name="payAmount_is">
       <property name="acceptDrops">
        <bool>false</bool>
       </property>
@@ -1228,7 +1228,7 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="RavenAmountField" name="payAmount_s">
+     <widget class="TenzuraAmountField" name="payAmount_s">
       <property name="acceptDrops">
        <bool>false</bool>
       </property>
@@ -1244,9 +1244,9 @@
    <header>qvalidatedlineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>RavenAmountField</class>
+   <class>TenzuraAmountField</class>
    <extends>QLineEdit</extends>
-   <header>ravenamountfield.h</header>
+   <header>tenzuraamountfield.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

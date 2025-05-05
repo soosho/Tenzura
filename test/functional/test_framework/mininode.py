@@ -2,8 +2,7 @@
 # Copyright (c) 2010 ArtForz -- public domain half-a-node
 # Copyright (c) 2012 Jeff Garzik
 # Copyright (c) 2010-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+# Copyright (c) 2017-2020 The Tenzura Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -46,7 +45,7 @@ mininode_lock = RLock()
 
 
 class NodeConnCB:
-    """Callback and helper functions for P2P connection to a ravend node.
+    """Callback and helper functions for P2P connection to a tenzurad node.
 
     Individual test cases should subclass this and override the on_* methods
     if they want to alter message handling behaviour.

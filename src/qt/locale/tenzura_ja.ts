@@ -168,7 +168,7 @@
         <translation>ウォレットの暗号化を確認する</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RAVENS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TENZURAS&lt;/b&gt;!</source>
         <translation>警告: もしもあなたのウォレットを暗号化してパスフレーズを失ってしまったなら、&lt;b&gt;あなたの Tenzura はすべて失われます&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -180,7 +180,7 @@
         <translation>ウォレットは暗号化されました</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your ravens from being stolen by malware infecting your computer.</source>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your tenzuras from being stolen by malware infecting your computer.</source>
         <translation>暗号化処理を完了させるため %1 をいますぐ終了します。ウォレットの暗号化では、コンピュータに感染したマルウェアなどによるビットコインの盗難から完全に守ることはできないことにご注意ください。</translation>
     </message>
     <message>
@@ -590,7 +590,7 @@
         <translation>確認できない最近のトランザクションがあるかもしれません。これによりウォレットの残高は不正確なものである可能性があります。この情報はウォレットが一度ビットコインネットワークへの同期が完了すると正確なものとなります。詳細は下記を参照してください。</translation>
     </message>
     <message>
-        <source>Attempting to spend ravens that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <source>Attempting to spend tenzuras that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>まだ表示されていないトランザクションが影響するビットコインを使用しようとすると、ネットワークから認証がなされないでしょう。</translation>
     </message>
     <message>
@@ -748,7 +748,7 @@
     </message>
     <message>
         <source>Connect to the Tenzura network through a SOCKS5 proxy.</source>
-        <translation>SOCKS5 プロキシ経由でRavenネットワークに接続する</translation>
+        <translation>SOCKS5 プロキシ経由でTenzuraネットワークに接続する</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -784,7 +784,7 @@
     </message>
     <message>
         <source>Connect to the Tenzura network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Tor秘匿サービスを利用するため、独立なSOCKS5プロキシ経由でRavenネットワークに接続する</translation>
+        <translation>Tor秘匿サービスを利用するため、独立なSOCKS5プロキシ経由でTenzuraネットワークに接続する</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -1052,7 +1052,7 @@
     </message>
     <message>
         <source>Enter a Tenzura address (e.g. %1)</source>
-        <translation>Ravenアドレスを入力してください (例 %1)</translation>
+        <translation>Tenzuraアドレスを入力してください (例 %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1401,7 +1401,7 @@
     </message>
 </context>
 <context>
-    <name>RavenGUI</name>
+    <name>TenzuraGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>メッセージの署名... (&amp;m)</translation>
@@ -1572,7 +1572,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and tenzura: URIs)</source>
-        <translation>支払いを要求する (QRコードとraven:ではじまるURIを生成する)</translation>
+        <translation>支払いを要求する (QRコードとtenzura:ではじまるURIを生成する)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -1725,7 +1725,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Tenzura network.</source>
-        <translation>支払リクエストが開始された時に表示される、支払リクエストに添える任意のメッセージです。注意：メッセージはRavenネットワークを通じて、支払と共に送られるわけではありません。</translation>
+        <translation>支払リクエストが開始された時に表示される、支払リクエストに添える任意のメッセージです。注意：メッセージはTenzuraネットワークを通じて、支払と共に送られるわけではありません。</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1963,7 +1963,7 @@
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for tenzura transactions than the network can process.</source>
-        <translation>ブロックの容量に比べてトランザクション流量が少ないうちは最小手数料のみの支払で十分です。しかしながらネットワークが処理しきれないほどravenトランザクションの需要がひとたび生まれてしまった場合には、永遠に検証がされないトランザクションになってしまう可能性があることに注意してください。</translation>
+        <translation>ブロックの容量に比べてトランザクション流量が少ないうちは最小手数料のみの支払で十分です。しかしながらネットワークが処理しきれないほどtenzuraトランザクションの需要がひとたび生まれてしまった場合には、永遠に検証がされないトランザクションになってしまう可能性があることに注意してください。</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -2111,7 +2111,7 @@
     </message>
     <message>
         <source>Warning: Invalid Tenzura address</source>
-        <translation>警告：無効なRavenアドレスです</translation>
+        <translation>警告：無効なTenzuraアドレスです</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2150,7 +2150,7 @@
     </message>
     <message>
         <source>The Tenzura address to send the payment to</source>
-        <translation>支払の送金先Ravenアドレス</translation>
+        <translation>支払の送金先Tenzuraアドレス</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2169,7 +2169,7 @@
         <translation>この項目を削除する</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less ravens than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less tenzuras than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>送金する金額から手数料が差し引かれます。受取人は数量フィールドで指定した量よりも少ないビットコインを受け取ります。受取人が複数いる場合には、手数料は均等割されます。</translation>
     </message>
     <message>
@@ -2194,7 +2194,7 @@
     </message>
     <message>
         <source>A message that was attached to the tenzura: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Tenzura network.</source>
-        <translation>tenzura: URIに添付されていたメッセージです。これは参照用としてトランザクションとともに保存されます。注意：このメッセージはRavenネットワークを通して送信されるわけではありません。</translation>
+        <translation>tenzura: URIに添付されていたメッセージです。これは参照用としてトランザクションとともに保存されます。注意：このメッセージはTenzuraネットワークを通して送信されるわけではありません。</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -2234,12 +2234,12 @@
         <translation>メッセージの署名 (&amp;S)</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive ravens sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <source>You can sign messages/agreements with your addresses to prove you can receive tenzuras sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>あなたの所有しているアドレスによりメッセージや合意書に署名をすることで、それらアドレスに対して送られたビットコインを受け取ることができることを証明できます。フィッシング攻撃により不正にあなたの識別情報を署名させられてしまうことを防ぐために、不明確なものやランダムなものに対して署名しないよう注意してください。合意することが可能な、よく詳細の記された文言にのみ署名するようにしてください。</translation>
     </message>
     <message>
         <source>The Tenzura address to sign the message with</source>
-        <translation>メッセージを署名するRavenアドレス</translation>
+        <translation>メッセージを署名するTenzuraアドレス</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2295,7 +2295,7 @@
     </message>
     <message>
         <source>The Tenzura address the message was signed with</source>
-        <translation>メッセージの署名に使われたRavenアドレス</translation>
+        <translation>メッセージの署名に使われたTenzuraアドレス</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Tenzura address</source>

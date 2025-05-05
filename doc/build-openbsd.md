@@ -2,7 +2,7 @@ OpenBSD build guide
 ======================
 (updated for OpenBSD 6.7)
 
-This guide describes how to build ravend and command-line utilities on OpenBSD.
+This guide describes how to build tenzurad and command-line utilities on OpenBSD.
 
 As OpenBSD is most common as a server OS, we will not bother with the GUI.
 
@@ -18,7 +18,7 @@ pkg_add autoconf # (select highest version, e.g. 2.69)
 pkg_add automake # (select highest version, e.g. 1.16)
 pkg_add python # (select highest version, e.g. 3.8)
 
-git clone https://github.com/RavenProject/Ravencoin.git
+git clone https://github.com/TenzuraProject/Tenzura.git
 ```
 
 See [dependencies.md](dependencies.md) for a complete overview.
@@ -49,7 +49,7 @@ This compiler will not overwrite the system compiler, it will be installed as `e
 
 Do not use `pkg_add boost`! The boost version installed thus is compiled using the `g++` compiler not `eg++`, which will result in a conflict between `/usr/local/lib/libestdc++.so.XX.0` and `/usr/lib/libstdc++.so.XX.0`, resulting in a test crash:
 
-    test_raven:/usr/lib/libstdc++.so.57.0: /usr/local/lib/libestdc++.so.17.0 : WARNING: symbol(_ZN11__gnu_debug17_S_debug_me ssagesE) size mismatch, relink your program
+    test_tenzura:/usr/lib/libstdc++.so.57.0: /usr/local/lib/libestdc++.so.17.0 : WARNING: symbol(_ZN11__gnu_debug17_S_debug_me ssagesE) size mismatch, relink your program
     ...
     Segmentation fault (core dumped)
 
@@ -57,8 +57,8 @@ This makes it necessary to build boost, or at least the parts used by Tenzura Co
 
 ```
 # Pick some path to install boost to, here we create a directory within the tenzura directory
-RAVEN_ROOT=$(pwd)
-BOOST_PREFIX="${RAVEN_ROOT}/boost"
+TENZURA_ROOT=$(pwd)
+BOOST_PREFIX="${TENZURA_ROOT}/boost"
 mkdir -p $BOOST_PREFIX
 
 # Fetch the source and verify that it is not tampered with
@@ -89,8 +89,8 @@ You cannot use the BerkeleyDB library from ports, for the same reason as boost a
 
 ```bash
 # Pick some path to install BDB to, here we create a directory within the tenzura directory
-RAVEN_ROOT=$(pwd)
-BDB_PREFIX="${RAVEN_ROOT}/db4"
+TENZURA_ROOT=$(pwd)
+BDB_PREFIX="${TENZURA_ROOT}/db4"
 mkdir -p $BDB_PREFIX
 
 # Fetch the source and verify that it is not tampered with
@@ -177,9 +177,9 @@ gmake
 However, this does not appear to work. Compilation succeeds, but link fails
 with many 'local symbol discarded' errors:
 
-    local symbol 150: discarded in section `.text._ZN10tinyformat6detail14FormatIterator6finishEv' from libraven_util.a(libraven_util_a-random.o)
-    local symbol 151: discarded in section `.text._ZN10tinyformat6detail14FormatIterator21streamStateFromFormatERSoRjPKcii' from libraven_util.a(libraven_util_a-random.o)
-    local symbol 152: discarded in section `.text._ZN10tinyformat6detail12convertToIntIA13_cLb0EE6invokeERA13_Kc' from libraven_util.a(libraven_util_a-random.o)
+    local symbol 150: discarded in section `.text._ZN10tinyformat6detail14FormatIterator6finishEv' from libtenzura_util.a(libtenzura_util_a-random.o)
+    local symbol 151: discarded in section `.text._ZN10tinyformat6detail14FormatIterator21streamStateFromFormatERSoRjPKcii' from libtenzura_util.a(libtenzura_util_a-random.o)
+    local symbol 152: discarded in section `.text._ZN10tinyformat6detail12convertToIntIA13_cLb0EE6invokeERA13_Kc' from libtenzura_util.a(libtenzura_util_a-random.o)
 
 According to similar reported errors this is a binutils (ld) issue in 2.15, the
 version installed by OpenBSD 5.7:

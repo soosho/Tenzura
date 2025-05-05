@@ -1,12 +1,11 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2020 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "transactiondesc.h"
 
-#include "ravenunits.h"
+#include "tenzuraunits.h"
 #include "guiutil.h"
 #include "paymentserver.h"
 #include "transactionrecord.h"
@@ -132,7 +131,7 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
             nUnmatured += wallet->GetCredit(txout, ISMINE_ALL);
         strHTML += "<b>" + tr("Credit") + ":</b> ";
         if (wtx.IsInMainChain())
-            strHTML += RavenUnits::formatHtmlWithUnit(unit, nUnmatured)+ " (" + tr("matures in %n more block(s)", "", wtx.GetBlocksToMaturity()) + ")";
+            strHTML += TenzuraUnits::formatHtmlWithUnit(unit, nUnmatured)+ " (" + tr("matures in %n more block(s)", "", wtx.GetBlocksToMaturity()) + ")";
         else
             strHTML += "(" + tr("not accepted") + ")";
         strHTML += "<br>";
@@ -142,7 +141,7 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
         //
         // Credit
         //
-        strHTML += "<b>" + tr("Credit") + ":</b> " + RavenUnits::formatHtmlWithUnit(unit, nNet) + "<br>";
+        strHTML += "<b>" + tr("Credit") + ":</b> " + TenzuraUnits::formatHtmlWithUnit(unit, nNet) + "<br>";
     }
     else
     {
@@ -193,9 +192,9 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
                     }
                 }
 
-                strHTML += "<b>" + tr("Debit") + ":</b> " + RavenUnits::formatHtmlWithUnit(unit, -txout.nValue) + "<br>";
+                strHTML += "<b>" + tr("Debit") + ":</b> " + TenzuraUnits::formatHtmlWithUnit(unit, -txout.nValue) + "<br>";
                 if(toSelf)
-                    strHTML += "<b>" + tr("Credit") + ":</b> " + RavenUnits::formatHtmlWithUnit(unit, txout.nValue) + "<br>";
+                    strHTML += "<b>" + tr("Credit") + ":</b> " + TenzuraUnits::formatHtmlWithUnit(unit, txout.nValue) + "<br>";
             }
 
             if (fAllToMe)
@@ -203,13 +202,13 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
                 // Payment to self
                 CAmount nChange = wtx.GetChange();
                 CAmount nValue = nCredit - nChange;
-                strHTML += "<b>" + tr("Total debit") + ":</b> " + RavenUnits::formatHtmlWithUnit(unit, -nValue) + "<br>";
-                strHTML += "<b>" + tr("Total credit") + ":</b> " + RavenUnits::formatHtmlWithUnit(unit, nValue) + "<br>";
+                strHTML += "<b>" + tr("Total debit") + ":</b> " + TenzuraUnits::formatHtmlWithUnit(unit, -nValue) + "<br>";
+                strHTML += "<b>" + tr("Total credit") + ":</b> " + TenzuraUnits::formatHtmlWithUnit(unit, nValue) + "<br>";
             }
 
             CAmount nTxFee = nDebit - wtx.tx->GetValueOut(AreEnforcedValuesDeployed());
             if (nTxFee > 0)
-                strHTML += "<b>" + tr("Transaction fee") + ":</b> " + RavenUnits::formatHtmlWithUnit(unit, -nTxFee) + "<br>";
+                strHTML += "<b>" + tr("Transaction fee") + ":</b> " + TenzuraUnits::formatHtmlWithUnit(unit, -nTxFee) + "<br>";
         }
         else
         {
@@ -218,14 +217,14 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
             //
             for (const CTxIn& txin : wtx.tx->vin)
                 if (wallet->IsMine(txin))
-                    strHTML += "<b>" + tr("Debit") + ":</b> " + RavenUnits::formatHtmlWithUnit(unit, -wallet->GetDebit(txin, ISMINE_ALL)) + "<br>";
+                    strHTML += "<b>" + tr("Debit") + ":</b> " + TenzuraUnits::formatHtmlWithUnit(unit, -wallet->GetDebit(txin, ISMINE_ALL)) + "<br>";
             for (const CTxOut& txout : wtx.tx->vout)
                 if (wallet->IsMine(txout))
-                    strHTML += "<b>" + tr("Credit") + ":</b> " + RavenUnits::formatHtmlWithUnit(unit, wallet->GetCredit(txout, ISMINE_ALL)) + "<br>";
+                    strHTML += "<b>" + tr("Credit") + ":</b> " + TenzuraUnits::formatHtmlWithUnit(unit, wallet->GetCredit(txout, ISMINE_ALL)) + "<br>";
         }
     }
 
-    strHTML += "<b>" + tr("Net amount") + ":</b> " + RavenUnits::formatHtmlWithUnit(unit, nNet, true) + "<br>";
+    strHTML += "<b>" + tr("Net amount") + ":</b> " + TenzuraUnits::formatHtmlWithUnit(unit, nNet, true) + "<br>";
 
     //
     // Message
@@ -361,12 +360,12 @@ QString TransactionDesc::toAssetHTML(CWallet *wallet, CWalletTx &wtx, Transactio
         //
         // Credit
         //
-        strHTML += "<b>" + tr("Credit") + ":</b> " + RavenUnits::formatWithCustomName(QString::fromStdString(rec->assetName), nAssetsRec, rec->units) + "<br>";
+        strHTML += "<b>" + tr("Credit") + ":</b> " + TenzuraUnits::formatWithCustomName(QString::fromStdString(rec->assetName), nAssetsRec, rec->units) + "<br>";
     } else {
-        strHTML += "<b>" + tr("Debit") + ":</b> " + RavenUnits::formatWithCustomName(QString::fromStdString(rec->assetName), nAssetsRec, rec->units, true) + "<br>";
+        strHTML += "<b>" + tr("Debit") + ":</b> " + TenzuraUnits::formatWithCustomName(QString::fromStdString(rec->assetName), nAssetsRec, rec->units, true) + "<br>";
     }
 
-    strHTML += "<b>" + tr("Net RVN amount") + ":</b> " + RavenUnits::formatHtmlWithUnit(unit, nNet, true) + "<br>";
+    strHTML += "<b>" + tr("Net RVN amount") + ":</b> " + TenzuraUnits::formatHtmlWithUnit(unit, nNet, true) + "<br>";
 
     //
     // Message
@@ -427,10 +426,10 @@ void TransactionDesc::CreateDebugString(QString& strHTML, CWallet *wallet, CWall
             CAmount debit = wallet->GetDebit(txin, ISMINE_ALL, assetData);
             if (assetData.nAmount > 0) {
                 strHTML += "<b>" + tr("Debit") + ":</b> " +
-                           RavenUnits::formatWithCustomName(QString::fromStdString(assetData.assetName), -assetData.nAmount) + "<br>";
+                           TenzuraUnits::formatWithCustomName(QString::fromStdString(assetData.assetName), -assetData.nAmount) + "<br>";
             }
             strHTML += "<b>" + tr("Debit") + ":</b> " +
-                       RavenUnits::formatHtmlWithUnit(unit, -debit) + "<br>";
+                       TenzuraUnits::formatHtmlWithUnit(unit, -debit) + "<br>";
         }
 
     for (const CTxOut& txout : wtx.tx->vout)
@@ -439,10 +438,10 @@ void TransactionDesc::CreateDebugString(QString& strHTML, CWallet *wallet, CWall
                 CAssetOutputEntry assetData;
                 GetAssetData(txout.scriptPubKey, assetData);
                 strHTML += "<b>" + tr("Credit") + ":</b> " +
-                           RavenUnits::formatWithCustomName(QString::fromStdString(assetData.assetName), assetData.nAmount) + "<br>";
+                           TenzuraUnits::formatWithCustomName(QString::fromStdString(assetData.assetName), assetData.nAmount) + "<br>";
             } else
                 strHTML += "<b>" + tr("Credit") + ":</b> " +
-                           RavenUnits::formatHtmlWithUnit(unit, wallet->GetCredit(txout, ISMINE_ALL)) + "<br>";
+                           TenzuraUnits::formatHtmlWithUnit(unit, wallet->GetCredit(txout, ISMINE_ALL)) + "<br>";
         }
 
     strHTML += "<br><b>" + tr("Transaction") + ":</b><br>";
@@ -468,7 +467,7 @@ void TransactionDesc::CreateDebugString(QString& strHTML, CWallet *wallet, CWall
                         strHTML += GUIUtil::HtmlEscape(wallet->mapAddressBook[address].name) + " ";
                     strHTML += QString::fromStdString(EncodeDestination(address));
                 }
-                strHTML = strHTML + " " + tr("Amount") + "=" + RavenUnits::formatHtmlWithUnit(unit, vout.nValue);
+                strHTML = strHTML + " " + tr("Amount") + "=" + TenzuraUnits::formatHtmlWithUnit(unit, vout.nValue);
                 strHTML = strHTML + " IsMine=" + (wallet->IsMine(vout) & ISMINE_SPENDABLE ? tr("true") : tr("false")) + "</li>";
                 strHTML = strHTML + " IsWatchOnly=" + (wallet->IsMine(vout) & ISMINE_WATCH_ONLY ? tr("true") : tr("false")) + "</li>";
             }

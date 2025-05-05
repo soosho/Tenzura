@@ -132,7 +132,7 @@
            </widget>
           </item>
           <item row="5" column="2">
-           <widget class="RavenAmountField" name="reqAmount">
+           <widget class="TenzuraAmountField" name="reqAmount">
             <property name="minimumSize">
              <size>
               <width>80</width>
@@ -320,9 +320,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>RavenAmountField</class>
+   <class>TenzuraAmountField</class>
    <extends>QLineEdit</extends>
-   <header>ravenamountfield.h</header>
+   <header>tenzuraamountfield.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

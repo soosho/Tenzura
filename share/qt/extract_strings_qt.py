@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # Copyright (c) 2012-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+# Copyright (c) 2017-2020 The Tenzura Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 '''
@@ -14,7 +13,7 @@ import operator
 import os
 import sys
 
-OUT_CPP="qt/ravenstrings.cpp"
+OUT_CPP="qt/tenzurastrings.cpp"
 EMPTY=['""']
 
 def parse_po(text):
@@ -78,7 +77,7 @@ f.write("""
 #define UNUSED
 #endif
 """)
-f.write('static const char UNUSED *raven_strings[] = {\n')
+f.write('static const char UNUSED *tenzura_strings[] = {\n')
 f.write('QT_TRANSLATE_NOOP("tenzura-core", "%s"),\n' % (os.getenv('PACKAGE_NAME'),))
 f.write('QT_TRANSLATE_NOOP("tenzura-core", "%s"),\n' % (os.getenv('COPYRIGHT_HOLDERS'),))
 if os.getenv('COPYRIGHT_HOLDERS_SUBSTITUTION') != os.getenv('PACKAGE_NAME'):

@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +11,7 @@
 #include "sendcoinsdialog.h"
 #include "coincontroldialog.h"
 #include "guiutil.h"
-#include "ravenunits.h"
+#include "tenzuraunits.h"
 #include "clientmodel.h"
 #include "optionsmodel.h"
 #include "guiconstants.h"
@@ -278,13 +277,13 @@ void CreateAssetDialog::setUpValues()
 
     // Setup the asset types
     QStringList list;
-    list.append(tr("Main Asset") + " (" + RavenUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::ROOT)) + ")");
-    list.append(tr("Sub Asset") + " (" + RavenUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::SUB)) + ")");
-    list.append(tr("Unique Asset") + " (" + RavenUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::UNIQUE)) + ")");
-    list.append(tr("Messaging Channel Asset") + " (" + RavenUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::MSGCHANNEL)) + ")");
-    list.append(tr("Qualifier Asset") + " (" + RavenUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::QUALIFIER)) + ")");
-    list.append(tr("Sub Qualifier Asset") + " (" + RavenUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::SUB_QUALIFIER)) + ")");
-    list.append(tr("Restricted Asset") + " (" + RavenUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::RESTRICTED)) + ")");
+    list.append(tr("Main Asset") + " (" + TenzuraUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::ROOT)) + ")");
+    list.append(tr("Sub Asset") + " (" + TenzuraUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::SUB)) + ")");
+    list.append(tr("Unique Asset") + " (" + TenzuraUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::UNIQUE)) + ")");
+    list.append(tr("Messaging Channel Asset") + " (" + TenzuraUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::MSGCHANNEL)) + ")");
+    list.append(tr("Qualifier Asset") + " (" + TenzuraUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::QUALIFIER)) + ")");
+    list.append(tr("Sub Qualifier Asset") + " (" + TenzuraUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::SUB_QUALIFIER)) + ")");
+    list.append(tr("Restricted Asset") + " (" + TenzuraUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetBurnAmount(AssetType::RESTRICTED)) + ")");
 
     ui->assetType->addItems(list);
     type = IntFromAssetType(AssetType::ROOT);
@@ -422,7 +421,7 @@ void CreateAssetDialog::setBalance(const CAmount& balance, const CAmount& unconf
 
     if(model && model->getOptionsModel())
     {
-        ui->labelBalance->setText(RavenUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), balance));
+        ui->labelBalance->setText(TenzuraUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), balance));
     }
 }
 
@@ -870,7 +869,7 @@ void CreateAssetDialog::onCreateAssetClicked()
     {
         // append fee string if a fee is required
         questionString.append("<hr /><span style='color:#e82121;'>");
-        questionString.append(RavenUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), nFeeRequired));
+        questionString.append(TenzuraUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), nFeeRequired));
         questionString.append("</span> ");
         questionString.append(tr("added as transaction fee"));
 
@@ -882,13 +881,13 @@ void CreateAssetDialog::onCreateAssetClicked()
     questionString.append("<hr />");
     CAmount totalAmount = GetBurnAmount(type) + nFeeRequired;
     QStringList alternativeUnits;
-    for (RavenUnits::Unit u : RavenUnits::availableUnits())
+    for (TenzuraUnits::Unit u : TenzuraUnits::availableUnits())
     {
         if(u != model->getOptionsModel()->getDisplayUnit())
-            alternativeUnits.append(RavenUnits::formatHtmlWithUnit(u, totalAmount));
+            alternativeUnits.append(TenzuraUnits::formatHtmlWithUnit(u, totalAmount));
     }
     questionString.append(tr("Total Amount %1")
-                                  .arg(RavenUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), totalAmount)));
+                                  .arg(TenzuraUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), totalAmount)));
     questionString.append(QString("<span style='font-size:10pt;font-weight:normal;'><br />(=%2)</span>")
                                   .arg(alternativeUnits.join(" " + tr("or") + "<br />")));
 
@@ -1122,7 +1121,7 @@ void CreateAssetDialog::updateSmartFeeLabel()
     FeeCalculation feeCalc;
     CFeeRate feeRate = CFeeRate(GetMinimumFee(1000, coin_control, ::mempool, ::feeEstimator, &feeCalc));
 
-    ui->labelSmartFee->setText(RavenUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), feeRate.GetFeePerK()) + "/kB");
+    ui->labelSmartFee->setText(TenzuraUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), feeRate.GetFeePerK()) + "/kB");
 
     if (feeCalc.reason == FeeReason::FALLBACK) {
         ui->labelSmartFee2->show(); // (Smart fee not initialized yet. This usually takes a few blocks...)
@@ -1365,7 +1364,7 @@ void CreateAssetDialog::updateFeeMinimizedLabel()
     if (ui->radioSmartFee->isChecked())
         ui->labelFeeMinimized->setText(ui->labelSmartFee->text());
     else {
-        ui->labelFeeMinimized->setText(RavenUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), ui->customFee->value()) + "/kB");
+        ui->labelFeeMinimized->setText(TenzuraUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), ui->customFee->value()) + "/kB");
     }
 }
 
@@ -1373,7 +1372,7 @@ void CreateAssetDialog::updateMinFeeLabel()
 {
     if (model && model->getOptionsModel())
         ui->checkBoxMinimumFee->setText(tr("Pay only the required fee of %1").arg(
-                RavenUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetRequiredFee(1000)) + "/kB")
+                TenzuraUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), GetRequiredFee(1000)) + "/kB")
         );
 }
 

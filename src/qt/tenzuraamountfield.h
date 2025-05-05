@@ -1,11 +1,10 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TENZURA_QT_RAVENAMOUNTFIELD_H
-#define TENZURA_QT_RAVENAMOUNTFIELD_H
+#ifndef TENZURA_QT_TENZURAAMOUNTFIELD_H
+#define TENZURA_QT_TENZURAAMOUNTFIELD_H
 
 #include "amount.h"
 
@@ -19,7 +18,7 @@ QT_END_NAMESPACE
 
 /** Widget for entering tenzura amounts.
   */
-class RavenAmountField: public QWidget
+class TenzuraAmountField: public QWidget
 {
     Q_OBJECT
 
@@ -28,7 +27,7 @@ class RavenAmountField: public QWidget
     Q_PROPERTY(qint64 value READ value WRITE setValue NOTIFY valueChanged USER true)
 
 public:
-    explicit RavenAmountField(QWidget *parent = 0);
+    explicit TenzuraAmountField(QWidget *parent = 0);
 
     CAmount value(bool *value=0) const;
     void setValue(const CAmount& value);
@@ -128,4 +127,4 @@ private:
 };
 
 
-#endif // RAVEN_QT_RAVENAMOUNTFIELD_H
+#endif // TENZURA_QT_TENZURAAMOUNTFIELD_H

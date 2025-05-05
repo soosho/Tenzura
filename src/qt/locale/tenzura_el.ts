@@ -141,7 +141,7 @@
     </message>
     </context>
 <context>
-    <name>RavenGUI</name>
+    <name>TenzuraGUI</name>
     <message>
         <source>Quit application</source>
         <translation>Κλείσιμο εφαρμογής</translation>

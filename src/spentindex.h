@@ -95,4 +95,4 @@ struct CSpentIndexKeyCompare
     }
 };
 
-#endif // RAVEN_SPENTINDEX_H
+#endif // TENZURA_SPENTINDEX_H

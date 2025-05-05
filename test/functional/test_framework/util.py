@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+# Copyright (c) 2017-2020 The Tenzura Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -260,7 +259,7 @@ def hash256(byte_str):
     return sha256d.digest()[::-1]
 
 
-x16r_hash_cmd = os.path.dirname(os.path.realpath(__file__)) + "/../../../src/test/test_raven_hash"
+x16r_hash_cmd = os.path.dirname(os.path.realpath(__file__)) + "/../../../src/test/test_tenzura_hash"
 
 
 def x16_hash_block(hex_str, algorithm="2"):

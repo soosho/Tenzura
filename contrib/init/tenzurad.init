@@ -1,36 +1,36 @@
 #!/bin/bash
 #
-#  ravend The tenzura core server.
+#  tenzurad The tenzura core server.
 #
 #
 # chkconfig: 345 80 20
-# description: ravend
-# processname: ravend
+# description: tenzurad
+# processname: tenzurad
 #
 
 # Source function library.
 . /etc/init.d/functions
 
-# you can override defaults in /etc/sysconfig/ravend, see below
-if [ -f /etc/sysconfig/ravend ]; then
-        . /etc/sysconfig/ravend
+# you can override defaults in /etc/sysconfig/tenzurad, see below
+if [ -f /etc/sysconfig/tenzurad ]; then
+        . /etc/sysconfig/tenzurad
 fi
 
 RETVAL=0
 
-prog=ravend
-# you can override the lockfile via RAVEND_LOCKFILE in /etc/sysconfig/ravend
-lockfile=${RAVEND_LOCKFILE-/var/lock/subsys/ravend}
+prog=tenzurad
+# you can override the lockfile via TENZURAD_LOCKFILE in /etc/sysconfig/tenzurad
+lockfile=${TENZURAD_LOCKFILE-/var/lock/subsys/tenzurad}
 
-# ravend defaults to /usr/bin/ravend, override with RAVEND_BIN
-ravend=${RAVEND_BIN-/usr/bin/ravend}
+# tenzurad defaults to /usr/bin/tenzurad, override with TENZURAD_BIN
+tenzurad=${TENZURAD_BIN-/usr/bin/tenzurad}
 
-# ravend opts default to -disablewallet, override with RAVEND_OPTS
-ravend_opts=${RAVEND_OPTS--disablewallet}
+# tenzurad opts default to -disablewallet, override with TENZURAD_OPTS
+tenzurad_opts=${TENZURAD_OPTS--disablewallet}
 
 start() {
     echo -n $"Starting $prog: "
-    daemon $DAEMONOPTS $ravend $ravend_opts
+    daemon $DAEMONOPTS $tenzurad $tenzurad_opts
     RETVAL=$?
     echo
     [ $RETVAL -eq 0 ] && touch $lockfile

@@ -1,4 +1,4 @@
-Build instructions for Ravencoin 
+Build instructions for Tenzura 
 =================================
 FreeBSD 13.0
 ---------------------------------
@@ -25,12 +25,12 @@ libqrencode for QR Code support.
 
 Directory structure
 ------------------
-Ravencoin sources in `$HOME/src`
+Tenzura sources in `$HOME/src`
 
 Berkeley DB will be installed to `$HOME/src/db4`
 
 
-Ravencoin
+Tenzura
 ------------------
 
 Start in $HOME
@@ -41,11 +41,11 @@ Make the directory for sources and go into it.
 
 `cd src`
 
-__Download Ravencoin source.__
+__Download Tenzura source.__
 
-`git clone https://github.com/RavenProject/Ravencoin`
+`git clone https://github.com/TenzuraProject/Tenzura`
 
-`cd Ravencoin`
+`cd Tenzura`
 
 `git checkout develop` # this checks out the develop branch.
 
@@ -72,7 +72,7 @@ You can now start tenzura-qt from the build directory.
 
 `src/qt/tenzura-qt`
 
-ravend and tenzura-cli are in `src/`
+tenzurad and tenzura-cli are in `src/`
 
 
 __Optional:__

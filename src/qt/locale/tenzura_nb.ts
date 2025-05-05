@@ -168,8 +168,8 @@
         <translation>Bekreft kryptering av lommebok</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RAVENS&lt;/b&gt;!</source>
-        <translation>Advarsel: Hvis du krypterer lommeboken og mister adgangsfrasen, så vil du &lt;b&gt;MISTE ALLE DINE RAVENS&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TENZURAS&lt;/b&gt;!</source>
+        <translation>Advarsel: Hvis du krypterer lommeboken og mister adgangsfrasen, så vil du &lt;b&gt;MISTE ALLE DINE TENZURAS&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -180,8 +180,8 @@
         <translation>Lommebok kryptert</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your ravens from being stolen by malware infecting your computer.</source>
-        <translation>%1 vil nå lukkes for å fullføre krypteringsprosessen. Husk at kryptering av lommeboken ikke fullt ut kan beskytte dine ravens fra å bli stjålet om skadevare infiserer datamaskinen din.</translation>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your tenzuras from being stolen by malware infecting your computer.</source>
+        <translation>%1 vil nå lukkes for å fullføre krypteringsprosessen. Husk at kryptering av lommeboken ikke fullt ut kan beskytte dine tenzuras fra å bli stjålet om skadevare infiserer datamaskinen din.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -610,7 +610,7 @@
     </message>
     <message>
         <source>Warning: Invalid Tenzura address</source>
-        <translation>Advarsel: Ugyldig Ravenadresse</translation>
+        <translation>Advarsel: Ugyldig Tenzuraadresse</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -1082,7 +1082,7 @@
     </message>
     <message>
         <source>Warning: Invalid Tenzura address</source>
-        <translation>Advarsel: Ugyldig Ravenadresse</translation>
+        <translation>Advarsel: Ugyldig Tenzuraadresse</translation>
     </message>
     <message>
         <source>Valid Asset</source>
@@ -1748,7 +1748,7 @@
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Velg standard delt enhet for visning i grensesnittet og for sending av ravens.</translation>
+        <translation>Velg standard delt enhet for visning i grensesnittet og for sending av tenzuras.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -2283,7 +2283,7 @@
     </message>
 </context>
 <context>
-    <name>RavenGUI</name>
+    <name>TenzuraGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signer &amp;melding...</translation>
@@ -2405,8 +2405,8 @@
         <translation>Lommebok</translation>
     </message>
     <message>
-        <source>Ravencoin Market Price</source>
-        <translation>Ravencoin markedspris</translation>
+        <source>Tenzura Market Price</source>
+        <translation>Tenzura markedspris</translation>
     </message>
     <message>
         <source>Click to disable network activity.</source>
@@ -2878,7 +2878,7 @@
     </message>
     <message>
         <source>A message that was attached to the tenzura: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Tenzura network.</source>
-        <translation>En melding som var tilknyttet ravenen: URI vil bli lagret med transaksjonen for din oversikt. Denne meldingen vil ikke bli sendt over Tenzura-nettverket.</translation>
+        <translation>En melding som var tilknyttet tenzuraen: URI vil bli lagret med transaksjonen for din oversikt. Denne meldingen vil ikke bli sendt over Tenzura-nettverket.</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -2985,7 +2985,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Send Ravens</translation>
+        <translation>Send Tenzuras</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -3209,7 +3209,7 @@
     </message>
     <message>
         <source>Warning: Invalid Tenzura address</source>
-        <translation>Advarsel: Ugyldig Ravenadresse</translation>
+        <translation>Advarsel: Ugyldig Tenzuraadresse</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -3267,8 +3267,8 @@
         <translation>Fjern denne oppføringen</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less ravens than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>Gebyret vil bli trukket fra beløpet som blir sendt. Mottakeren vil motta mindre ravens enn det du skriver inn i beløpsfeltet. Hvis det er valgt flere mottakere, deles gebyret likt.</translation>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less tenzuras than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>Gebyret vil bli trukket fra beløpet som blir sendt. Mottakeren vil motta mindre tenzuras enn det du skriver inn i beløpsfeltet. Hvis det er valgt flere mottakere, deles gebyret likt.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -3300,7 +3300,7 @@
     </message>
     <message>
         <source>A message that was attached to the tenzura: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Tenzura network.</source>
-        <translation>En melding som var tilknyttet ravenen: URI vil bli lagret med transaksjonen for din oversikt. Denne meldingen vil ikke bli sendt over Tenzura-nettverket.</translation>
+        <translation>En melding som var tilknyttet tenzuraen: URI vil bli lagret med transaksjonen for din oversikt. Denne meldingen vil ikke bli sendt over Tenzura-nettverket.</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -3340,8 +3340,8 @@
         <translation>&amp;Signer Melding</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive ravens sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Du kan signere meldinger/avtaler med adresser for å bevise at du kan motta ravens sendt til dem. Vær forsiktig med å signere noe vagt eller tilfeldig, siden phishing-angrep kan prøve å lure deg til å signere din identitet over til dem. Bare signer fullt detaljerte utsagn som du er enig i.</translation>
+        <source>You can sign messages/agreements with your addresses to prove you can receive tenzuras sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>Du kan signere meldinger/avtaler med adresser for å bevise at du kan motta tenzuras sendt til dem. Vær forsiktig med å signere noe vagt eller tilfeldig, siden phishing-angrep kan prøve å lure deg til å signere din identitet over til dem. Bare signer fullt detaljerte utsagn som du er enig i.</translation>
     </message>
     <message>
         <source>The Tenzura address to sign the message with</source>

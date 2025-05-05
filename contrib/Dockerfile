@@ -31,15 +31,15 @@ RUN apt-get update && \
 	apt-get clean
 
 #Copy source dir
-COPY . /home/tenzura/build/Ravencoin/
-WORKDIR /home/tenzura/build/Ravencoin
+COPY . /home/tenzura/build/Tenzura/
+WORKDIR /home/tenzura/build/Tenzura
 
 #build db4 from source
-WORKDIR /home/tenzura/build/Ravencoin/contrib
+WORKDIR /home/tenzura/build/Tenzura/contrib
 RUN ./install_db4.sh ../../
 
-# build Ravencore
-WORKDIR /home/tenzura/build/Ravencoin
+# build Tenzuracore
+WORKDIR /home/tenzura/build/Tenzura
 RUN ./autogen.sh && ./configure --disable-tests BDB_LIBS="-L/home/tenzura/build/db4/lib -ldb_cxx-4.8" BDB_CFLAGS="-I/home/tenzura/build/db4/include" --with-gui=no  && make -j4
 
 FROM base AS final
@@ -54,10 +54,10 @@ RUN useradd -ms /bin/bash tenzura && \
 VOLUME /var/lib/tenzura
 
 #Copy the compiled binaries from the build
-COPY --from=build /home/tenzura/build/Ravencoin/src/ravend /usr/local/bin/ravend
-COPY --from=build /home/tenzura/build/Ravencoin/src/tenzura-cli /usr/local/bin/tenzura-cli
+COPY --from=build /home/tenzura/build/Tenzura/src/tenzurad /usr/local/bin/tenzurad
+COPY --from=build /home/tenzura/build/Tenzura/src/tenzura-cli /usr/local/bin/tenzura-cli
 
 WORKDIR /home/tenzura
 USER tenzura
 
-CMD /usr/local/bin/ravend -datadir=/var/lib/tenzura -printtoconsole -onlynet=ipv4
+CMD /usr/local/bin/tenzurad -datadir=/var/lib/tenzura -printtoconsole -onlynet=ipv4

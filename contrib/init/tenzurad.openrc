@@ -3,40 +3,40 @@
 # backward compatibility for existing gentoo layout 
 #
 if [ -d "/var/lib/tenzura/.tenzura" ]; then
-	RAVEND_DEFAULT_DATADIR="/var/lib/tenzura/.tenzura"
+	TENZURAD_DEFAULT_DATADIR="/var/lib/tenzura/.tenzura"
 else
-	RAVEND_DEFAULT_DATADIR="/var/lib/ravend"
+	TENZURAD_DEFAULT_DATADIR="/var/lib/tenzurad"
 fi
 
-RAVEND_CONFIGFILE=${RAVEND_CONFIGFILE:-/etc/tenzura/tenzura.conf}
-RAVEND_PIDDIR=${RAVEND_PIDDIR:-/var/run/ravend}
-RAVEND_PIDFILE=${RAVEND_PIDFILE:-${RAVEND_PIDDIR}/ravend.pid}
-RAVEND_DATADIR=${RAVEND_DATADIR:-${RAVEND_DEFAULT_DATADIR}}
-RAVEND_USER=${RAVEND_USER:-${RAVEN_USER:-tenzura}}
-RAVEND_GROUP=${RAVEND_GROUP:-tenzura}
-RAVEND_BIN=${RAVEND_BIN:-/usr/bin/ravend}
-RAVEND_NICE=${RAVEND_NICE:-${NICELEVEL:-0}}
-RAVEND_OPTS="${RAVEND_OPTS:-${RAVEN_OPTS}}"
+TENZURAD_CONFIGFILE=${TENZURAD_CONFIGFILE:-/etc/tenzura/tenzura.conf}
+TENZURAD_PIDDIR=${TENZURAD_PIDDIR:-/var/run/tenzurad}
+TENZURAD_PIDFILE=${TENZURAD_PIDFILE:-${TENZURAD_PIDDIR}/tenzurad.pid}
+TENZURAD_DATADIR=${TENZURAD_DATADIR:-${TENZURAD_DEFAULT_DATADIR}}
+TENZURAD_USER=${TENZURAD_USER:-${TENZURA_USER:-tenzura}}
+TENZURAD_GROUP=${TENZURAD_GROUP:-tenzura}
+TENZURAD_BIN=${TENZURAD_BIN:-/usr/bin/tenzurad}
+TENZURAD_NICE=${TENZURAD_NICE:-${NICELEVEL:-0}}
+TENZURAD_OPTS="${TENZURAD_OPTS:-${TENZURA_OPTS}}"
 
 name="Tenzura Core Daemon"
 description="Tenzura cryptocurrency P2P network daemon"
 
-command="/usr/bin/ravend"
-command_args="-pid=\"${RAVEND_PIDFILE}\" \
-		-conf=\"${RAVEND_CONFIGFILE}\" \
-		-datadir=\"${RAVEND_DATADIR}\" \
+command="/usr/bin/tenzurad"
+command_args="-pid=\"${TENZURAD_PIDFILE}\" \
+		-conf=\"${TENZURAD_CONFIGFILE}\" \
+		-datadir=\"${TENZURAD_DATADIR}\" \
 		-daemon \
-		${RAVEND_OPTS}"
+		${TENZURAD_OPTS}"
 
-required_files="${RAVEND_CONFIGFILE}"
-start_stop_daemon_args="-u ${RAVEND_USER} \
-			-N ${RAVEND_NICE} -w 2000"
-pidfile="${RAVEND_PIDFILE}"
+required_files="${TENZURAD_CONFIGFILE}"
+start_stop_daemon_args="-u ${TENZURAD_USER} \
+			-N ${TENZURAD_NICE} -w 2000"
+pidfile="${TENZURAD_PIDFILE}"
 
 # The retry schedule to use when stopping the daemon. Could be either
 # a timeout in seconds or multiple signal/timeout pairs (like
 # "SIGKILL/180 SIGTERM/300")
-retry="${RAVEND_SIGTERM_TIMEOUT}"
+retry="${TENZURAD_SIGTERM_TIMEOUT}"
 
 depend() {
 	need localmount net
@@ -50,29 +50,29 @@ start_pre() {
 	checkpath \
 	-d \
 	--mode 0750 \
-	--owner "${RAVEND_USER}:${RAVEND_GROUP}" \
-	"${RAVEND_DATADIR}"
+	--owner "${TENZURAD_USER}:${TENZURAD_GROUP}" \
+	"${TENZURAD_DATADIR}"
 
 	checkpath \
 	-d \
 	--mode 0755 \
-	--owner "${RAVEND_USER}:${RAVEND_GROUP}" \
-	"${RAVEND_PIDDIR}"
+	--owner "${TENZURAD_USER}:${TENZURAD_GROUP}" \
+	"${TENZURAD_PIDDIR}"
 
 	checkpath -f \
-	-o ${RAVEND_USER}:${RAVEND_GROUP} \
+	-o ${TENZURAD_USER}:${TENZURAD_GROUP} \
 	-m 0660 \
-	${RAVEND_CONFIGFILE}
+	${TENZURAD_CONFIGFILE}
 
 	checkconfig || return 1
 }
 
 checkconfig()
 {
-	if ! grep -qs '^rpcpassword=' "${RAVEND_CONFIGFILE}" ; then
+	if ! grep -qs '^rpcpassword=' "${TENZURAD_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run ravend."
-		eerror "The setting must appear in ${RAVEND_CONFIGFILE}"
+		eerror "ERROR: You must set a secure rpcpassword to run tenzurad."
+		eerror "The setting must appear in ${TENZURAD_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
 		eerror "and must not be the same as the rpcuser setting."

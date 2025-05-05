@@ -160,7 +160,7 @@
         <translation>Berretsi zorroaren enkriptazioa</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RAVENS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TENZURAS&lt;/b&gt;!</source>
         <translation>Abisua: Zuk enkriptatzen baduzu zure diruzorroa eta zure pasahitza galtzen baduzu, &lt;b&gt;TENZURA GUZTIAK GALDUKO DITUZU&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -365,7 +365,7 @@
     <name>RPCConsole</name>
     </context>
 <context>
-    <name>RavenGUI</name>
+    <name>TenzuraGUI</name>
     <message>
         <source>Synchronizing with network...</source>
         <translation>Sarearekin sinkronizatzen...</translation>

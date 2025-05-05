@@ -168,7 +168,7 @@
         <translation>Confirmă criptare portofel</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RAVENS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TENZURAS&lt;/b&gt;!</source>
         <translation>Atenţie: Dacă criptezi portofelul şi îţi pierzi expresia de parolă, o să &lt;b&gt;PIERZI TOATE MONEDELE TENZURA&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -180,7 +180,7 @@
         <translation>Portofel criptat</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your ravens from being stolen by malware infecting your computer.</source>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your tenzuras from being stolen by malware infecting your computer.</source>
         <translation>%1 o să se inchidă acum pentru a finaliza procesul de criptare.Vă reamintim că criptarea portofelului nu poate să protejeze pe deplin monedele Tenzura de a fi furate de către malware care vă infectează calculatorul.</translation>
     </message>
     <message>
@@ -1465,7 +1465,7 @@
     </message>
 </context>
 <context>
-    <name>RavenGUI</name>
+    <name>TenzuraGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Semnează &amp;mesaj...</translation>

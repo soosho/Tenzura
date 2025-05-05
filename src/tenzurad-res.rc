@@ -17,13 +17,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "Tenzura"
-            VALUE "FileDescription",    "ravend (Tenzura node with a JSON-RPC server)"
+            VALUE "FileDescription",    "tenzurad (Tenzura node with a JSON-RPC server)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "ravend"
+            VALUE "InternalName",       "tenzurad"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "ravend.exe"
-            VALUE "ProductName",        "ravend"
+            VALUE "OriginalFilename",   "tenzurad.exe"
+            VALUE "ProductName",        "tenzurad"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

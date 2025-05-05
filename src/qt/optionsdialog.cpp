@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,7 +10,7 @@
 #include "optionsdialog.h"
 #include "ui_optionsdialog.h"
 
-#include "ravenunits.h"
+#include "tenzuraunits.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
 #include "guiconstants.h" // for DEFAULT_IPFS_VIEWER and DEFAULT_THIRD_PARTY_BROWSERS
@@ -76,10 +75,10 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     /* Display elements init */
     QDir translations(":translations");
 
-    ui->ravenAtStartup->setToolTip(ui->ravenAtStartup->toolTip().arg(tr(PACKAGE_NAME)));
-    ui->ravenAtStartup->setText(ui->ravenAtStartup->text().arg(tr(PACKAGE_NAME)));
+    ui->tenzuraAtStartup->setToolTip(ui->tenzuraAtStartup->toolTip().arg(tr(PACKAGE_NAME)));
+    ui->tenzuraAtStartup->setText(ui->tenzuraAtStartup->text().arg(tr(PACKAGE_NAME)));
 
-    ui->openRavenConfButton->setToolTip(ui->openRavenConfButton->toolTip().arg(tr(PACKAGE_NAME)));
+    ui->openTenzuraConfButton->setToolTip(ui->openTenzuraConfButton->toolTip().arg(tr(PACKAGE_NAME)));
 
     ui->lang->setToolTip(ui->lang->toolTip().arg(tr(PACKAGE_NAME)));
     ui->lang->addItem(QString("(") + tr("default") + QString(")"), QVariant(""));
@@ -114,7 +113,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     ui->ipfsUrl->setPlaceholderText(DEFAULT_IPFS_VIEWER);
 #endif
 
-    ui->unit->setModel(new RavenUnits(this));
+    ui->unit->setModel(new TenzuraUnits(this));
     QStringList currencyList;
     for(int unitNum = 0; unitNum < CurrencyUnits::count() ; unitNum++) {
         ui->currencyUnitIndex->addItem(QString(CurrencyUnits::CurrencyOptions[unitNum].Header), unitNum);
@@ -182,7 +181,7 @@ void OptionsDialog::setModel(OptionsModel *_model)
 void OptionsDialog::setMapper()
 {
     /* Main */
-    mapper->addMapping(ui->ravenAtStartup, OptionsModel::StartAtStartup);
+    mapper->addMapping(ui->tenzuraAtStartup, OptionsModel::StartAtStartup);
     mapper->addMapping(ui->threadsScriptVerif, OptionsModel::ThreadsScriptVerif);
     mapper->addMapping(ui->databaseCache, OptionsModel::DatabaseCache);
 
@@ -249,7 +248,7 @@ void OptionsDialog::on_ipfsUrlReset_clicked()
     ui->ipfsUrl->setText(DEFAULT_IPFS_VIEWER);
 }
 
-void OptionsDialog::on_openRavenConfButton_clicked()
+void OptionsDialog::on_openTenzuraConfButton_clicked()
 {
     /* explain the purpose of the config file */
     QMessageBox::information(this, tr("Configuration options"),
@@ -257,7 +256,7 @@ void OptionsDialog::on_openRavenConfButton_clicked()
            "Additionally, any command-line options will override this configuration file."));
 
     /* show an error if there was some problem opening the file */
-    if (!GUIUtil::openRavenConf())
+    if (!GUIUtil::openTenzuraConf())
         QMessageBox::critical(this, tr("Error"), tr("The configuration file could not be opened."));
 }
 

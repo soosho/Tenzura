@@ -46,8 +46,8 @@ from the root of the repository.
 
 1. Clone the Tenzura Core source code:
     ```shell
-    git clone https://github.com/RavenProject/Ravencoin
-    cd Ravencoin
+    git clone https://github.com/TenzuraProject/Tenzura
+    cd Tenzura
     ```
 
 2.  Build tenzura-core:
@@ -83,7 +83,7 @@ In this case there is no dependency on Berkeley DB 4.8 and SQLite.
 Mining is also possible in disable-wallet mode using the `getblocktemplate` RPC call.
 
 ## Running
-Tenzura Core is now available at `./src/ravend`
+Tenzura Core is now available at `./src/tenzurad`
 
 Before running, you may create an empty configuration file:
 ```shell
@@ -94,7 +94,7 @@ touch "/Users/${USER}/Library/Application Support/Tenzura/tenzura.conf"
 chmod 600 "/Users/${USER}/Library/Application Support/Tenzura/tenzura.conf"
 ```
 
-The first time you run ravend, it will start downloading the blockchain. This process could
+The first time you run tenzurad, it will start downloading the blockchain. This process could
 take many hours, or even days on slower than average systems.
 
 You can monitor the download process by looking at the debug.log file:
@@ -105,7 +105,7 @@ tail -f $HOME/Library/Application\ Support/Tenzura/debug.log
 Other commands:
 -------
 
-    ./src/ravend -daemon # Starts the tenzura daemon.
+    ./src/tenzurad -daemon # Starts the tenzura daemon.
     ./src/tenzura-cli --help # Outputs a list of command-line options.
     ./src/tenzura-cli help # Outputs a list of RPC commands when the daemon is running.
 

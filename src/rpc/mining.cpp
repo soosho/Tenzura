@@ -1,7 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -223,7 +222,7 @@ UniValue getmininginfo(const JSONRPCRequest& request)
             "  \"pooledtx\": n              (numeric) The size of the mempool\n"
             "  \"chain\": \"xxxx\",           (string) current network name as defined in BIP70 (main, test, regtest)\n"
             "  \"warnings\": \"...\"          (string) any network and blockchain warnings\n"
-            "  \"errors\": \"...\"            (string) DEPRECATED. Same as warnings. Only shown when ravend is started with -deprecatedrpc=getmininginfo\n"
+            "  \"errors\": \"...\"            (string) DEPRECATED. Same as warnings. Only shown when tenzurad is started with -deprecatedrpc=getmininginfo\n"
             "}\n"
             "\nExamples:\n"
             + HelpExampleCli("getmininginfo", "")
@@ -1026,7 +1025,7 @@ UniValue estimatefee(const JSONRPCRequest& request)
 
     if (!IsDeprecatedRPCEnabled("estimatefee")) {
         throw JSONRPCError(RPC_METHOD_DEPRECATED, "estimatefee is deprecated and will be fully removed in v0.17. "
-            "To use estimatefee in v0.16, restart ravend with -deprecatedrpc=estimatefee.\n"
+            "To use estimatefee in v0.16, restart tenzurad with -deprecatedrpc=estimatefee.\n"
             "Projects should transition to using estimatesmartfee before upgrading to v0.17");
     }
 
@@ -1213,7 +1212,7 @@ UniValue getgenerate(const JSONRPCRequest& request)
         throw std::runtime_error(
             "getgenerate\n"
             "\nReturn if the server is set to generate coins or not. The default is false.\n"
-            "It is set with the command line argument -gen (or " + std::string(RAVEN_CONF_FILENAME) + " setting gen)\n"
+            "It is set with the command line argument -gen (or " + std::string(TENZURA_CONF_FILENAME) + " setting gen)\n"
             "It can also be set with the setgenerate call.\n"
             "\nResult\n"
             "true|false      (boolean) If the server is set to generate coins or not\n"
@@ -1268,7 +1267,7 @@ UniValue setgenerate(const JSONRPCRequest& request)
     gArgs.SoftSetArg("-genproclimit", itostr(nGenProcLimit));
     //mapArgs["-gen"] = (fGenerate ? "1" : "0");
     //mapArgs ["-genproclimit"] = itostr(nGenProcLimit);
-    int numCores = GenerateRavens(fGenerate, nGenProcLimit, GetParams());
+    int numCores = GenerateTenzuras(fGenerate, nGenProcLimit, GetParams());
 
     nGenProcLimit = nGenProcLimit >= 0 ? nGenProcLimit : numCores;
     std::string msg = std::to_string(nGenProcLimit) + " of " + std::to_string(numCores);

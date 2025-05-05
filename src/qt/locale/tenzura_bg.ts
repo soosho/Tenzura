@@ -168,7 +168,7 @@
         <translation>Потвърдете на шифрирането на портфейла</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RAVENS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TENZURAS&lt;/b&gt;!</source>
         <translation>ВНИМАНИЕ: Ако шифрирате вашият портфейл и изгубите паролата си, &lt;b&gt;ЩЕ ИЗГУБИТЕ ВСИЧКИТЕ СИ БИТКОИНИ&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -1507,7 +1507,7 @@ Recommended action: Fully sync your wallet before sending a transaction.
     </message>
 </context>
 <context>
-    <name>RavenGUI</name>
+    <name>TenzuraGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Подписване на &amp;съобщение...</translation>
@@ -1601,8 +1601,8 @@ Recommended action: Fully sync your wallet before sending a transaction.
         <translation>&amp;Wallet</translation>
     </message>
     <message>
-        <source>Ravencoin Market Price</source>
-        <translation>Пазарна цена на Ravencoin</translation>
+        <source>Tenzura Market Price</source>
+        <translation>Пазарна цена на Tenzura</translation>
     </message>
     <message>
         <source>Brought to you by binance.com</source>

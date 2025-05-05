@@ -1,7 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -59,7 +58,7 @@ UniValue getinfo(const JSONRPCRequest& request)
             "  \"version\": xxxxx,           (numeric) the server version\n"
             "  \"protocolversion\": xxxxx,   (numeric) the protocol version\n"
             "  \"walletversion\": xxxxx,     (numeric) the wallet version\n"
-            "  \"balance\": xxxxxxx,         (numeric) the total Ravencoin balance of the wallet\n"
+            "  \"balance\": xxxxxxx,         (numeric) the total Tenzura balance of the wallet\n"
             "  \"blocks\": xxxxxx,           (numeric) the current number of blocks processed in the server\n"
             "  \"timeoffset\": xxxxx,        (numeric) the time offset\n"
             "  \"connections\": xxxxx,       (numeric) the number of connections\n"
@@ -729,7 +728,7 @@ UniValue getaddressmempool(const JSONRPCRequest& request)
             "[\n"
             "  {\n"
             "    \"address\"  (string) The base58check encoded address\n"
-            "    \"assetName\"  (string) The name of the associated asset (RVN for Ravencoin)\n"
+            "    \"assetName\"  (string) The name of the associated asset (RVN for Tenzura)\n"
             "    \"txid\"  (string) The related txid\n"
             "    \"index\"  (number) The related input or output index\n"
             "    \"satoshis\"  (number) The difference of satoshis\n"
@@ -821,7 +820,7 @@ UniValue getaddressutxos(const JSONRPCRequest& request)
             "[\n"
             "  {\n"
             "    \"address\"  (string) The address base58check encoded\n"
-            "    \"assetName\" (string) The asset associated with the UTXOs (RVN for Ravencoin)\n"
+            "    \"assetName\" (string) The asset associated with the UTXOs (RVN for Tenzura)\n"
             "    \"txid\"  (string) The output txid\n"
             "    \"height\"  (number) The block height\n"
             "    \"outputIndex\"  (number) The output index\n"
@@ -934,7 +933,7 @@ UniValue getaddressdeltas(const JSONRPCRequest& request)
             "\nResult:\n"
             "[\n"
             "  {\n"
-            "    \"assetName\"  (string) The asset associated with the deltas (RVN for Ravencoin)\n"
+            "    \"assetName\"  (string) The asset associated with the deltas (RVN for Tenzura)\n"
             "    \"satoshis\"  (number) The difference of satoshis\n"
             "    \"txid\"  (string) The related txid\n"
             "    \"index\"  (number) The related input or output index\n"
@@ -1075,7 +1074,7 @@ UniValue getaddressbalance(const JSONRPCRequest& request)
             "OR\n"
             "[\n"
             "  {\n"
-            "    \"assetName\"  (string) The asset associated with the balance (RVN for Ravencoin)\n"
+            "    \"assetName\"  (string) The asset associated with the balance (RVN for Tenzura)\n"
             "    \"balance\"  (string) The current balance in satoshis\n"
             "    \"received\"  (string) The total number of satoshis received (including change)\n"
             "  },...\n"

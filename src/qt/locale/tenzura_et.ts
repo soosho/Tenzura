@@ -168,8 +168,8 @@
         <translation>Kinnita rahakoti krüpteerimine.</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RAVENS&lt;/b&gt;!</source>
-        <translation>Hoiatus:Kui sa krüpteerid oma rahakoti ja kaotad salafraasi, siis sa&lt;b&gt;KAOTAD OMA RAVENID&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TENZURAS&lt;/b&gt;!</source>
+        <translation>Hoiatus:Kui sa krüpteerid oma rahakoti ja kaotad salafraasi, siis sa&lt;b&gt;KAOTAD OMA TENZURAID&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -536,7 +536,7 @@
     </message>
     <message>
         <source>Automatically open the Tenzura client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Raveni kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
+        <translation>Tenzurai kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -833,7 +833,7 @@
     </message>
 </context>
 <context>
-    <name>RavenGUI</name>
+    <name>TenzuraGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signeeri &amp;sõnum</translation>
@@ -904,7 +904,7 @@
     </message>
     <message>
         <source>Send coins to a Tenzura address</source>
-        <translation>Saada münte Raveni aadressile</translation>
+        <translation>Saada münte Tenzurai aadressile</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -952,11 +952,11 @@
     </message>
     <message>
         <source>Sign messages with your Tenzura addresses to prove you own them</source>
-        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Raveni aadressiga</translation>
+        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Tenzurai aadressiga</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Tenzura addresses</source>
-        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Raveni aadressiga</translation>
+        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Tenzurai aadressiga</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -968,11 +968,11 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and tenzura: URIs)</source>
-        <translation>Loo maksepäring (genereerib QR koodid ja raveni: URId)</translation>
+        <translation>Loo maksepäring (genereerib QR koodid ja tenzurai: URId)</translation>
     </message>
     <message>
         <source>Open a tenzura: URI or payment request</source>
-        <translation>Ava raveni: URI või maksepäring</translation>
+        <translation>Ava tenzurai: URI või maksepäring</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1419,7 +1419,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this Tenzura address</source>
-        <translation>Allkirjasta sõnum Raveni aadressi sulle kuulumise tõestamiseks</translation>
+        <translation>Allkirjasta sõnum Tenzurai aadressi sulle kuulumise tõestamiseks</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1443,7 +1443,7 @@
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Tenzura address</source>
-        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Raveni aadressiga.</translation>
+        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Tenzurai aadressiga.</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1728,7 +1728,7 @@
     </message>
     <message>
         <source>Tenzura Core</source>
-        <translation>Raveni tuumik</translation>
+        <translation>Tenzurai tuumik</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

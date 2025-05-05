@@ -1,11 +1,10 @@
 // Copyright (c) 2015-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2019 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TENZURA_TEST_TEST_RAVEN_H
-#define TENZURA_TEST_TEST_RAVEN_H
+#ifndef TENZURA_TEST_TEST_TENZURA_H
+#define TENZURA_TEST_TEST_TENZURA_H
 
 #include "chainparamsbase.h"
 #include "fs.h"

@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: ravend.service
-Upstart: ravend.conf
-OpenRC:  ravend.openrc
-         ravend.openrcconf
-CentOS:  ravend.init
-OS X:    org.tenzura.ravend.plist
+SystemD: tenzurad.service
+Upstart: tenzurad.conf
+OpenRC:  tenzurad.openrc
+         tenzurad.openrcconf
+CentOS:  tenzurad.init
+OS X:    org.tenzura.tenzurad.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

@@ -27,4 +27,4 @@ FunctionCallback<F>* makeCallback(F f)
     return new FunctionCallback<F>(std::move(f));
 }
 
-#endif // RAVEN_QT_CALLBACK_H
+#endif // TENZURA_QT_CALLBACK_H

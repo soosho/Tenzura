@@ -128,4 +128,4 @@ struct CTimestampBlockIndexValue {
     }
 };
 
-#endif // RAVEN_TIMESTAMPINDEX_H
+#endif // TENZURA_TIMESTAMPINDEX_H

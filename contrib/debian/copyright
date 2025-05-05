@@ -1,6 +1,6 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: Ravencoin
-Source: https://github.com/RavenProject/Ravencoin
+Upstream-Name: Tenzura
+Source: https://github.com/TenzuraProject/Tenzura
 
 Files: *
 Copyright: 2009-2017, Bitcoin Core Developers
@@ -80,7 +80,7 @@ Files: src/qt/res/icons/about.png
        src/qt/res/icons/tenzura.*
        share/pixmaps/tenzura*
        src/qt/res/src/tenzura.svg
-Copyright: The Raven Core Developers
+Copyright: The Tenzura Core Developers
 License: public-domain
 
 

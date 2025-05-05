@@ -1,7 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -32,7 +31,7 @@
  *
  * \section intro_sec Introduction
  *
- * This is the developer documentation of the reference client for an experimental new digital currency called Tenzura (https://ravencoin.org/),
+ * This is the developer documentation of the reference client for an experimental new digital currency called Tenzura (https://tenzura.org/),
  * which enables instant payments to anyone, anywhere in the world. Tenzura uses peer-to-peer technology to operate
  * with no central authority: managing transactions and issuing money are carried out collectively by the network.
  *
@@ -87,9 +86,9 @@ bool AppInit(int argc, char* argv[])
         else
         {
             strUsage += "\n" + _("Usage:") + "\n" +
-                  "  ravend [options]                     " + strprintf(_("Start %s Daemon"), _(PACKAGE_NAME)) + "\n";
+                  "  tenzurad [options]                     " + strprintf(_("Start %s Daemon"), _(PACKAGE_NAME)) + "\n";
 
-            strUsage += "\n" + HelpMessage(HMM_RAVEND);
+            strUsage += "\n" + HelpMessage(HMM_TENZURAD);
         }
 
         fprintf(stdout, "%s", strUsage.c_str());
@@ -105,7 +104,7 @@ bool AppInit(int argc, char* argv[])
         }
         try
         {
-            gArgs.ReadConfigFile(gArgs.GetArg("-conf", RAVEN_CONF_FILENAME));
+            gArgs.ReadConfigFile(gArgs.GetArg("-conf", TENZURA_CONF_FILENAME));
         } catch (const std::exception& e) {
             fprintf(stderr,"Error reading configuration file: %s\n", e.what());
             return false;
@@ -121,12 +120,12 @@ bool AppInit(int argc, char* argv[])
         // Error out when loose non-argument tokens are encountered on command line
         for (int i = 1; i < argc; i++) {
             if (!IsSwitchChar(argv[i][0])) {
-                fprintf(stderr, "Error: Command line contains unexpected token '%s', see ravend -h for a list of options.\n", argv[i]);
+                fprintf(stderr, "Error: Command line contains unexpected token '%s', see tenzurad -h for a list of options.\n", argv[i]);
                 exit(EXIT_FAILURE);
             }
         }
 
-        // -server defaults to true for ravend but not for the GUI so do this here
+        // -server defaults to true for tenzurad but not for the GUI so do this here
         gArgs.SoftSetBoolArg("-server", true);
         // Set this early so that parameter interactions go to console
         InitLogging();
@@ -198,7 +197,7 @@ int main(int argc, char* argv[])
 {
     SetupEnvironment();
 
-    // Connect ravend signal handlers
+    // Connect tenzurad signal handlers
     noui_connect();
 
     return (AppInit(argc, argv) ? EXIT_SUCCESS : EXIT_FAILURE);

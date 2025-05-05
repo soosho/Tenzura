@@ -1,7 +1,7 @@
 Tenzura Core version *2.0.4.0* is now available!!
 ==============
 
-  <https://github.com/RavenProject/Ravencoin/releases/tag/v2.0.4>
+  <https://github.com/TenzuraProject/Tenzura/releases/tag/v2.0.4>
 
 
 This is a major release containing bug fixes for 2.0.3.0.  It is highly recommended that users 
@@ -9,11 +9,11 @@ upgrade to this version.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/RavenProject/Ravencoin/issues>
+  <https://github.com/TenzuraProject/Tenzura/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://ravencoin.org/en/list/announcements/join/>
+  <https://tenzura.org/en/list/announcements/join/>
 
 How to Upgrade
 ==============
@@ -21,7 +21,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the 
 installer (on Windows) or just copy over `/Applications/Tenzura-Qt` (on Mac)
-or `ravend`/`tenzura-qt` (on Linux).
+or `tenzurad`/`tenzura-qt` (on Linux).
 
 The first time you run version 2.0.4 or higher, your chainstate database may
 be converted to a new format, which will take anywhere from a few minutes to
@@ -68,7 +68,7 @@ Notable changes
 2.0.4.0-b175d7350 Change log
 ==============
 
-Changelog available here: <https://github.com/RavenProject/Ravencoin/commits/release_2.0.4>
+Changelog available here: <https://github.com/TenzuraProject/Tenzura/commits/release_2.0.4>
 
 Credits
 ==============

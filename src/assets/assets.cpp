@@ -1,5 +1,4 @@
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -77,7 +76,7 @@ static const std::regex QUALIFIER_INDICATOR("^[#][A-Z0-9._]{3,}$"); // Starts wi
 static const std::regex SUB_QUALIFIER_INDICATOR("^#[A-Z0-9._]+\\/#[A-Z0-9._]+$"); // Starts with #
 static const std::regex RESTRICTED_INDICATOR("^[\\$][A-Z0-9._]{3,}$"); // Starts with $
 
-static const std::regex RAVEN_NAMES("^RVN$|^TENZURA$|^RAVENCOIN$|^#RVN$|^#TENZURA$|^#RAVENCOIN$");
+static const std::regex TENZURA_NAMES("^RVN$|^TENZURA$|^TENZURA$|^#RVN$|^#TENZURA$|^#TENZURA$");
 
 bool IsRootNameValid(const std::string& name)
 {
@@ -85,7 +84,7 @@ bool IsRootNameValid(const std::string& name)
         && !std::regex_match(name, DOUBLE_PUNCTUATION)
         && !std::regex_match(name, LEADING_PUNCTUATION)
         && !std::regex_match(name, TRAILING_PUNCTUATION)
-        && !std::regex_match(name, RAVEN_NAMES);
+        && !std::regex_match(name, TENZURA_NAMES);
 }
 
 bool IsQualifierNameValid(const std::string& name)
@@ -94,7 +93,7 @@ bool IsQualifierNameValid(const std::string& name)
            && !std::regex_match(name, DOUBLE_PUNCTUATION)
            && !std::regex_match(name, QUALIFIER_LEADING_PUNCTUATION)
            && !std::regex_match(name, TRAILING_PUNCTUATION)
-           && !std::regex_match(name, RAVEN_NAMES);
+           && !std::regex_match(name, TENZURA_NAMES);
 }
 
 bool IsRestrictedNameValid(const std::string& name)
@@ -103,7 +102,7 @@ bool IsRestrictedNameValid(const std::string& name)
            && !std::regex_match(name, DOUBLE_PUNCTUATION)
            && !std::regex_match(name, LEADING_PUNCTUATION)
            && !std::regex_match(name, TRAILING_PUNCTUATION)
-           && !std::regex_match(name, RAVEN_NAMES);
+           && !std::regex_match(name, TENZURA_NAMES);
 }
 
 bool IsSubQualifierNameValid(const std::string& name)
@@ -678,7 +677,7 @@ bool TransferAssetFromScript(const CScript& scriptPubKey, CAssetTransfer& assetT
     if (AreTransferScriptsSizeDeployed()) {
         // Before kawpow activation we used the hardcoded 31 to find the data
         // This created a bug where large transfers scripts would fail to serialize.
-        // This fixes that issue (https://github.com/RavenProject/Ravencoin/issues/752)
+        // This fixes that issue (https://github.com/TenzuraProject/Tenzura/issues/752)
         // TODO, after the kawpow fork goes active, we should be able to remove this if/else statement and just use this line.
         vchTransferAsset.insert(vchTransferAsset.end(), scriptPubKey.begin() + nStartingIndex, scriptPubKey.end());
     } else {

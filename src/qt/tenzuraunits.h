@@ -1,11 +1,10 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TENZURA_QT_RAVENUNITS_H
-#define TENZURA_QT_RAVENUNITS_H
+#ifndef TENZURA_QT_TENZURAUNITS_H
+#define TENZURA_QT_TENZURAUNITS_H
 
 #include "amount.h"
 
@@ -51,12 +50,12 @@
 /** Tenzura unit definitions. Encapsulates parsing and formatting
    and serves as list model for drop-down selection boxes.
 */
-class RavenUnits: public QAbstractListModel
+class TenzuraUnits: public QAbstractListModel
 {
     Q_OBJECT
 
 public:
-    explicit RavenUnits(QObject *parent);
+    explicit TenzuraUnits(QObject *parent);
 
     /** Tenzura units.
       @note Source: https://en.bitcoin.it/wiki/Units . Please add only sensible ones
@@ -133,8 +132,8 @@ public:
     static CAmount maxMoney();
 
 private:
-    QList<RavenUnits::Unit> unitlist;
+    QList<TenzuraUnits::Unit> unitlist;
 };
-typedef RavenUnits::Unit RavenUnit;
+typedef TenzuraUnits::Unit TenzuraUnit;
 
-#endif // RAVEN_QT_RAVENUNITS_H
+#endif // TENZURA_QT_TENZURAUNITS_H

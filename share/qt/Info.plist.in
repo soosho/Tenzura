@@ -38,7 +38,7 @@
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.ravenfoundation.Tenzura-Qt</string>
+  <string>org.tenzurafoundation.Tenzura-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,7 +46,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.tenzura.RavenPayment</string>
+      <string>org.tenzura.TenzuraPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>tenzura</string>
@@ -71,7 +71,7 @@
         <string>application/x-tenzura-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>ravenpaymentrequest</string>
+          <string>tenzurapaymentrequest</string>
         </array>
       </dict>
     </dict>

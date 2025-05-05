@@ -1,7 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2019 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -89,8 +88,8 @@
 // Application startup time (used for uptime calculation)
 const int64_t nStartupTime = GetTime();
 
-const char *const RAVEN_CONF_FILENAME = "tenzura.conf";
-const char *const RAVEN_PID_FILENAME = "ravend.pid";
+const char *const TENZURA_CONF_FILENAME = "tenzura.conf";
+const char *const TENZURA_PID_FILENAME = "tenzurad.pid";
 
 ArgsManager gArgs;
 bool fPrintToConsole = false;
@@ -657,7 +656,7 @@ void ArgsManager::ReadConfigFile(const std::string &confPath)
 
 fs::path GetPidFile()
 {
-    fs::path pathPidFile(gArgs.GetArg("-pid", RAVEN_PID_FILENAME));
+    fs::path pathPidFile(gArgs.GetArg("-pid", TENZURA_PID_FILENAME));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
@@ -930,8 +929,7 @@ std::string CopyrightHolders(const std::string &strPrefix)
     // Check for untranslated substitution to make sure Tenzura Core copyright is not removed by accident
     if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("Tenzura Core") == std::string::npos)
     {
-        strCopyrightHolders += "\n" + strPrefix + "The Raven Core developers";
-# Copyright (c) 2025 The Tenzura Core developers
+        strCopyrightHolders += "\n" + strPrefix + "The Tenzura Core developers";
     }
     return strCopyrightHolders;
 }

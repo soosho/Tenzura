@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+# Copyright (c) 2017-2020 The Tenzura Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test mempool re-org scenarios.
@@ -10,11 +9,11 @@ Test re-org scenarios with a mempool that contains transactions
 that spend (directly or indirectly) coinbase transactions.
 """
 
-from test_framework.test_framework import RavenTestFramework
+from test_framework.test_framework import TenzuraTestFramework
 from test_framework.util import (assert_equal, create_tx, assert_raises_rpc_error)
 
 # Create one-input, one-output, no-fee transaction:
-class MempoolCoinbaseTest(RavenTestFramework):
+class MempoolCoinbaseTest(TenzuraTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.extra_args = [["-checkmempool"]] * 2

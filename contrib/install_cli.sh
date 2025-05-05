@@ -9,5 +9,5 @@
  sudo mkdir -p /usr/local/bin
 
  # Create symlinks to the cli tools
- sudo ln -s ${LOCATION}/Tenzura-Qt.app/Contents/MacOS/ravend /usr/local/bin/ravend
+ sudo ln -s ${LOCATION}/Tenzura-Qt.app/Contents/MacOS/tenzurad /usr/local/bin/tenzurad
  sudo ln -s ${LOCATION}/Tenzura-Qt.app/Contents/MacOS/tenzura-cli /usr/local/bin/tenzura-cli

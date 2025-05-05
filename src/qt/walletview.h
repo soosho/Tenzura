@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,7 +10,7 @@
 
 #include <QStackedWidget>
 
-class RavenGUI;
+class TenzuraGUI;
 class ClientModel;
 class OverviewPage;
 class PlatformStyle;
@@ -45,7 +44,7 @@ public:
     explicit WalletView(const PlatformStyle *platformStyle, QWidget *parent);
     ~WalletView();
 
-    void setRavenGUI(RavenGUI *gui);
+    void setTenzuraGUI(TenzuraGUI *gui);
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
     */
@@ -158,4 +157,4 @@ Q_SIGNALS:
     void checkAssets();
 };
 
-#endif // RAVEN_QT_WALLETVIEW_H
+#endif // TENZURA_QT_WALLETVIEW_H

@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+# Copyright (c) 2017-2020 The Tenzura Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 """
-Test running ravend with -reindex and -reindex-chainstate options.
+Test running tenzurad with -reindex and -reindex-chainstate options.
 
 - Start a single node and generate 3 blocks.
 - Stop the node and restart it with -reindex. Verify that the node has re-indexed up to block 3.
@@ -14,10 +13,10 @@ Test running ravend with -reindex and -reindex-chainstate options.
 """
 
 import time
-from test_framework.test_framework import RavenTestFramework
+from test_framework.test_framework import TenzuraTestFramework
 from test_framework.util import assert_equal
 
-class ReindexTest(RavenTestFramework):
+class ReindexTest(TenzuraTestFramework):
 
     def set_test_params(self):
         self.setup_clean_chain = True

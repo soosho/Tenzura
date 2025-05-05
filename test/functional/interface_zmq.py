@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2015-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+# Copyright (c) 2017-2020 The Tenzura Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,7 +10,7 @@
 import configparser
 import os
 import struct
-from test_framework.test_framework import RavenTestFramework, SkipTest
+from test_framework.test_framework import TenzuraTestFramework, SkipTest
 from test_framework.util import assert_equal, hash256, x16_hash_block
 
 
@@ -36,7 +35,7 @@ class ZMQSubscriber:
 
 
 # noinspection PyUnresolvedReferences
-class ZMQTest(RavenTestFramework):
+class ZMQTest(TenzuraTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 
@@ -54,7 +53,7 @@ class ZMQTest(RavenTestFramework):
         config.read_file(open(self.options.configfile))
 
         if not config["components"].getboolean("ENABLE_ZMQ"):
-            raise SkipTest("ravend has not been built with zmq enabled.")
+            raise SkipTest("tenzurad has not been built with zmq enabled.")
 
         # Initialize ZMQ context and socket.
         # All messages are received in the same socket which means

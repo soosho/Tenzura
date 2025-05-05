@@ -46,14 +46,12 @@ Updates all the copyright headers of `The Tenzura Core developers` which were
 changed in a year more recent than is listed. For example:
 ```
 // Copyright (c) <firstYear>-<lastYear> The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2019 The Tenzura Core developers
 ```
 will be updated to:
 ```
 // Copyright (c) <firstYear>-<lastModifiedYear> The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2019 The Tenzura Core developers
 ```
 where `<lastModifiedYear>` is obtained from the `git log` history.
 
@@ -61,14 +59,12 @@ This subcommand also handles copyright headers that have only a single year. In
 those cases:
 ```
 // Copyright (c) <year> The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2019 The Tenzura Core developers
 ```
 will be updated to:
 ```
 // Copyright (c) <year>-<lastModifiedYear> The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2019 The Tenzura Core developers
 ```
 where the update is appropriate.
 
@@ -170,10 +166,10 @@ If only supported symbols are used the return value will be 0 and the output wil
 
 If there are 'unsupported' symbols, the return value will be 1 a list like this will be printed:
 
-    .../64/test_raven: symbol memcpy from unsupported version GLIBC_2.14
-    .../64/test_raven: symbol __fdelt_chk from unsupported version GLIBC_2.15
-    .../64/test_raven: symbol std::out_of_range::~out_of_range() from unsupported version GLIBCXX_3.4.15
-    .../64/test_raven: symbol _ZNSt8__detail15_List_nod from unsupported version GLIBCXX_3.4.15
+    .../64/test_tenzura: symbol memcpy from unsupported version GLIBC_2.14
+    .../64/test_tenzura: symbol __fdelt_chk from unsupported version GLIBC_2.15
+    .../64/test_tenzura: symbol std::out_of_range::~out_of_range() from unsupported version GLIBCXX_3.4.15
+    .../64/test_tenzura: symbol _ZNSt8__detail15_List_nod from unsupported version GLIBCXX_3.4.15
 
 update-translations.py
 ======================

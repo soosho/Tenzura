@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +7,7 @@
 #include "config/tenzura-config.h"
 #endif
 
-#include "ravengui.h"
+#include "tenzuragui.h"
 
 #include "chainparams.h"
 #include "clientmodel.h"
@@ -147,11 +146,11 @@ static void initTranslations(QTranslator &qtTranslatorBase, QTranslator &qtTrans
     if (qtTranslator.load("qt_" + lang_territory, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         QApplication::installTranslator(&qtTranslator);
 
-    // Load e.g. raven_de.qm (shortcut "de" needs to be defined in tenzura.qrc)
+    // Load e.g. tenzura_de.qm (shortcut "de" needs to be defined in tenzura.qrc)
     if (translatorBase.load(lang, ":/translations/"))
         QApplication::installTranslator(&translatorBase);
 
-    // Load e.g. raven_de_DE.qm (shortcut "de_DE" needs to be defined in tenzura.qrc)
+    // Load e.g. tenzura_de_DE.qm (shortcut "de_DE" needs to be defined in tenzura.qrc)
     if (translator.load(lang_territory, ":/translations/"))
         QApplication::installTranslator(&translator);
 }
@@ -181,11 +180,11 @@ void DebugMessageHandler(QtMsgType type, const QMessageLogContext& context, cons
 /** Class encapsulating Tenzura Core startup and shutdown.
  * Allows running startup and shutdown in a different thread from the UI thread.
  */
-class RavenCore: public QObject
+class TenzuraCore: public QObject
 {
     Q_OBJECT
 public:
-    explicit RavenCore();
+    explicit TenzuraCore();
     /** Basic initialization, before starting initialization/shutdown thread.
      * Return true on success.
      */
@@ -210,12 +209,12 @@ private:
 };
 
 /** Main Tenzura application object */
-class RavenApplication: public QApplication
+class TenzuraApplication: public QApplication
 {
     Q_OBJECT
 public:
-    explicit RavenApplication();
-    ~RavenApplication();
+    explicit TenzuraApplication();
+    ~TenzuraApplication();
 
 #ifdef ENABLE_WALLET
     /// Create payment server
@@ -238,7 +237,7 @@ public:
     /// Get process return value
     int getReturnValue() const { return returnValue; }
 
-    /// Get window identifier of QMainWindow (RavenGUI)
+    /// Get window identifier of QMainWindow (TenzuraGUI)
     WId getMainWinId() const;
 
     OptionsModel* getOptionsModel() const { return optionsModel; }
@@ -260,7 +259,7 @@ private:
     QThread *coreThread;
     OptionsModel *optionsModel;
     ClientModel *clientModel;
-    RavenGUI *window;
+    TenzuraGUI *window;
     QTimer *pollShutdownTimer;
 #ifdef ENABLE_WALLET
     PaymentServer* paymentServer;
@@ -275,18 +274,18 @@ private:
 
 #include "tenzura.moc"
 
-RavenCore::RavenCore():
+TenzuraCore::TenzuraCore():
     QObject()
 {
 }
 
-void RavenCore::handleRunawayException(const std::exception *e)
+void TenzuraCore::handleRunawayException(const std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
     Q_EMIT runawayException(QString::fromStdString(GetWarnings("gui")));
 }
 
-bool RavenCore::baseInitialize()
+bool TenzuraCore::baseInitialize()
 {
     if (!AppInitBasicSetup())
     {
@@ -307,7 +306,7 @@ bool RavenCore::baseInitialize()
     return true;
 }
 
-void RavenCore::initialize()
+void TenzuraCore::initialize()
 {
     try
     {
@@ -321,7 +320,7 @@ void RavenCore::initialize()
     }
 }
 
-void RavenCore::restart(QStringList args)
+void TenzuraCore::restart(QStringList args)
 {
     static bool executing_restart{false};
 
@@ -348,7 +347,7 @@ void RavenCore::restart(QStringList args)
     }
 }
 
-void RavenCore::shutdown()
+void TenzuraCore::shutdown()
 {
     try
     {
@@ -368,7 +367,7 @@ void RavenCore::shutdown()
 static int qt_argc = 1;
 static const char* qt_argv = "tenzura-qt";
 
-RavenApplication::RavenApplication():
+TenzuraApplication::TenzuraApplication():
     QApplication(qt_argc, const_cast<char **>(&qt_argv)),
     coreThread(0),
     optionsModel(0),
@@ -384,17 +383,17 @@ RavenApplication::RavenApplication():
     setQuitOnLastWindowClosed(false);
 
     // UI per-platform customization
-    // This must be done inside the RavenApplication constructor, or after it, because
+    // This must be done inside the TenzuraApplication constructor, or after it, because
     // PlatformStyle::instantiate requires a QApplication
     std::string platformName;
-    platformName = gArgs.GetArg("-uiplatform", RavenGUI::DEFAULT_UIPLATFORM);
+    platformName = gArgs.GetArg("-uiplatform", TenzuraGUI::DEFAULT_UIPLATFORM);
     platformStyle = PlatformStyle::instantiate(QString::fromStdString(platformName));
     if (!platformStyle) // Fall back to "other" if specified name not found
         platformStyle = PlatformStyle::instantiate("other");
     assert(platformStyle);
 }
 
-RavenApplication::~RavenApplication()
+TenzuraApplication::~TenzuraApplication()
 {
     if(coreThread)
     {
@@ -417,20 +416,20 @@ RavenApplication::~RavenApplication()
 }
 
 #ifdef ENABLE_WALLET
-void RavenApplication::createPaymentServer()
+void TenzuraApplication::createPaymentServer()
 {
     paymentServer = new PaymentServer(this);
 }
 #endif
 
-void RavenApplication::createOptionsModel(bool resetSettings)
+void TenzuraApplication::createOptionsModel(bool resetSettings)
 {
     optionsModel = new OptionsModel(nullptr, resetSettings);
 }
 
-void RavenApplication::createWindow(const NetworkStyle *networkStyle)
+void TenzuraApplication::createWindow(const NetworkStyle *networkStyle)
 {
-    window = new RavenGUI(platformStyle, networkStyle, 0);
+    window = new TenzuraGUI(platformStyle, networkStyle, 0);
     window->setMinimumSize(1024,700);
     window->setBaseSize(1024,700);
 
@@ -439,7 +438,7 @@ void RavenApplication::createWindow(const NetworkStyle *networkStyle)
     pollShutdownTimer->start(200);
 }
 
-void RavenApplication::createSplashScreen(const NetworkStyle *networkStyle)
+void TenzuraApplication::createSplashScreen(const NetworkStyle *networkStyle)
 {
     SplashScreen *splash = new SplashScreen(networkStyle);
     // We don't hold a direct pointer to the splash screen after creation, but the splash
@@ -449,12 +448,12 @@ void RavenApplication::createSplashScreen(const NetworkStyle *networkStyle)
     connect(this, SIGNAL(requestedShutdown()), splash, SLOT(close()));
 }
 
-void RavenApplication::startThread()
+void TenzuraApplication::startThread()
 {
     if(coreThread)
         return;
     coreThread = new QThread(this);
-    RavenCore *executor = new RavenCore();
+    TenzuraCore *executor = new TenzuraCore();
     executor->moveToThread(coreThread);
 
     /*  communication to and from thread */
@@ -471,20 +470,20 @@ void RavenApplication::startThread()
     coreThread->start();
 }
 
-void RavenApplication::parameterSetup()
+void TenzuraApplication::parameterSetup()
 {
     InitLogging();
     InitParameterInteraction();
 }
 
-void RavenApplication::requestInitialize()
+void TenzuraApplication::requestInitialize()
 {
     qDebug() << __func__ << ": Requesting initialize";
     startThread();
     Q_EMIT requestedInitialize();
 }
 
-void RavenApplication::requestShutdown()
+void TenzuraApplication::requestShutdown()
 {
     // Show a simple window indicating shutdown status
     // Do this first as some of the steps may take some time below,
@@ -511,7 +510,7 @@ void RavenApplication::requestShutdown()
     Q_EMIT requestedShutdown();
 }
 
-void RavenApplication::initializeResult(bool success)
+void TenzuraApplication::initializeResult(bool success)
 {
     qDebug() << __func__ << ": Initialization result: " << success;
     // Set exit result.
@@ -534,8 +533,8 @@ void RavenApplication::initializeResult(bool success)
         {
             walletModel = new WalletModel(platformStyle, vpwallets[0], optionsModel);
 
-            window->addWallet(RavenGUI::DEFAULT_WALLET, walletModel);
-            window->setCurrentWallet(RavenGUI::DEFAULT_WALLET);
+            window->addWallet(TenzuraGUI::DEFAULT_WALLET, walletModel);
+            window->setCurrentWallet(TenzuraGUI::DEFAULT_WALLET);
 
             connect(walletModel, SIGNAL(coinsSent(CWallet*,SendCoinsRecipient,QByteArray)),
                              paymentServer, SLOT(fetchPaymentACK(CWallet*,const SendCoinsRecipient&,QByteArray)));
@@ -569,20 +568,20 @@ void RavenApplication::initializeResult(bool success)
     }
 }
 
-void RavenApplication::shutdownResult(bool success)
+void TenzuraApplication::shutdownResult(bool success)
 {
     returnValue = success ? EXIT_SUCCESS : EXIT_FAILURE;
     qDebug() << __func__ << ": Shutdown result: " << returnValue;
     quit(); // Exit main loop after shutdown finished
 }
 
-void RavenApplication::handleRunawayException(const QString &message)
+void TenzuraApplication::handleRunawayException(const QString &message)
 {
-    QMessageBox::critical(0, "Runaway exception", RavenGUI::tr("A fatal error occurred. Tenzura can no longer continue safely and will quit.") + QString("\n\n") + message);
+    QMessageBox::critical(0, "Runaway exception", TenzuraGUI::tr("A fatal error occurred. Tenzura can no longer continue safely and will quit.") + QString("\n\n") + message);
     ::exit(EXIT_FAILURE);
 }
 
-WId RavenApplication::getMainWinId() const
+WId TenzuraApplication::getMainWinId() const
 {
     if (!window)
         return 0;
@@ -590,7 +589,7 @@ WId RavenApplication::getMainWinId() const
     return window->winId();
 }
 
-#ifndef RAVEN_QT_TEST
+#ifndef TENZURA_QT_TEST
 int main(int argc, char *argv[])
 {
     SetupEnvironment();
@@ -609,7 +608,7 @@ int main(int argc, char *argv[])
 #endif
 
     Q_INIT_RESOURCE(tenzura);
-    Q_INIT_RESOURCE(raven_locale);
+    Q_INIT_RESOURCE(tenzura_locale);
 
 #if QT_VERSION > 0x050600
     // Generate high-dpi pixmaps
@@ -629,7 +628,7 @@ int main(int argc, char *argv[])
 #endif
 
     // This should be after the attributes.
-    RavenApplication app;
+    TenzuraApplication app;
 
     // Register meta types used for QMetaObject::invokeMethod
     qRegisterMetaType< bool* >();
@@ -675,7 +674,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
     try {
-        gArgs.ReadConfigFile(gArgs.GetArg("-conf", RAVEN_CONF_FILENAME));
+        gArgs.ReadConfigFile(gArgs.GetArg("-conf", TENZURA_CONF_FILENAME));
     } catch (const std::exception& e) {
         QMessageBox::critical(0, QObject::tr(PACKAGE_NAME),
                               QObject::tr("Error: Cannot parse configuration file: %1. Only use key=value syntax.").arg(e.what()));
@@ -761,7 +760,7 @@ int main(int argc, char *argv[])
         // Perform base initialization before spinning up initialization/shutdown thread
         // This is acceptable because this function only contains steps that are quick to execute,
         // so the GUI thread won't be held up.
-        if (RavenCore::baseInitialize()) {
+        if (TenzuraCore::baseInitialize()) {
             app.requestInitialize();
 #if defined(Q_OS_WIN) && QT_VERSION >= 0x050000
             WinShutdownMonitor::registerShutdownBlockReason(QObject::tr("%1 didn't yet exit safely...").arg(QObject::tr(PACKAGE_NAME)), (HWND)app.getMainWinId());
@@ -783,4 +782,4 @@ int main(int argc, char *argv[])
     }
     return rv;
 }
-#endif // RAVEN_QT_TEST
+#endif // TENZURA_QT_TEST

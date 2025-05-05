@@ -26,9 +26,9 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: https://tenzuracoin.org/
-Vcs-Git: git://github.com/TenzuraProject/Tenzuracoin.git
-Vcs-Browser: https://github.com/TenzuraProject/Tenzuracoin
+Homepage: https://tenzura.org/
+Vcs-Git: git://github.com/TenzuraProject/Tenzura.git
+Vcs-Browser: https://github.com/TenzuraProject/Tenzura
 
 Package: tenzurad
 Architecture: any

@@ -33,7 +33,7 @@ Source22:	https://raw.githubusercontent.com/tenzura/tenzura/v%{version}/doc/man/
 
 #selinux
 Source30:	https://raw.githubusercontent.com/tenzura/tenzura/v%{version}/contrib/rpm/tenzura.te
-# Source31 - what about tenzura-tx and bench_raven ???
+# Source31 - what about tenzura-tx and bench_tenzura ???
 Source31:	https://raw.githubusercontent.com/tenzura/tenzura/v%{version}/contrib/rpm/tenzura.fc
 Source32:	https://raw.githubusercontent.com/tenzura/tenzura/v%{version}/contrib/rpm/tenzura.if
 
@@ -143,7 +143,7 @@ tenzura-core daemon.
 
 The tenzura-cli utility allows you to communicate and control a tenzura daemon
 over RPC, the tenzura-tx utility allows you to create a custom transaction, and
-the bench_raven utility can be used to perform some benchmarks.
+the bench_tenzura utility can be used to perform some benchmarks.
 
 This package contains utilities needed by the tenzura-server package.
 
@@ -422,7 +422,7 @@ rm -rf %{buildroot}
 %doc COPYING tenzura.conf.example doc/README.md
 %attr(0755,root,root) %{_bindir}/tenzura-cli
 %attr(0755,root,root) %{_bindir}/tenzura-tx
-%attr(0755,root,root) %{_bindir}/bench_raven
+%attr(0755,root,root) %{_bindir}/bench_tenzura
 %attr(0644,root,root) %{_mandir}/man1/tenzura-cli.1*
 
 

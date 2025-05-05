@@ -8,6 +8,6 @@ Comment[tr]=Tenzura, eşten eşe kriptografik sanal para birimi
 Exec=tenzura-qt %u
 Terminal=false
 Type=Application
-Icon=raven128
+Icon=tenzura128
 MimeType=x-scheme-handler/tenzura;
 Categories=Office;Finance;

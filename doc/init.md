@@ -1,36 +1,36 @@
-Sample init scripts and service configuration for ravend
+Sample init scripts and service configuration for tenzurad
 ==========================================================
 
 Sample scripts and configuration files for systemd, Upstart and OpenRC
 can be found in the contrib/init folder.
 
-    contrib/init/ravend.service:    systemd service unit configuration
-    contrib/init/ravend.openrc:     OpenRC compatible SysV style init script
-    contrib/init/ravend.openrcconf: OpenRC conf.d file
-    contrib/init/ravend.conf:       Upstart service configuration file
-    contrib/init/ravend.init:       CentOS compatible SysV style init script
+    contrib/init/tenzurad.service:    systemd service unit configuration
+    contrib/init/tenzurad.openrc:     OpenRC compatible SysV style init script
+    contrib/init/tenzurad.openrcconf: OpenRC conf.d file
+    contrib/init/tenzurad.conf:       Upstart service configuration file
+    contrib/init/tenzurad.init:       CentOS compatible SysV style init script
 
 Service User
 ---------------------------------
 
 All three Linux startup configurations assume the existence of a "tenzura" user
 and group.  They must be created before attempting to use these scripts.
-The OS X configuration assumes ravend will be set up for the current user.
+The OS X configuration assumes tenzurad will be set up for the current user.
 
 Configuration
 ---------------------------------
 
-At a bare minimum, ravend requires that the rpcpassword setting be set
+At a bare minimum, tenzurad requires that the rpcpassword setting be set
 when running as a daemon.  If the configuration file does not exist or this
-setting is not set, ravend will shutdown promptly after startup.
+setting is not set, tenzurad will shutdown promptly after startup.
 
 This password does not have to be remembered or typed as it is mostly used
-as a fixed token that ravend and client programs read from the configuration
+as a fixed token that tenzurad and client programs read from the configuration
 file, however it is recommended that a strong and secure password be used
 as this password is security critical to securing the wallet should the
 wallet be enabled.
 
-If ravend is run with the "-server" flag (set by default), and no rpcpassword is set,
+If tenzurad is run with the "-server" flag (set by default), and no rpcpassword is set,
 it will use a special cookie file for authentication. The cookie is generated with random
 content when the daemon starts, and deleted when it exits. Read access to this file
 controls who can access it through RPC.
@@ -38,7 +38,7 @@ controls who can access it through RPC.
 By default the cookie is stored in the data directory, but it's location can be overridden
 with the option '-rpccookiefile'.
 
-This allows for running ravend without having to do any manual configuration.
+This allows for running tenzurad without having to do any manual configuration.
 
 `conf`, `pid`, and `wallet` accept relative paths which are interpreted as
 relative to the data directory. `wallet` *only* supports relative paths.
@@ -53,23 +53,23 @@ Paths
 
 All three configurations assume several paths that might need to be adjusted.
 
-Binary:              `/usr/bin/ravend`  
+Binary:              `/usr/bin/tenzurad`  
 Configuration file:  `/etc/tenzura/tenzura.conf`  
-Data directory:      `/var/lib/ravend`  
-PID file:            `/var/run/ravend/ravend.pid` (OpenRC and Upstart) or `/var/lib/ravend/ravend.pid` (systemd)  
-Lock file:           `/var/lock/subsys/ravend` (CentOS)  
+Data directory:      `/var/lib/tenzurad`  
+PID file:            `/var/run/tenzurad/tenzurad.pid` (OpenRC and Upstart) or `/var/lib/tenzurad/tenzurad.pid` (systemd)  
+Lock file:           `/var/lock/subsys/tenzurad` (CentOS)  
 
 The configuration file, PID directory (if applicable) and data directory
 should all be owned by the tenzura user and group.  It is advised for security
 reasons to make the configuration file and data directory only readable by the
-tenzura user and group.  Access to tenzura-cli and other ravend rpc clients
+tenzura user and group.  Access to tenzura-cli and other tenzurad rpc clients
 can then be controlled by group membership.
 
 NOTE: When using the systemd .service file, the creation of the aforementioned
 directories and the setting of their permissions is automatically handled by
-systemd. Directories are given a permission of 710, giving the ravencoin group
+systemd. Directories are given a permission of 710, giving the tenzura group
 access to files under it _if_ the files themselves give permission to the
-ravencoin group to do so (e.g. when `-sysperms` is specified). This does not allow
+tenzura group to do so (e.g. when `-sysperms` is specified). This does not allow
 for the listing of files under the directory.
 
 NOTE: It is not currently possible to override `datadir` in
@@ -78,12 +78,12 @@ files out-of-the-box. This is because the command line options specified in the
 init files take precedence over the configurations in
 `/etc/tenzura/tenzura.conf`. However, some init systems have their own
 configuration mechanisms that would allow for overriding the command line
-options specified in the init files (e.g. setting `RAVEND_DATADIR` for
+options specified in the init files (e.g. setting `TENZURAD_DATADIR` for
 OpenRC).
 
 ### macOS
 
-Binary:              `/usr/local/bin/ravend`  
+Binary:              `/usr/local/bin/tenzurad`  
 Configuration file:  `~/Library/Application Support/Tenzura/tenzura.conf`  
 Data directory:      `~/Library/Application Support/Tenzura`  
 Lock file:           `~/Library/Application Support/Tenzura/.lock`  
@@ -97,19 +97,19 @@ Installing this .service file consists of just copying it to
 /usr/lib/systemd/system directory, followed by the command
 `systemctl daemon-reload` in order to update running systemd configuration.
 
-To test, run `systemctl start ravend` and to enable for system startup run
-`systemctl enable ravend`
+To test, run `systemctl start tenzurad` and to enable for system startup run
+`systemctl enable tenzurad`
 
 ### OpenRC
 
-Rename ravend.openrc to ravend and drop it in /etc/init.d.  Double
+Rename tenzurad.openrc to tenzurad and drop it in /etc/init.d.  Double
 check ownership and permissions and make it executable.  Test it with
-`/etc/init.d/ravend start` and configure it to run on startup with
-`rc-update add ravend`
+`/etc/init.d/tenzurad start` and configure it to run on startup with
+`rc-update add tenzurad`
 
 ### Upstart (for Debian/Ubuntu based distributions)
 
-Drop ravend.conf in /etc/init.  Test by running `service ravend start`
+Drop tenzurad.conf in /etc/init.  Test by running `service tenzurad start`
 it will automatically start on reboot.
 
 NOTE: This script is incompatible with CentOS 5 and Amazon Linux 2014 as they
@@ -117,21 +117,21 @@ use old versions of Upstart and do not supply the start-stop-daemon utility.
 
 ### CentOS
 
-Copy ravend.init to /etc/init.d/ravend. Test by running `service ravend start`.
+Copy tenzurad.init to /etc/init.d/tenzurad. Test by running `service tenzurad start`.
 
-Using this script, you can adjust the path and flags to the ravend program by
-setting the RAVEND and FLAGS environment variables in the file
-/etc/sysconfig/ravend. You can also use the DAEMONOPTS environment variable here.
+Using this script, you can adjust the path and flags to the tenzurad program by
+setting the TENZURAD and FLAGS environment variables in the file
+/etc/sysconfig/tenzurad. You can also use the DAEMONOPTS environment variable here.
 
 ### Mac OS X
 
-Copy org.tenzura.ravend.plist into ~/Library/LaunchAgents. Load the launch agent by
-running `launchctl load ~/Library/LaunchAgents/org.tenzura.ravend.plist`.
+Copy org.tenzura.tenzurad.plist into ~/Library/LaunchAgents. Load the launch agent by
+running `launchctl load ~/Library/LaunchAgents/org.tenzura.tenzurad.plist`.
 
-This Launch Agent will cause ravend to start whenever the user logs in.
+This Launch Agent will cause tenzurad to start whenever the user logs in.
 
-NOTE: This approach is intended for those wanting to run ravend as the current user.
-You will need to modify org.tenzura.ravend.plist if you intend to use it as a
+NOTE: This approach is intended for those wanting to run tenzurad as the current user.
+You will need to modify org.tenzura.tenzurad.plist if you intend to use it as a
 Launch Daemon with a dedicated tenzura user.
 
 Auto-respawn

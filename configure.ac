@@ -9,7 +9,7 @@ define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2022)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
 define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Tenzura Core]])
-AC_INIT([tenzura], [VERSION], [https://github.com/tenzura/tenzura/issues]).org/])
+AC_INIT([Tenzura Core],m4_join([.], _CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MINOR, _CLIENT_VERSION_REVISION, m4_if(_CLIENT_VERSION_BUILD, [0], [], _CLIENT_VERSION_BUILD))m4_if(_CLIENT_VERSION_RC, [0], [], [test]_CLIENT_VERSION_RC),[https://github.com/TenzuraProject/Tenzura/issues],[tenzura],[https://tenzura.org/])
 
 AC_CONFIG_SRCDIR([src/validation.cpp])
 AC_CONFIG_HEADERS([src/config/tenzura-config.h])
@@ -302,26 +302,26 @@ CPPFLAGS="$CPPFLAGS -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS"
 AC_ARG_WITH([cli],
   [AS_HELP_STRING([--with-cli],
   [build tenzura-cli (default=yes)])],
-  [build_raven_cli=$withval],
-  [build_raven_cli=yes])
+  [build_tenzura_cli=$withval],
+  [build_tenzura_cli=yes])
 
 AC_ARG_WITH([tx],
   [AS_HELP_STRING([--with-tx],
   [build tenzura-tx (default=no)])],
-  [build_raven_tx=$withval],
-  [build_raven_tx=no])
+  [build_tenzura_tx=$withval],
+  [build_tenzura_tx=no])
 
 AC_ARG_WITH([libs],
   [AS_HELP_STRING([--with-libs],
   [build libraries (default=yes)])],
-  [build_raven_libs=$withval],
-  [build_raven_libs=yes])
+  [build_tenzura_libs=$withval],
+  [build_tenzura_libs=yes])
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
   [build tenzurad daemon (default=yes)])],
-  [build_ravend=$withval],
-  [build_ravend=yes])
+  [build_tenzurad=$withval],
+  [build_tenzurad=yes])
 
 use_pkgconfig=yes
 case $host in
@@ -760,7 +760,7 @@ TENZURA_QT_INIT
 dnl sets $tenzura_enable_qt, $tenzura_enable_qt_test, $tenzura_enable_qt_dbus
 TENZURA_QT_CONFIGURE([$use_pkgconfig], [qt5])
 
-if test x$build_raven_cli$build_raven_tx$build_ravend$tenzura_enable_qt$use_tests$use_bench = xnononononono; then
+if test x$build_tenzura_cli$build_tenzura_tx$build_tenzurad$tenzura_enable_qt$use_tests$use_bench = xnononononono; then
     use_boost=no
 else
     use_boost=yes
@@ -946,7 +946,7 @@ if test x$use_pkgconfig = xyes; then
       if test x$use_qr != xno; then
         TENZURA_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
       fi
-      if test x$build_raven_cli$build_raven_tx$build_ravend$tenzura_enable_qt$use_tests != xnonononono; then
+      if test x$build_tenzura_cli$build_tenzura_tx$build_tenzurad$tenzura_enable_qt$use_tests != xnonononono; then
         PKG_CHECK_MODULES([EVENT], [libevent],, [AC_MSG_ERROR(libevent not found.)])
         if test x$TARGET_OS != xwindows; then
           PKG_CHECK_MODULES([EVENT_PTHREADS], [libevent_pthreads],, [AC_MSG_ERROR(libevent_pthreads not found.)])
@@ -971,7 +971,7 @@ else
   AC_CHECK_HEADER([openssl/ssl.h],, AC_MSG_ERROR(libssl headers missing),)
   AC_CHECK_LIB([ssl],         [main],SSL_LIBS=-lssl, AC_MSG_ERROR(libssl missing))
 
-  if test x$build_raven_cli$build_raven_tx$build_ravend$tenzura_enable_qt$use_tests != xnonononono; then
+  if test x$build_tenzura_cli$build_tenzura_tx$build_tenzurad$tenzura_enable_qt$use_tests != xnonononono; then
     AC_CHECK_HEADER([event2/event.h],, AC_MSG_ERROR(libevent headers missing),)
     AC_CHECK_LIB([event],[main],EVENT_LIBS=-levent,AC_MSG_ERROR(libevent missing))
     if test x$TARGET_OS != xwindows; then
@@ -1020,7 +1020,7 @@ dnl univalue check
 
 need_bundled_univalue=yes
 
-if test x$build_raven_cli$build_raven_tx$build_ravend$tenzura_enable_qt$use_tests$use_bench = xnonononono; then
+if test x$build_tenzura_cli$build_tenzura_tx$build_tenzurad$tenzura_enable_qt$use_tests$use_bench = xnonononono; then
   need_bundled_univalue=no
 else
 
@@ -1067,24 +1067,24 @@ AC_SUBST(UNIVALUE_LIBS)
 TENZURA_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
 AC_MSG_CHECKING([whether to build tenzurad])
-AM_CONDITIONAL([BUILD_RAVEND], [test x$build_ravend = xyes])
-AC_MSG_RESULT($build_ravend)
+AM_CONDITIONAL([BUILD_TENZURAD], [test x$build_tenzurad = xyes])
+AC_MSG_RESULT($build_tenzurad)
 
 AC_MSG_CHECKING([whether to build tenzura-cli])
-AM_CONDITIONAL([BUILD_RAVEN_CLI], [test x$build_raven_cli = xyes])
-AC_MSG_RESULT($build_raven_cli)
+AM_CONDITIONAL([BUILD_TENZURA_CLI], [test x$build_tenzura_cli = xyes])
+AC_MSG_RESULT($build_tenzura_cli)
 
 AC_MSG_CHECKING([whether to build tenzura-tx])
-AM_CONDITIONAL([BUILD_RAVEN_TX], [test x$build_raven_tx = xyes])
-AC_MSG_RESULT($build_raven_tx)
+AM_CONDITIONAL([BUILD_TENZURA_TX], [test x$build_tenzura_tx = xyes])
+AC_MSG_RESULT($build_tenzura_tx)
 
 AC_MSG_CHECKING([whether to build libraries])
-AM_CONDITIONAL([BUILD_RAVEN_LIBS], [test x$build_raven_libs = xyes])
-if test x$build_raven_libs = xyes; then
+AM_CONDITIONAL([BUILD_TENZURA_LIBS], [test x$build_tenzura_libs = xyes])
+if test x$build_tenzura_libs = xyes; then
   AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
-  AC_CONFIG_FILES([libravenconsensus.pc:libravenconsensus.pc.in])
+  AC_CONFIG_FILES([libtenzuraconsensus.pc:libtenzuraconsensus.pc.in])
 fi
-AC_MSG_RESULT($build_raven_libs)
+AC_MSG_RESULT($build_tenzura_libs)
 
 AC_LANG_POP
 
@@ -1175,7 +1175,7 @@ if test x$tenzura_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_raven-qt])
+  AC_MSG_CHECKING([whether to build test_tenzura-qt])
   if test x$use_gui_tests$tenzura_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"
@@ -1186,7 +1186,7 @@ fi
 
 AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
 
-AC_MSG_CHECKING([whether to build test_raven])
+AC_MSG_CHECKING([whether to build test_tenzura])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="yes"
@@ -1202,7 +1202,7 @@ else
   AC_MSG_RESULT([no])
 fi
 
-if test x$build_raven_cli$build_raven_tx$build_raven_libs$build_ravend$tenzura_enable_qt$use_bench$use_tests = xnonononononono; then
+if test x$build_tenzura_cli$build_tenzura_tx$build_tenzura_libs$build_tenzurad$tenzura_enable_qt$use_bench$use_tests = xnonononononono; then
   AC_MSG_ERROR([No targets! Please specify at least one of: --with-cli --with-tx --with-libs --with-daemon --with-gui --enable-bench or --enable-tests])
 fi
 
@@ -1330,8 +1330,8 @@ esac
 
 echo
 echo "Options used to compile and link:"
-echo "  build tenzura-cli = $build_raven_cli"
-echo "  build tenzura-tx  = $build_raven_tx"
+echo "  build tenzura-cli = $build_tenzura_cli"
+echo "  build tenzura-tx  = $build_tenzura_tx"
 echo "  with wallet     = $enable_wallet"
 echo "  with gui / qt   = $tenzura_enable_qt"
 if test x$tenzura_enable_qt != xno; then

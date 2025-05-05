@@ -44,11 +44,11 @@ related to the DNS seed operation.
 If these expectations cannot be satisfied the operator should
 discontinue providing services and contact the active Tenzura
 Core development team by sending an email to:
-[feedback@ravencoin.org](mailto:feedback@ravencoin.org).
+[feedback@tenzura.org](mailto:feedback@tenzura.org).
 
 Behavior outside of these expectations may be reasonable in some
 situations but should be discussed in public in advance.
 
 See also
 ----------
-- [ravencoin-seeder](https://github.com/RavenProject/ravencoin-seeder) is a reference implementation of a DNS seed.
+- [tenzura-seeder](https://github.com/TenzuraProject/tenzura-seeder) is a reference implementation of a DNS seed.

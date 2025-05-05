@@ -97,7 +97,7 @@ libqrencode (optional) can be installed with:
 
 Notes
 -----
-The release is built with GCC and then "strip ravend" to strip the debug
+The release is built with GCC and then "strip tenzurad" to strip the debug
 symbols, which reduces the executable size by about 90%.
 
 
@@ -203,7 +203,7 @@ Setup and Build Example: Arch Linux
 This example lists the steps necessary to setup and build a command line only, non-wallet distribution of the latest changes on Arch Linux:
 
     pacman -S git base-devel boost libevent python
-    git clone https://github.com/RavenProject/Ravencoin.git
+    git clone https://github.com/TenzuraProject/Tenzura.git
     cd tenzura/
     ./autogen.sh
     ./configure --disable-wallet --without-gui --without-miniupnpc

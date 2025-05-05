@@ -1,7 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1305,4 +1304,4 @@ bool CWallet::DummySignTx(CMutableTransaction &txNew, const ContainerType &coins
     return allSigned;
 }
 
-#endif // RAVEN_WALLET_WALLET_H
+#endif // TENZURA_WALLET_WALLET_H

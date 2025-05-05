@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# Script to issue assets on the Ravencoin platform
+# Script to issue assets on the Tenzura platform
 # Reads from a csv file
 # Template Google Spreadsheet at:  
 #   https://docs.google.com/spreadsheets/d/1Ym88-ggbw8yiMgVxOtVYDsCXJGNGZqlpOfgdbVK8iYU
 # In Google Sheets: File->Download As->.csv
-# Prerequisite: ravend daemon to be running
+# Prerequisite: tenzurad daemon to be running
 # In order to use metadata, you must install be running IPFS
 # Steps:
 #   1. Get IPFS - https://ipfs.io/

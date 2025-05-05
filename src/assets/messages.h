@@ -1,11 +1,10 @@
-// Copyright (c) 2018-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2018-2020 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 
-#ifndef RAVENCOIN_MESSAGES_H
-#define RAVENCOIN_MESSAGES_H
+#ifndef TENZURA_MESSAGES_H
+#define TENZURA_MESSAGES_H
 
 #include <uint256.h>
 #include <serialize.h>
@@ -141,4 +140,4 @@ public:
     std::string createJsonString();
 };
 
-#endif //RAVENCOIN_MESSAGES_H
+#endif //TENZURA_MESSAGES_H

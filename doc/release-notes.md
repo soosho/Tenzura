@@ -10,11 +10,11 @@ and performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/RavenProject/Ravencoin/issues>
+  <https://github.com/TenzuraProject/Tenzura/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://ravencoin.org/en/list/announcements/join/>
+  <https://tenzura.org/en/list/announcements/join/>
 
 How to Upgrade
 ==============
@@ -22,7 +22,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the
 installer (on Windows) or just copy over `/Applications/Tenzura-Qt` (on Mac)
-or `ravend`/`tenzura-qt` (on Linux).
+or `tenzurad`/`tenzura-qt` (on Linux).
 
 The first time you run version 0.15.0, your chainstate database will be converted to a
 new format, which will take anywhere from a few minutes to half an hour,

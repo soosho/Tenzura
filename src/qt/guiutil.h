@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -59,9 +58,9 @@ namespace GUIUtil
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
     // Parse "tenzura:" URI into recipient object, return true on successful parsing
-    bool parseRavenURI(const QUrl &uri, SendCoinsRecipient *out);
-    bool parseRavenURI(QString uri, SendCoinsRecipient *out);
-    QString formatRavenURI(const SendCoinsRecipient &info);
+    bool parseTenzuraURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseTenzuraURI(QString uri, SendCoinsRecipient *out);
+    QString formatTenzuraURI(const SendCoinsRecipient &info);
 
     // Returns true if given address+amount meets "dust" definition
     bool isDust(const QString& address, const CAmount& amount);
@@ -128,7 +127,7 @@ namespace GUIUtil
     void openDebugLogfile();
 
     // Open the config file
-    bool openRavenConf();
+    bool openTenzuraConf();
 
     // Replace invalid default fonts with known good ones
     void SubstituteFonts(const QString& language);
@@ -271,4 +270,4 @@ namespace GUIUtil
 
 } // namespace GUIUtil
 
-#endif // RAVEN_QT_GUIUTIL_H
+#endif // TENZURA_QT_GUIUTIL_H

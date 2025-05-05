@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>org.tenzura.ravend</string>
+	<string>org.tenzura.tenzurad</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/bin/ravend</string>
+		<string>/usr/local/bin/tenzurad</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

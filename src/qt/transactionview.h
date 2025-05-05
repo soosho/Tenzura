@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -124,4 +123,4 @@ public Q_SLOTS:
 
 };
 
-#endif // RAVEN_QT_TRANSACTIONVIEW_H
+#endif // TENZURA_QT_TRANSACTIONVIEW_H

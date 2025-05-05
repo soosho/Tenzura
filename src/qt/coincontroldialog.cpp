@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +7,7 @@
 #include "ui_coincontroldialog.h"
 
 #include "addresstablemodel.h"
-#include "ravenunits.h"
+#include "tenzuraunits.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
 #include "platformstyle.h"
@@ -239,7 +238,7 @@ void CoinControlDialog::showMenu(const QPoint &point)
 // context menu action: copy amount
 void CoinControlDialog::copyAmount()
 {
-    GUIUtil::setClipboard(RavenUnits::removeSpaces(contextMenuItem->text(COLUMN_AMOUNT)));
+    GUIUtil::setClipboard(TenzuraUnits::removeSpaces(contextMenuItem->text(COLUMN_AMOUNT)));
 }
 
 // context menu action: copy label
@@ -542,7 +541,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
     }
 
     // actually update labels
-    int nDisplayUnit = RavenUnits::RVN;
+    int nDisplayUnit = TenzuraUnits::RVN;
     if (model && model->getOptionsModel())
         nDisplayUnit = model->getOptionsModel()->getDisplayUnit();
 
@@ -562,12 +561,12 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
 
     // stats
     l1->setText(QString::number(nQuantity));                                 // Quantity
-    l2->setText(RavenUnits::formatWithUnit(nDisplayUnit, nAmount));        // Amount
-    l3->setText(RavenUnits::formatWithUnit(nDisplayUnit, nPayFee));        // Fee
-    l4->setText(RavenUnits::formatWithUnit(nDisplayUnit, nAfterFee));      // After Fee
+    l2->setText(TenzuraUnits::formatWithUnit(nDisplayUnit, nAmount));        // Amount
+    l3->setText(TenzuraUnits::formatWithUnit(nDisplayUnit, nPayFee));        // Fee
+    l4->setText(TenzuraUnits::formatWithUnit(nDisplayUnit, nAfterFee));      // After Fee
     l5->setText(((nBytes > 0) ? ASYMP_UTF8 : "") + QString::number(nBytes));        // Bytes
     l7->setText(fDust ? tr("yes") : tr("no"));                               // Dust
-    l8->setText(RavenUnits::formatWithUnit(nDisplayUnit, nChange));        // Change
+    l8->setText(TenzuraUnits::formatWithUnit(nDisplayUnit, nChange));        // Change
     if (nPayFee > 0)
     {
         l3->setText(ASYMP_UTF8 + l3->text());
@@ -684,7 +683,7 @@ void CoinControlDialog::updateView()
             }
 
             // amount
-            itemOutput->setText(COLUMN_AMOUNT, RavenUnits::format(nDisplayUnit, out.tx->tx->vout[out.i].nValue));
+            itemOutput->setText(COLUMN_AMOUNT, TenzuraUnits::format(nDisplayUnit, out.tx->tx->vout[out.i].nValue));
             itemOutput->setData(COLUMN_AMOUNT, Qt::UserRole, QVariant((qlonglong)out.tx->tx->vout[out.i].nValue)); // padding so that sorting works correctly
 
             // date
@@ -720,7 +719,7 @@ void CoinControlDialog::updateView()
         if (treeMode)
         {
             itemWalletAddress->setText(COLUMN_CHECKBOX, "(" + QString::number(nChildren) + ")");
-            itemWalletAddress->setText(COLUMN_AMOUNT, RavenUnits::format(nDisplayUnit, nSum));
+            itemWalletAddress->setText(COLUMN_AMOUNT, TenzuraUnits::format(nDisplayUnit, nSum));
             itemWalletAddress->setData(COLUMN_AMOUNT, Qt::UserRole, QVariant((qlonglong)nSum));
         }
     }

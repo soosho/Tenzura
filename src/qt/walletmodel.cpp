@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -804,15 +803,15 @@ bool WalletModel::bumpFee(uint256 hash)
 //    questionString.append("<tr><td>");
 //    questionString.append(tr("Current fee:"));
 //    questionString.append("</td><td>");
-//    questionString.append(RavenUnits::formatHtmlWithUnit(getOptionsModel()->getDisplayUnit(), oldFee));
+//    questionString.append(TenzuraUnits::formatHtmlWithUnit(getOptionsModel()->getDisplayUnit(), oldFee));
 //    questionString.append("</td></tr><tr><td>");
 //    questionString.append(tr("Increase:"));
 //    questionString.append("</td><td>");
-//    questionString.append(RavenUnits::formatHtmlWithUnit(getOptionsModel()->getDisplayUnit(), newFee - oldFee));
+//    questionString.append(TenzuraUnits::formatHtmlWithUnit(getOptionsModel()->getDisplayUnit(), newFee - oldFee));
 //    questionString.append("</td></tr><tr><td>");
 //    questionString.append(tr("New fee:"));
 //    questionString.append("</td><td>");
-//    questionString.append(RavenUnits::formatHtmlWithUnit(getOptionsModel()->getDisplayUnit(), newFee));
+//    questionString.append(TenzuraUnits::formatHtmlWithUnit(getOptionsModel()->getDisplayUnit(), newFee));
 //    questionString.append("</td></tr></table>");
 //    SendConfirmationDialog confirmationDialog(tr("Confirm fee bump"), questionString);
 //    confirmationDialog.exec();

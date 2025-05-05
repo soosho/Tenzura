@@ -63,7 +63,7 @@
     </message>
     <message>
         <source>These are your Tenzura addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Dit zijn uw Ravenadressen om betalingen mee te verzenden. Controleer altijd het bedrag en het ontvangstadres voordat u uw ravens verzendt.</translation>
+        <translation>Dit zijn uw Tenzuraadressen om betalingen mee te verzenden. Controleer altijd het bedrag en het ontvangstadres voordat u uw tenzuras verzendt.</translation>
     </message>
     <message>
         <source>These are your Tenzura addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
@@ -168,8 +168,8 @@
         <translation>Bevestig versleuteling van de portemonnee</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RAVENS&lt;/b&gt;!</source>
-        <translation>Waarschuwing: Als u uw portemonnee versleutelt en uw wachtwoord vergeet, zult u &lt;b&gt;AL UW RAVENS VERLIEZEN&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TENZURAS&lt;/b&gt;!</source>
+        <translation>Waarschuwing: Als u uw portemonnee versleutelt en uw wachtwoord vergeet, zult u &lt;b&gt;AL UW TENZURAS VERLIEZEN&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -180,8 +180,8 @@
         <translation>Portemonnee versleuteld</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your ravens from being stolen by malware infecting your computer.</source>
-        <translation>%1 zal nu afsluiten om het versleutelingsproces te voltooien. Onthoud dat het versleutelen van uw portemonnee u niet volledig kan beschermen: Malware kan uw computer infecteren en uw ravens stelen.</translation>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your tenzuras from being stolen by malware infecting your computer.</source>
+        <translation>%1 zal nu afsluiten om het versleutelingsproces te voltooien. Onthoud dat het versleutelen van uw portemonnee u niet volledig kan beschermen: Malware kan uw computer infecteren en uw tenzuras stelen.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -618,7 +618,7 @@
     </message>
     <message>
         <source>Warning: Invalid Tenzura address</source>
-        <translation>Waarschuwing: Ongeldig Ravenadres</translation>
+        <translation>Waarschuwing: Ongeldig Tenzuraadres</translation>
     </message>
     <message>
         <source>or</source>
@@ -681,7 +681,7 @@
     </message>
     <message>
         <source>The entered address "%1" is not a valid Tenzura address.</source>
-        <translation>Het opgegeven adres "%1" is een ongeldig Ravenadres.</translation>
+        <translation>Het opgegeven adres "%1" is een ongeldig Tenzuraadres.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -928,8 +928,8 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
         <translation>Recente transacties zijn mogelijk nog niet zichtbaar. De balans van de geldbeugel is daarom mogelijk niet correct. Deze informatie is correct van zodra de synchronisatie met het Tenzura-netwerk werd voltooid, zoals onderaan beschreven.</translation>
     </message>
     <message>
-        <source>Attempting to spend ravens that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Poging om ravens te besteden die door "nog niet weergegeven" transacties worden beïnvloed, worden niet door het netwerk geaccepteerd.</translation>
+        <source>Attempting to spend tenzuras that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>Poging om tenzuras te besteden die door "nog niet weergegeven" transacties worden beïnvloed, worden niet door het netwerk geaccepteerd.</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1110,7 +1110,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>Automatically open the Tenzura client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Open de Ravenpoort automatisch op de router. Dit werkt alleen als de router UPnP ondersteunt en het aanstaat.</translation>
+        <translation>Open de Tenzurapoort automatisch op de router. Dit werkt alleen als de router UPnP ondersteunt en het aanstaat.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1122,7 +1122,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>Connect to the Tenzura network through a SOCKS5 proxy.</source>
-        <translation>Verbind met het Ravennetwerk via een SOCKS5 proxy.</translation>
+        <translation>Verbind met het Tenzuranetwerk via een SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1158,7 +1158,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>Connect to the Tenzura network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Maak verbinding met Ravennetwerk door een aparte SOCKS5-proxy voor verborgen diensten van Tor.</translation>
+        <translation>Maak verbinding met Tenzuranetwerk door een aparte SOCKS5-proxy voor verborgen diensten van Tor.</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -1261,7 +1261,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Tenzura network after a connection is established, but this process has not completed yet.</source>
-        <translation>De weergegeven informatie kan verouderd zijn. Uw portemonnee synchroniseert automatisch met het Ravennetwerk nadat een verbinding is gelegd, maar dit proces is nog niet voltooid.</translation>
+        <translation>De weergegeven informatie kan verouderd zijn. Uw portemonnee synchroniseert automatisch met het Tenzuranetwerk nadat een verbinding is gelegd, maar dit proces is nog niet voltooid.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1470,7 +1470,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>Enter a Tenzura address (e.g. %1)</source>
-        <translation>Voer een Ravenadres in (bijv. %1)</translation>
+        <translation>Voer een Tenzuraadres in (bijv. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1827,7 +1827,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
 </context>
 <context>
-    <name>RavenGUI</name>
+    <name>TenzuraGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Onderteken bericht...</translation>
@@ -1938,7 +1938,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>Send coins to a Tenzura address</source>
-        <translation>Verstuur munten naar een Ravenadres</translation>
+        <translation>Verstuur munten naar een Tenzuraadres</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -1986,11 +1986,11 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>Sign messages with your Tenzura addresses to prove you own them</source>
-        <translation>Onderteken berichten met uw Ravenadressen om te bewijzen dat u deze adressen bezit</translation>
+        <translation>Onderteken berichten met uw Tenzuraadressen om te bewijzen dat u deze adressen bezit</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Tenzura addresses</source>
-        <translation>Verifiëer handtekeningen om zeker te zijn dat de berichten zijn ondertekend met de gespecificeerde Ravenadressen</translation>
+        <translation>Verifiëer handtekeningen om zeker te zijn dat de berichten zijn ondertekend met de gespecificeerde Tenzuraadressen</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -2159,7 +2159,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Tenzura network.</source>
-        <translation>Een optioneel bericht om bij te voegen aan het betalingsverzoek, welke zal getoond worden wanneer het verzoek is geopend. Opmerking: Het bericht zal niet worden verzonden met de betaling over het Ravennetwerk.</translation>
+        <translation>Een optioneel bericht om bij te voegen aan het betalingsverzoek, welke zal getoond worden wanneer het verzoek is geopend. Opmerking: Het bericht zal niet worden verzonden met de betaling over het Tenzuranetwerk.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -2501,7 +2501,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for tenzura transactions than the network can process.</source>
-        <translation>De minimale toeslag betalen is prima mits het transactievolume kleiner is dan de ruimte in de blokken. Let wel op dat dit tot gevolg kan hebben dat een transactie nooit wordt bevestigd als er meer vraag is naar raventransacties dan het netwerk kan verwerken.</translation>
+        <translation>De minimale toeslag betalen is prima mits het transactievolume kleiner is dan de ruimte in de blokken. Let wel op dat dit tot gevolg kan hebben dat een transactie nooit wordt bevestigd als er meer vraag is naar tenzuratransacties dan het netwerk kan verwerken.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -2649,7 +2649,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>Warning: Invalid Tenzura address</source>
-        <translation>Waarschuwing: Ongeldig Ravenadres</translation>
+        <translation>Waarschuwing: Ongeldig Tenzuraadres</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2688,7 +2688,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>The Tenzura address to send the payment to</source>
-        <translation>Het Ravenadres om betaling aan te versturen</translation>
+        <translation>Het Tenzuraadres om betaling aan te versturen</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2707,8 +2707,8 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
         <translation>Verwijder deze toevoeging</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less ravens than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>De transactiekosten zal worden afgetrokken van het bedrag dat verstuurd wordt. De ontvangers zullen minder ravens ontvangen dan ingevoerd is in het hoeveelheidsveld. Als er meerdere ontvangers geselecteerd zijn, dan worden de transactiekosten gelijk verdeeld.</translation>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less tenzuras than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>De transactiekosten zal worden afgetrokken van het bedrag dat verstuurd wordt. De ontvangers zullen minder tenzuras ontvangen dan ingevoerd is in het hoeveelheidsveld. Als er meerdere ontvangers geselecteerd zijn, dan worden de transactiekosten gelijk verdeeld.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2732,7 +2732,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>A message that was attached to the tenzura: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Tenzura network.</source>
-        <translation>Een bericht dat werd toegevoegd aan de tenzura: URI welke wordt opgeslagen met de transactie ter referentie. Opmerking: Dit bericht zal niet worden verzonden over het Ravennetwerk.</translation>
+        <translation>Een bericht dat werd toegevoegd aan de tenzura: URI welke wordt opgeslagen met de transactie ter referentie. Opmerking: Dit bericht zal niet worden verzonden over het Tenzuranetwerk.</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -2772,12 +2772,12 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
         <translation>&amp;Onderteken Bericht</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive ravens sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>U kunt berichten/overeenkomsten ondertekenen met uw adres om te bewijzen dat u Ravens kunt versturen. Wees voorzichtig met het ondertekenen van iets vaags of willekeurigs, omdat phishingaanvallen u kunnen proberen te misleiden tot het ondertekenen van overeenkomsten om uw identiteit aan hen toe te vertrouwen. Onderteken alleen volledig gedetailleerde verklaringen voordat u akkoord gaat.</translation>
+        <source>You can sign messages/agreements with your addresses to prove you can receive tenzuras sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>U kunt berichten/overeenkomsten ondertekenen met uw adres om te bewijzen dat u Tenzuras kunt versturen. Wees voorzichtig met het ondertekenen van iets vaags of willekeurigs, omdat phishingaanvallen u kunnen proberen te misleiden tot het ondertekenen van overeenkomsten om uw identiteit aan hen toe te vertrouwen. Onderteken alleen volledig gedetailleerde verklaringen voordat u akkoord gaat.</translation>
     </message>
     <message>
         <source>The Tenzura address to sign the message with</source>
-        <translation>Het Ravenadres om bericht mee te ondertekenen</translation>
+        <translation>Het Tenzuraadres om bericht mee te ondertekenen</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2809,7 +2809,7 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>Sign the message to prove you own this Tenzura address</source>
-        <translation>Onderteken een bericht om te bewijzen dat u een bepaald Ravenadres bezit</translation>
+        <translation>Onderteken een bericht om te bewijzen dat u een bepaald Tenzuraadres bezit</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2833,11 +2833,11 @@ Aanbevolen actie: Synchroniseer uw wallet volledig vooraleer uw transactie te ve
     </message>
     <message>
         <source>The Tenzura address the message was signed with</source>
-        <translation>Het Ravenadres waarmee het bericht ondertekend is</translation>
+        <translation>Het Tenzuraadres waarmee het bericht ondertekend is</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Tenzura address</source>
-        <translation>Controleer een bericht om te verifiëren dat het gespecificeerde Ravenadres het bericht heeft ondertekend.</translation>
+        <translation>Controleer een bericht om te verifiëren dat het gespecificeerde Tenzuraadres het bericht heeft ondertekend.</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>

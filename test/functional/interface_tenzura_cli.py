@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 # Copyright (c) 2017 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+# Copyright (c) 2017-2020 The Tenzura Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test tenzura-cli"""
-from test_framework.test_framework import RavenTestFramework
+from test_framework.test_framework import TenzuraTestFramework
 from test_framework.util import (assert_equal, assert_raises_process_error, get_auth_cookie)
 
-class TestRavenCli(RavenTestFramework):
+class TestTenzuraCli(TenzuraTestFramework):
 
     def set_test_params(self):
         self.setup_clean_chain = True
@@ -57,4 +56,4 @@ class TestRavenCli(RavenTestFramework):
         # unlocked_until is not tested because the wallet is not encrypted
 
 if __name__ == '__main__':
-    TestRavenCli().main()
+    TestTenzuraCli().main()

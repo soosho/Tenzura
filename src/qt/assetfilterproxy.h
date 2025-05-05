@@ -1,10 +1,9 @@
-// Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2019 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVENCOIN_ASSETFILTERPROXY_H
-#define RAVENCOIN_ASSETFILTERPROXY_H
+#ifndef TENZURA_ASSETFILTERPROXY_H
+#define TENZURA_ASSETFILTERPROXY_H
 
 #include <QSortFilterProxyModel>
 
@@ -27,4 +26,4 @@ private:
 };
 
 
-#endif //RAVENCOIN_ASSETFILTERPROXY_H
+#endif //TENZURA_ASSETFILTERPROXY_H

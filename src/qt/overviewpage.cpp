@@ -1,13 +1,12 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "overviewpage.h"
 #include "ui_overviewpage.h"
 
-#include "ravenunits.h"
+#include "tenzuraunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -47,7 +46,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     explicit TxViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(parent), unit(RavenUnits::RVN),
+        QAbstractItemDelegate(parent), unit(TenzuraUnits::RVN),
         platformStyle(_platformStyle)
     {
 
@@ -156,7 +155,7 @@ class AssetViewDelegate : public QAbstractItemDelegate
 Q_OBJECT
 public:
     explicit AssetViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-            QAbstractItemDelegate(parent), unit(RavenUnits::RVN),
+            QAbstractItemDelegate(parent), unit(TenzuraUnits::RVN),
             platformStyle(_platformStyle)
     {
 
@@ -300,7 +299,7 @@ public:
 
 };
 #include "overviewpage.moc"
-#include "ravengui.h"
+#include "tenzuragui.h"
 #include <QFontDatabase>
 
 OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) :
@@ -562,14 +561,14 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     currentWatchOnlyBalance = watchOnlyBalance;
     currentWatchUnconfBalance = watchUnconfBalance;
     currentWatchImmatureBalance = watchImmatureBalance;
-    ui->labelBalance->setText(RavenUnits::formatWithUnit(unit, balance, false, RavenUnits::separatorAlways));
-    ui->labelUnconfirmed->setText(RavenUnits::formatWithUnit(unit, unconfirmedBalance, false, RavenUnits::separatorAlways));
-    ui->labelImmature->setText(RavenUnits::formatWithUnit(unit, immatureBalance, false, RavenUnits::separatorAlways));
-    ui->labelTotal->setText(RavenUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, RavenUnits::separatorAlways));
-    ui->labelWatchAvailable->setText(RavenUnits::formatWithUnit(unit, watchOnlyBalance, false, RavenUnits::separatorAlways));
-    ui->labelWatchPending->setText(RavenUnits::formatWithUnit(unit, watchUnconfBalance, false, RavenUnits::separatorAlways));
-    ui->labelWatchImmature->setText(RavenUnits::formatWithUnit(unit, watchImmatureBalance, false, RavenUnits::separatorAlways));
-    ui->labelWatchTotal->setText(RavenUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, RavenUnits::separatorAlways));
+    ui->labelBalance->setText(TenzuraUnits::formatWithUnit(unit, balance, false, TenzuraUnits::separatorAlways));
+    ui->labelUnconfirmed->setText(TenzuraUnits::formatWithUnit(unit, unconfirmedBalance, false, TenzuraUnits::separatorAlways));
+    ui->labelImmature->setText(TenzuraUnits::formatWithUnit(unit, immatureBalance, false, TenzuraUnits::separatorAlways));
+    ui->labelTotal->setText(TenzuraUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, TenzuraUnits::separatorAlways));
+    ui->labelWatchAvailable->setText(TenzuraUnits::formatWithUnit(unit, watchOnlyBalance, false, TenzuraUnits::separatorAlways));
+    ui->labelWatchPending->setText(TenzuraUnits::formatWithUnit(unit, watchUnconfBalance, false, TenzuraUnits::separatorAlways));
+    ui->labelWatchImmature->setText(TenzuraUnits::formatWithUnit(unit, watchImmatureBalance, false, TenzuraUnits::separatorAlways));
+    ui->labelWatchTotal->setText(TenzuraUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, TenzuraUnits::separatorAlways));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users

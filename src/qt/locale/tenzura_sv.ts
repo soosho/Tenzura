@@ -63,7 +63,7 @@
     </message>
     <message>
         <source>These are your Tenzura addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Detta är dina Tenzura adresser för att skicka betalningar. Kolla alltid summan och den mottagande adressen innan du skickar Ravens.</translation>
+        <translation>Detta är dina Tenzura adresser för att skicka betalningar. Kolla alltid summan och den mottagande adressen innan du skickar Tenzuras.</translation>
     </message>
     <message>
         <source>These are your Tenzura addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
@@ -169,7 +169,7 @@ Var vänlig och försök igen.</translation>
         <translation>Bekräfta kryptering av plånbok</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RAVENS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TENZURAS&lt;/b&gt;!</source>
         <translation>VARNING: Om du krypterar din plånbok och glömmer ditt lösenord, kommer du att &lt;b&gt;FÖRLORA ALLA DINA TENZURA&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -181,7 +181,7 @@ Var vänlig och försök igen.</translation>
         <translation>Plånbok krypterad</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your ravens from being stolen by malware infecting your computer.</source>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your tenzuras from being stolen by malware infecting your computer.</source>
         <translation>%1 kommer nu att stänga ner för att färdigställa krypteringen. Tänk på att en krypterad plånbok inte skyddar mot stöld om din dator är infekterad med en keylogger.</translation>
     </message>
     <message>
@@ -1390,7 +1390,7 @@ Var vänlig och försök igen.</translation>
     </message>
 </context>
 <context>
-    <name>RavenGUI</name>
+    <name>TenzuraGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signera &amp;meddelande...</translation>
@@ -1497,7 +1497,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Send coins to a Tenzura address</source>
-        <translation>Skicka ravens till en Tenzura-adress</translation>
+        <translation>Skicka tenzuras till en Tenzura-adress</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -1714,7 +1714,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Tenzura network.</source>
-        <translation>Ett frivilligt meddelande att bifoga betalningsbegäran, vilket visas när begäran öppnas. NB: Meddelandet kommer inte att sändas med betalningen över Ravennätverket.</translation>
+        <translation>Ett frivilligt meddelande att bifoga betalningsbegäran, vilket visas när begäran öppnas. NB: Meddelandet kommer inte att sändas med betalningen över Tenzuranätverket.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -2100,7 +2100,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Warning: Invalid Tenzura address</source>
-        <translation>Varning: Felaktig Ravenadress</translation>
+        <translation>Varning: Felaktig Tenzuraadress</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2139,7 +2139,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>The Tenzura address to send the payment to</source>
-        <translation>Ravenadress att sända betalning till</translation>
+        <translation>Tenzuraadress att sända betalning till</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2158,8 +2158,8 @@ Var vänlig och försök igen.</translation>
         <translation>Radera denna post</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less ravens than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>Avgiften dras från beloppet som skickas. Mottagaren kommer att få mindre ravens än du angivit i belopp-fältet. Om flera mottagare valts kommer avgiften delas jämt.</translation>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less tenzuras than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>Avgiften dras från beloppet som skickas. Mottagaren kommer att få mindre tenzuras än du angivit i belopp-fältet. Om flera mottagare valts kommer avgiften delas jämt.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2183,7 +2183,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>A message that was attached to the tenzura: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Tenzura network.</source>
-        <translation>Ett meddelande som bifogades tenzura-URI, vilket lagras med transaktionen som referens. NB: Meddelandet kommer inte att sändas över Ravennätverket.</translation>
+        <translation>Ett meddelande som bifogades tenzura-URI, vilket lagras med transaktionen som referens. NB: Meddelandet kommer inte att sändas över Tenzuranätverket.</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -2223,12 +2223,12 @@ Var vänlig och försök igen.</translation>
         <translation>&amp;Signera Meddelande</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive ravens sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Du kan underteckna meddelanden/avtal med dina adresser för att bevisa att du kan ta emot ravens som skickats till dem. Var försiktig så du inte undertecknar något oklart eller konstigt, eftersom phishing-angrepp kan försöka få dig att underteckna din identitet till dem. Underteckna endast väldetaljerade meddelanden som du godkänner.</translation>
+        <source>You can sign messages/agreements with your addresses to prove you can receive tenzuras sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>Du kan underteckna meddelanden/avtal med dina adresser för att bevisa att du kan ta emot tenzuras som skickats till dem. Var försiktig så du inte undertecknar något oklart eller konstigt, eftersom phishing-angrepp kan försöka få dig att underteckna din identitet till dem. Underteckna endast väldetaljerade meddelanden som du godkänner.</translation>
     </message>
     <message>
         <source>The Tenzura address to sign the message with</source>
-        <translation>Ravenadress att signera meddelandet med</translation>
+        <translation>Tenzuraadress att signera meddelandet med</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2284,7 +2284,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>The Tenzura address the message was signed with</source>
-        <translation>Ravenadressen som meddelandet signerades med</translation>
+        <translation>Tenzuraadressen som meddelandet signerades med</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Tenzura address</source>
@@ -2791,7 +2791,7 @@ Var vänlig och försök igen.</translation>
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Skicka Ravens</translation>
+        <translation>Skicka Tenzuras</translation>
     </message>
     </context>
 <context>
@@ -3629,7 +3629,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Otillräckligt med ravens</translation>
+        <translation>Otillräckligt med tenzuras</translation>
     </message>
     <message>
         <source>Loading block index...</source>

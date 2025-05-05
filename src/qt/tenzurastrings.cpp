@@ -8,7 +8,7 @@
 #else
 #define UNUSED
 #endif
-static const char UNUSED *raven_strings[] = {
+static const char UNUSED *tenzura_strings[] = {
 QT_TRANSLATE_NOOP("tenzura-core", "Tenzura Core"),
 QT_TRANSLATE_NOOP("tenzura-core", "The %s developers"),
 QT_TRANSLATE_NOOP("tenzura-core", ""
@@ -372,7 +372,7 @@ QT_TRANSLATE_NOOP("tenzura-core", "Change index out of range"),
 QT_TRANSLATE_NOOP("tenzura-core", "Connect through SOCKS5 proxy"),
 QT_TRANSLATE_NOOP("tenzura-core", "Connect to a node to retrieve peer addresses, and disconnect"),
 QT_TRANSLATE_NOOP("tenzura-core", "Connection options:"),
-QT_TRANSLATE_NOOP("raven-core", "Copyright (C) %i-%i"),
+QT_TRANSLATE_NOOP("tenzura-core", "Copyright (C) %i-%i"),
 QT_TRANSLATE_NOOP("tenzura-core", "Corrupted block database detected"),
 QT_TRANSLATE_NOOP("tenzura-core", "Debugging/Testing options:"),
 QT_TRANSLATE_NOOP("tenzura-core", "Do not load the wallet and disable wallet RPC calls"),

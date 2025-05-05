@@ -1,7 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -190,8 +189,8 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("28ff00a867739a352523808d301f504bc4547699398d70faf2266a8bae5f3516"));
 
         vSeeds.emplace_back("seed-tenzura.bitactivate.com", false);
-        vSeeds.emplace_back("seed-tenzura.ravencoin.com", false);
-        vSeeds.emplace_back("seed-tenzura.ravencoin.org", false);
+        vSeeds.emplace_back("seed-tenzura.tenzura.com", false);
+        vSeeds.emplace_back("seed-tenzura.tenzura.org", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,60);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,122);
@@ -416,8 +415,8 @@ public:
         vSeeds.clear();
 
         vSeeds.emplace_back("seed-testnet-tenzura.bitactivate.com", false);
-        vSeeds.emplace_back("seed-testnet-tenzura.ravencoin.com", false);
-        vSeeds.emplace_back("seed-testnet-tenzura.ravencoin.org", false);
+        vSeeds.emplace_back("seed-testnet-tenzura.tenzura.com", false);
+        vSeeds.emplace_back("seed-testnet-tenzura.tenzura.org", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);

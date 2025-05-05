@@ -160,8 +160,8 @@
         <translation>επιβεβαίωση κρυπτογράφησης πορτοφολιού</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RAVENS&lt;/b&gt;!</source>
-        <translation>Προειδοποίηση: Αν κρυπτογραφήσεις το πορτοφόλι σου και χάσεις τον κωδικό, &lt;b&gt; ΘΑ ΧΑΣΕΙΣ ΟΛΑ ΤΑ RAVENS&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TENZURAS&lt;/b&gt;!</source>
+        <translation>Προειδοποίηση: Αν κρυπτογραφήσεις το πορτοφόλι σου και χάσεις τον κωδικό, &lt;b&gt; ΘΑ ΧΑΣΕΙΣ ΟΛΑ ΤΑ TENZURAS&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -172,8 +172,8 @@
         <translation>Το πορτοφόλι κρυπτογραφήθηκε</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your ravens from being stolen by malware infecting your computer.</source>
-        <translation>%1 θα κλείσει τώρα για να τελειώσει την διαδικασία κρυπτογράφησης. Θυμήσου οτι η κρυπτογράφηση του πορτοφολιού σας δεν μπορεί να προστατεύσει πλήρως τα ravens από το να κλαπούν λόγω κακόβουλου λογισμικού στον υπολογιστή σας.</translation>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your tenzuras from being stolen by malware infecting your computer.</source>
+        <translation>%1 θα κλείσει τώρα για να τελειώσει την διαδικασία κρυπτογράφησης. Θυμήσου οτι η κρυπτογράφηση του πορτοφολιού σας δεν μπορεί να προστατεύσει πλήρως τα tenzuras από το να κλαπούν λόγω κακόβουλου λογισμικού στον υπολογιστή σας.</translation>
     </message>
     <message>
         <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
@@ -994,7 +994,7 @@
     </message>
 </context>
 <context>
-    <name>RavenGUI</name>
+    <name>TenzuraGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Υπογραφή &amp;Μηνύματος...</translation>

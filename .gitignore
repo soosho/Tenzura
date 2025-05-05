@@ -7,10 +7,10 @@ src/tenzura
 src/tenzurad
 src/tenzura-cli
 src/tenzura-tx
-src/test/test_raven
-src/test/test_raven_fuzzy
-src/test/test_raven_hash
-src/qt/test/test_raven-qt
+src/test/test_tenzura
+src/test/test_tenzura_fuzzy
+src/test/test_tenzura_hash
+src/qt/test/test_tenzura-qt
 .vscode
 output.txt
 
@@ -102,7 +102,7 @@ build
 *.gcno
 *.gcda
 /*.info
-test_raven.coverage/
+test_tenzura.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -117,7 +117,7 @@ test/cache/*
 
 /doc/doxygen/
 
-libravenconsensus.pc
+libtenzuraconsensus.pc
 contrib/devtools/split-debug.sh
 .idea
 cmake-build-debug

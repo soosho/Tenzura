@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,7 +9,7 @@
 #include <QFrame>
 #include <QMap>
 
-class RavenGUI;
+class TenzuraGUI;
 class ClientModel;
 class PlatformStyle;
 class SendCoinsRecipient;
@@ -23,9 +22,9 @@ QT_END_NAMESPACE
 
 /**
  * A container for embedding all wallet-related
- * controls into RavenGUI. The purpose of this class is to allow future
+ * controls into TenzuraGUI. The purpose of this class is to allow future
  * refinements of the wallet controls with minimal need for further
- * modifications to RavenGUI, thus greatly simplifying merges while
+ * modifications to TenzuraGUI, thus greatly simplifying merges while
  * reducing the risk of breaking top-level stuff.
  */
 class WalletFrame : public QFrame
@@ -33,7 +32,7 @@ class WalletFrame : public QFrame
     Q_OBJECT
 
 public:
-    explicit WalletFrame(const PlatformStyle *platformStyle, RavenGUI *_gui = 0);
+    explicit WalletFrame(const PlatformStyle *platformStyle, TenzuraGUI *_gui = 0);
     ~WalletFrame();
 
     void setClientModel(ClientModel *clientModel);
@@ -53,7 +52,7 @@ Q_SIGNALS:
 
 private:
     QStackedWidget *walletStack;
-    RavenGUI *gui;
+    TenzuraGUI *gui;
     ClientModel *clientModel;
     QMap<QString, WalletView*> mapWalletViews;
 
@@ -107,4 +106,4 @@ public Q_SLOTS:
     /** RVN END */
 };
 
-#endif // RAVEN_QT_WALLETFRAME_H
+#endif // TENZURA_QT_WALLETFRAME_H

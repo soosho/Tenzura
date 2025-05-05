@@ -1,13 +1,12 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2021 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "guiutil.h"
 
-#include "ravenaddressvalidator.h"
-#include "ravenunits.h"
+#include "tenzuraaddressvalidator.h"
+#include "tenzuraunits.h"
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 
@@ -216,8 +215,8 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
     widget->setPlaceholderText(QObject::tr("Enter a Tenzura address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(GetParams()))));
 #endif
-    widget->setValidator(new RavenAddressEntryValidator(parent));
-    widget->setCheckValidator(new RavenAddressCheckValidator(parent));
+    widget->setValidator(new TenzuraAddressEntryValidator(parent));
+    widget->setCheckValidator(new TenzuraAddressCheckValidator(parent));
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -229,7 +228,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
-bool parseRavenURI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseTenzuraURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // return if URI is not valid or is no tenzura: URI
     if(!uri.isValid() || uri.scheme() != QString("tenzura"))
@@ -272,7 +271,7 @@ bool parseRavenURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!RavenUnits::parse(RavenUnits::RVN, i->second, &rv.amount))
+                if(!TenzuraUnits::parse(TenzuraUnits::RVN, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -290,7 +289,7 @@ bool parseRavenURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseRavenURI(QString uri, SendCoinsRecipient *out)
+bool parseTenzuraURI(QString uri, SendCoinsRecipient *out)
 {
     // Convert tenzura:// to tenzura:
     //
@@ -301,17 +300,17 @@ bool parseRavenURI(QString uri, SendCoinsRecipient *out)
         uri.replace(0, 10, "tenzura:");
     }
     QUrl uriInstance(uri);
-    return parseRavenURI(uriInstance, out);
+    return parseTenzuraURI(uriInstance, out);
 }
 
-QString formatRavenURI(const SendCoinsRecipient &info)
+QString formatTenzuraURI(const SendCoinsRecipient &info)
 {
     QString ret = QString("tenzura:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(RavenUnits::format(RavenUnits::RVN, info.amount, false, RavenUnits::separatorNever));
+        ret += QString("?amount=%1").arg(TenzuraUnits::format(TenzuraUnits::RVN, info.amount, false, TenzuraUnits::separatorNever));
         paramCount++;
     }
 
@@ -501,9 +500,9 @@ void openDebugLogfile()
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathDebug)));
 }
 
-bool openRavenConf()
+bool openTenzuraConf()
 {
-    boost::filesystem::path pathConfig = GetConfigFile(RAVEN_CONF_FILENAME);
+    boost::filesystem::path pathConfig = GetConfigFile(TENZURA_CONF_FILENAME);
 
     /* Create the file */
     boost::filesystem::ofstream configFile(pathConfig, std::ios_base::app);
@@ -808,38 +807,38 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
 
 bool GetStartOnSystemStartup()
 {
-    CFURLRef ravenAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    if (ravenAppUrl == nullptr) {
+    CFURLRef tenzuraAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    if (tenzuraAppUrl == nullptr) {
         return false;
     }
     
     LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, ravenAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, tenzuraAppUrl);
 
-    CFRelease(ravenAppUrl);
+    CFRelease(tenzuraAppUrl);
     return !!foundItem; // return boolified object
 }
 
 bool SetStartOnSystemStartup(bool fAutoStart)
 {
-    CFURLRef ravenAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    if (ravenAppUrl == nullptr) {
+    CFURLRef tenzuraAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    if (tenzuraAppUrl == nullptr) {
         return false;
     }
     
     LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, ravenAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, tenzuraAppUrl);
 
     if(fAutoStart && !foundItem) {
         // add tenzura app to startup item list
-        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, ravenAppUrl, nullptr, nullptr);
+        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, tenzuraAppUrl, nullptr, nullptr);
     }
     else if(!fAutoStart && foundItem) {
         // remove item
         LSSharedFileListItemRemove(loginItems, foundItem);
     }
     
-    CFRelease(ravenAppUrl);
+    CFRelease(tenzuraAppUrl);
     return true;
 }
 #pragma GCC diagnostic pop

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2016 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+# Copyright (c) 2017-2020 The Tenzura Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,13 +21,13 @@ EXCLUDE = [
     'src/secp256k1/include/secp256k1_ecdh.h',
     'src/secp256k1/include/secp256k1_recovery.h',
     'src/secp256k1/include/secp256k1_schnorr.h',
-    'src/secp256k1/src/java/org_raven_NativeSecp256k1.c',
-    'src/secp256k1/src/java/org_raven_NativeSecp256k1.h',
-    'src/secp256k1/src/java/org_raven_Secp256k1Context.c',
-    'src/secp256k1/src/java/org_raven_Secp256k1Context.h',
+    'src/secp256k1/src/java/org_tenzura_NativeSecp256k1.c',
+    'src/secp256k1/src/java/org_tenzura_NativeSecp256k1.h',
+    'src/secp256k1/src/java/org_tenzura_Secp256k1Context.c',
+    'src/secp256k1/src/java/org_tenzura_Secp256k1Context.h',
     # auto generated:
     'src/univalue/lib/univalue_escapes.h',
-    'src/qt/ravenstrings.cpp',
+    'src/qt/tenzurastrings.cpp',
     'src/chainparamsseeds.h',
     # other external copyrights:
     'src/tinyformat.h',
@@ -414,28 +413,24 @@ Updates all the copyright headers of "The Tenzura Core developers" which were
 changed in a year more recent than is listed. For example:
 
 // Copyright (c) <firstYear>-<lastYear> The Bitcoin Core developers
-// Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2020 The Tenzura Core developers
 
 will be updated to:
 
 // Copyright (c) <firstYear>-<lastModifiedYear> The Bitcoin Core developers
-// Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2020 The Tenzura Core developers
 
 where <lastModifiedYear> is obtained from the 'git log' history.
 
 This subcommand also handles copyright headers that have only a single year. In those cases:
 
 // Copyright (c) <year> The Bitcoin Core developers
-// Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2020 The Tenzura Core developers
 
 will be updated to:
 
 // Copyright (c) <year>-<lastModifiedYear> The Bitcoin Core developers
-// Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2020 The Tenzura Core developers
 
 where the update is appropriate.
 
@@ -469,8 +464,7 @@ def get_header_lines(header, start_year, end_year):
 
 CPP_HEADER = '''
 // Copyright (c) %s The Bitcoin Core developers
-// Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+// Copyright (c) 2017-2020 The Tenzura Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 '''
@@ -480,8 +474,7 @@ def get_cpp_header_lines_to_insert(start_year, end_year):
 
 PYTHON_HEADER = '''
 # Copyright (c) %s The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+# Copyright (c) 2017-2020 The Tenzura Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 '''

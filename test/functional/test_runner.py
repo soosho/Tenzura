@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2021 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+# Copyright (c) 2017-2021 The Tenzura Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,7 +13,7 @@ forward all unrecognized arguments onto the individual test scripts.
 Functional tests are disabled on Windows by default. Use --force to run them anyway.
 
 For a description of arguments recognized by test scripts, see
-`test/functional/test_framework/test_framework.py:RavenTestFramework.main`.
+`test/functional/test_framework/test_framework.py:TenzuraTestFramework.main`.
 
 
 """
@@ -152,7 +151,7 @@ BASE_SCRIPTS= [
     'feature_notifications.py',
     'rpc_net.py',
     'rpc_misc.py',
-    'interface_raven_cli.py',
+    'interface_tenzura_cli.py',
     'mempool_resurrect.py',
     'rpc_signrawtransaction.py',
     'wallet_resendtransactions.py',
@@ -254,7 +253,7 @@ def main():
     logging.basicConfig(format='%(message)s', level=logging_level)
 
     # Create base test directory
-    tmpdir = "%s/raven_test_runner_%s" % (args.tmpdirprefix, datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
+    tmpdir = "%s/tenzura_test_runner_%s" % (args.tmpdirprefix, datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
     os.makedirs(tmpdir)
     logging.debug("Temporary test directory at %s" % tmpdir)
 
@@ -265,12 +264,12 @@ def main():
         print("Tests currently disabled on Windows by default. Use --force option to enable")
         sys.exit(0)
 
-    # Check that the build was configured with wallet, utils, and ravend
+    # Check that the build was configured with wallet, utils, and tenzurad
     enable_wallet = config["components"].getboolean("ENABLE_WALLET")
     enable_cli = config["components"].getboolean("ENABLE_UTILS")
-    enable_ravend = config["components"].getboolean("ENABLE_RAVEND")
-    if not (enable_wallet and enable_cli and enable_ravend):
-        print("No functional tests to run. Wallet, utils, and ravend must all be enabled")
+    enable_tenzurad = config["components"].getboolean("ENABLE_TENZURAD")
+    if not (enable_wallet and enable_cli and enable_tenzurad):
+        print("No functional tests to run. Wallet, utils, and tenzurad must all be enabled")
         print("Rerun `configure` with --enable-wallet, --with-cli and --with-daemon and rerun make")
         sys.exit(0)
 
@@ -362,12 +361,12 @@ def main():
 
 
 def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, use_term_control, jobs=1, enable_coverage=False, args=None, combined_logs_len=0, failfast=False, last_loop=False):
-    # Warn if ravend is already running (unix only)
+    # Warn if tenzurad is already running (unix only)
     if args is None:
         args = []
     try:
-        if subprocess.check_output(["pidof", "ravend"]) is not None:
-            print("%sWARNING!%s There is already a ravend process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
+        if subprocess.check_output(["pidof", "tenzurad"]) is not None:
+            print("%sWARNING!%s There is already a tenzurad process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
     except (OSError, subprocess.SubprocessError):
         pass
 
@@ -377,9 +376,9 @@ def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, use_term_control, j
         print("%sWARNING!%s There is a cache directory here: %s. If tests fail unexpectedly, try deleting the cache directory." % (BOLD[1], BOLD[0], cache_dir))
 
     #Set env vars
-    if "RAVEND" not in os.environ:
-        os.environ["RAVEND"] = build_dir + '/src/ravend' + exeext
-        os.environ["RAVENCLI"] = build_dir + '/src/tenzura-cli' + exeext
+    if "TENZURAD" not in os.environ:
+        os.environ["TENZURAD"] = build_dir + '/src/tenzurad' + exeext
+        os.environ["TENZURACLI"] = build_dir + '/src/tenzura-cli' + exeext
 
     tests_dir = src_dir + '/test/functional/'
 

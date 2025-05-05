@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Raven Core developers
-# Copyright (c) 2025 The Tenzura Core developers
+# Copyright (c) 2017-2020 The Tenzura Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 """Test the fundrawtransaction RPC."""
 
-from test_framework.test_framework import RavenTestFramework
+from test_framework.test_framework import TenzuraTestFramework
 from test_framework.util import connect_nodes_bi, assert_equal, Decimal, assert_raises_rpc_error, assert_greater_than, count_bytes, assert_fee_amount, assert_greater_than_or_equal
 
 def get_unspent(listunspent, amount):
@@ -16,7 +15,7 @@ def get_unspent(listunspent, amount):
             return utx
     raise AssertionError('Could not find unspent with amount={}'.format(amount))
 
-class RawTransactionsTest(RavenTestFramework):
+class RawTransactionsTest(TenzuraTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
         self.setup_clean_chain = True

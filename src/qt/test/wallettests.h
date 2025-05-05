@@ -12,4 +12,4 @@ private Q_SLOTS:
     void walletTests();
 };
 
-#endif // RAVEN_QT_TEST_WALLETTESTS_H
+#endif // TENZURA_QT_TEST_WALLETTESTS_H
