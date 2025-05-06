@@ -174,10 +174,42 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     CMutableTransaction coinbaseTx;
     coinbaseTx.vin.resize(1);
     coinbaseTx.vin[0].prevout.SetNull();
-    coinbaseTx.vout.resize(1);
-    coinbaseTx.vout[0].scriptPubKey = scriptPubKeyIn;
-    coinbaseTx.vout[0].nValue = nFees + GetBlockSubsidy(nHeight, chainparams.GetConsensus());
     coinbaseTx.vin[0].scriptSig = CScript() << nHeight << OP_0;
+    
+    // Calculate the block subsidy
+    CAmount blockReward = nFees + GetBlockSubsidy(nHeight, chainparams.GetConsensus());
+    
+    LogPrintf("CreateNewBlock(): Height: %d, Block reward: %d\n", nHeight, blockReward);
+    
+    // For blocks after genesis (nHeight > 0), apply the DevFee
+    if (nHeight > 0) {
+        // Calculate 5% for developer fee and 95% for miner
+        CAmount devFeeValue = blockReward * chainparams.GetConsensus().devFeePercent / 100;
+        CAmount minerValue = blockReward - devFeeValue;
+        
+        LogPrintf("CreateNewBlock(): DevFee: %d, Miner: %d\n", devFeeValue, minerValue);
+        
+        // Resize outputs to accommodate miner and developer addresses
+        coinbaseTx.vout.resize(2);
+        
+        // Miner's reward (95%)
+        coinbaseTx.vout[0].scriptPubKey = scriptPubKeyIn;
+        coinbaseTx.vout[0].nValue = minerValue;
+        
+        // Developer's fee (5%)
+        coinbaseTx.vout[1].scriptPubKey = chainparams.GetConsensus().devFeeScript;
+        coinbaseTx.vout[1].nValue = devFeeValue;
+        
+        LogPrintf("CreateNewBlock(): Added DevFee output with script: %s\n", 
+                 HexStr(chainparams.GetConsensus().devFeeScript.begin(), chainparams.GetConsensus().devFeeScript.end()));
+    } else {
+        // For genesis block, 100% to miner
+        coinbaseTx.vout.resize(1);
+        coinbaseTx.vout[0].scriptPubKey = scriptPubKeyIn;
+        coinbaseTx.vout[0].nValue = blockReward;
+        LogPrintf("CreateNewBlock(): Genesis block - 100%% to miner\n");
+    }
+    
     pblock->vtx[0] = MakeTransactionRef(std::move(coinbaseTx));
     pblocktemplate->vchCoinbaseCommitment = GenerateCoinbaseCommitment(*pblock, pindexPrev, chainparams.GetConsensus());
     pblocktemplate->vTxFees[0] = -nFees;
@@ -189,35 +221,27 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     UpdateTime(pblock, chainparams.GetConsensus(), pindexPrev);
     pblock->nBits          = GetNextWorkRequired(pindexPrev, pblock, chainparams.GetConsensus());
     pblock->nNonce         = 0;
-    pblock->nNonce64         = 0;
-    pblock->nHeight          = nHeight;
+    pblock->nNonce64       = 0;
+    pblock->nHeight        = nHeight;
     pblocktemplate->vTxSigOpsCost[0] = WITNESS_SCALE_FACTOR * GetLegacySigOpCount(*pblock->vtx[0]);
 
     CValidationState state;
     if (!TestBlockValidity(state, chainparams, *pblock, pindexPrev, false, false)) {
-        if (state.IsTransactionError()) {
-            if (gArgs.GetBoolArg("-autofixmempool", false)) {
-                {
-                    TRY_LOCK(mempool.cs, fLockMempool);
-                    if (fLockMempool) {
-                        LogPrintf("%s failed because of a transaction %s. -autofixmempool is set to true. Clearing the mempool\n", __func__,
-                                  state.GetFailedTransaction().GetHex());
-                        mempool.clear();
-                    }
-                }
-            } else {
-                {
-                    TRY_LOCK(mempool.cs, fLockMempool);
-                    if (fLockMempool) {
-                        auto mempoolTx = mempool.get(state.GetFailedTransaction());
-                        if (mempoolTx) {
-                            LogPrintf("%s : Failed because of a transaction %s. Trying to remove the transaction from the mempool\n", __func__, state.GetFailedTransaction().GetHex());
-                            mempool.removeRecursive(*mempoolTx, MemPoolRemovalReason::CONFLICT);
-                        }
-                    }
-                }
+        // Log more detailed error information to help with debugging
+        LogPrintf("CreateNewBlock(): TestBlockValidity failed: %s (code %d)\n",
+                  FormatStateMessage(state), state.GetRejectCode());
+        
+        if (state.GetRejectReason() == "bad-cb-devfee-missing") {
+            // Debug the coinbase transaction
+            const CTransaction& coinbase = *(pblock->vtx[0]);
+            LogPrintf("Coinbase has %d outputs\n", coinbase.vout.size());
+            for (size_t i = 0; i < coinbase.vout.size(); i++) {
+                LogPrintf("Output #%d: %d satoshis, Script: %s\n", i, 
+                         coinbase.vout[i].nValue,
+                         HexStr(coinbase.vout[i].scriptPubKey.begin(), coinbase.vout[i].scriptPubKey.end()));
             }
         }
+        
         throw std::runtime_error(strprintf("%s: TestBlockValidity failed: %s", __func__, FormatStateMessage(state)));
     }
     int64_t nTime2 = GetTimeMicros();
@@ -539,7 +563,7 @@ void static TenzuraMiner(const CChainParams& chainparams)
 {
     LogPrintf("TenzuraMiner -- started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("tenzura-miner");
+    RenameThread("raven-miner");
 
     unsigned int nExtraNonce = 0;
 
