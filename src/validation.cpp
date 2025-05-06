@@ -2284,7 +2284,7 @@ static bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, 
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("tenzura-scriptch");
+    RenameThread("raven-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -4034,6 +4034,42 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
             return state.Invalid(false, state.GetRejectCode(), state.GetRejectReason(),
                                  strprintf("Transaction check failed (tx hash %s) %s %s", tx->GetHash().ToString(),
                                            state.GetDebugMessage(), state.GetRejectReason()));
+        }
+    }
+
+    // Check for DevFee in coinbase after block height 0 (skip genesis block)
+    if (block.nHeight > 0) {
+        const CTransaction& coinbaseTx = *(block.vtx[0]);
+        
+        // Coinbase must have more than 1 output (e.g., miner + devfee)
+	if (coinbaseTx.vout.size() <= 1) {
+    		return state.DoS(100, false, REJECT_INVALID, "bad-cb-too-few-outputs", false, "coinbase transaction must have more than 1 output");
+	}
+        
+        // Check if the second output is the DevFee with correct script
+        if (coinbaseTx.vout[1].scriptPubKey != consensusParams.devFeeScript) {
+            return state.DoS(100, false, REJECT_INVALID, "bad-cb-devfee-script", false, "second output must use the developer fee script");
+        }
+        
+        // Calculate the expected rewards
+        CAmount blockReward = GetBlockSubsidy(block.nHeight, consensusParams);
+        
+        // For fee calculation, use the existing fee calculations rather than
+        // trying to reimplement it here
+        CAmount totalReward = coinbaseTx.vout[0].nValue + coinbaseTx.vout[1].nValue;
+        CAmount fees = totalReward - blockReward;
+        
+        // Calculate expected values
+        CAmount expectedTotal = blockReward + fees;
+        CAmount expectedDevFee = expectedTotal * consensusParams.devFeePercent / 100;
+        CAmount expectedMinerReward = expectedTotal - expectedDevFee;
+        
+        // Check actual values with some tolerance for rounding
+        // Allow a small tolerance of 1 satoshi for rounding errors
+        if (std::abs(coinbaseTx.vout[0].nValue - expectedMinerReward) > 1 || 
+            std::abs(coinbaseTx.vout[1].nValue - expectedDevFee) > 1) {
+            return state.DoS(100, false, REJECT_INVALID, "bad-cb-devfee-amount", false, 
+                            "incorrect developer fee amount");
         }
     }
 
