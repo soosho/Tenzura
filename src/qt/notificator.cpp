@@ -49,12 +49,14 @@ Notificator::Notificator(const QString &_programName, QSystemTrayIcon *_trayIcon
         mode = QSystemTray;
     }
 #ifdef USE_DBUS
+#ifndef Q_OS_WIN
     interface = new QDBusInterface("org.freedesktop.Notifications",
         "/org/freedesktop/Notifications", "org.freedesktop.Notifications");
     if(interface->isValid())
     {
         mode = Freedesktop;
     }
+#endif
 #endif
 #ifdef Q_OS_MAC
     // check if users OS has support for NSUserNotification
@@ -67,7 +69,9 @@ Notificator::Notificator(const QString &_programName, QSystemTrayIcon *_trayIcon
 Notificator::~Notificator()
 {
 #ifdef USE_DBUS
+#ifndef Q_OS_WIN
     delete interface;
+#endif
 #endif
 }
 
@@ -92,8 +96,10 @@ private:
     int bitsPerSample;
     QByteArray image;
 
+#ifndef Q_OS_WIN
     friend QDBusArgument &operator<<(QDBusArgument &a, const FreedesktopImage &i);
     friend const QDBusArgument &operator>>(const QDBusArgument &a, FreedesktopImage &i);
+#endif
 };
 
 Q_DECLARE_METATYPE(FreedesktopImage);
@@ -127,6 +133,7 @@ FreedesktopImage::FreedesktopImage(const QImage &img):
     }
 }
 
+#ifndef Q_OS_WIN
 QDBusArgument &operator<<(QDBusArgument &a, const FreedesktopImage &i)
 {
     a.beginStructure();
@@ -147,15 +154,22 @@ int FreedesktopImage::metaType()
 {
     return qDBusRegisterMetaType<FreedesktopImage>();
 }
+#endif
 
 QVariant FreedesktopImage::toVariant(const QImage &img)
 {
+#ifndef Q_OS_WIN
     FreedesktopImage fimg(img);
     return QVariant(FreedesktopImage::metaType(), &fimg);
+#else
+    Q_UNUSED(img);
+    return QVariant();
+#endif
 }
 
 void Notificator::notifyDBus(Class cls, const QString &title, const QString &text, const QIcon &icon, int millisTimeout)
 {
+#ifndef Q_OS_WIN
     Q_UNUSED(cls);
     // Arguments for DBus call:
     QList<QVariant> args;
@@ -208,6 +222,13 @@ void Notificator::notifyDBus(Class cls, const QString &title, const QString &tex
 
     // "Fire and forget"
     interface->callWithArgumentList(QDBus::NoBlock, "Notify", args);
+#else
+    Q_UNUSED(cls);
+    Q_UNUSED(title);
+    Q_UNUSED(text);
+    Q_UNUSED(icon);
+    Q_UNUSED(millisTimeout);
+#endif
 }
 #endif
 
