@@ -1148,17 +1148,22 @@ dnl these are only used when qt is enabled
 BUILD_TEST_QT=""
 if test x$tenzura_enable_qt != xno; then
   dnl enable dbus support - but disable for Windows targets
-AC_MSG_CHECKING([whether to build GUI with support for D-Bus])
-case $host in
-  *mingw* | *win*)
-    tenzura_enable_qt_dbus=no
-    ;;
-esac
-
-if test x$tenzura_enable_qt_dbus != xno; then
-  AC_DEFINE([USE_DBUS],[1],[Define if dbus support should be compiled in])
-fi
-AC_MSG_RESULT($tenzura_enable_qt_dbus)
+  AC_MSG_CHECKING([whether to build GUI with support for D-Bus])
+  case $host in
+    *mingw* | *win*)
+      tenzura_enable_qt_dbus=no
+      use_dbus=no
+      AC_DEFINE([USE_DBUS],[0],[Define if dbus support should be compiled in])
+      ;;
+    *)
+      if test x$tenzura_enable_qt_dbus != xno; then
+        AC_DEFINE([USE_DBUS],[1],[Define if dbus support should be compiled in])
+      else
+        AC_DEFINE([USE_DBUS],[0],[Define if dbus support should be compiled in])
+      fi
+      ;;
+  esac
+  AC_MSG_RESULT($tenzura_enable_qt_dbus)
 
   dnl enable qr support
   AC_MSG_CHECKING([whether to build GUI with support for QR codes])

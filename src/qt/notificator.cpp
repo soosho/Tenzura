@@ -15,7 +15,9 @@
 #include <QSystemTrayIcon>
 #include <QTemporaryFile>
 #include <QVariant>
-#ifdef USE_DBUS
+
+// Only include QtDBus on non-Windows platforms when DBus is enabled
+#if defined(USE_DBUS) && !defined(Q_OS_WIN)
 #include <stdint.h>
 #include <QtDBus>
 #endif
@@ -40,7 +42,7 @@ Notificator::Notificator(const QString &_programName, QSystemTrayIcon *_trayIcon
     programName(_programName),
     mode(None),
     trayIcon(_trayIcon)
-#ifdef USE_DBUS
+#if defined(USE_DBUS) && !defined(Q_OS_WIN)
     ,interface(0)
 #endif
 {
@@ -48,15 +50,13 @@ Notificator::Notificator(const QString &_programName, QSystemTrayIcon *_trayIcon
     {
         mode = QSystemTray;
     }
-#ifdef USE_DBUS
-#ifndef Q_OS_WIN
+#if defined(USE_DBUS) && !defined(Q_OS_WIN)
     interface = new QDBusInterface("org.freedesktop.Notifications",
         "/org/freedesktop/Notifications", "org.freedesktop.Notifications");
     if(interface->isValid())
     {
         mode = Freedesktop;
     }
-#endif
 #endif
 #ifdef Q_OS_MAC
     // check if users OS has support for NSUserNotification

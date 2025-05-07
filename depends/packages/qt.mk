@@ -146,9 +146,15 @@ $(package)_config_opts_s390x_linux = -platform linux-g++ -xplatform bitcoin-linu
 
 $(package)_config_opts_mingw32 = -no-opengl
 $(package)_config_opts_mingw32 += -no-dbus
+$(package)_config_opts_mingw32 += -no-feature-dbus
 $(package)_config_opts_mingw32 += -xplatform win32-g++
 $(package)_config_opts_mingw32 += -device-option CROSS_COMPILE="$(host)-"
-$(package)_config_opts_mingw32 += OPENSSL_LIBS="-L/usr/x86_64-w64-mingw32/lib -lssl -lcrypto -lws2_32"
+$(package)_config_opts_mingw32 += -openssl-linked
+$(package)_config_opts_mingw32 += "OPENSSL_LIBS=-L/usr/x86_64-w64-mingw32/lib -lssl -lcrypto -lws2_32"
+$(package)_config_opts_mingw32 += "LIBS+=-ldwmapi -lgdi32 -lole32 -luuid"
+$(package)_config_opts_mingw32 += -static
+$(package)_config_opts_mingw32 += -platform win32-g++
+$(package)_config_opts_mingw32 += -I/usr/x86_64-w64-mingw32/include
 
 $(package)_config_opts_android = -xplatform android-clang
 $(package)_config_opts_android += -android-sdk $(ANDROID_SDK)
