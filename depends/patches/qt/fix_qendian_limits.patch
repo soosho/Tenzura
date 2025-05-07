@@ -1,0 +1,8 @@
+--- a/src/corelib/global/qendian.h
++++ b/src/corelib/global/qendian.h
+@@ -43,6 +43,7 @@
+ #include <QtCore/qfloat16.h>
+ #include <QtCore/qglobal.h>
++#include <limits>
+ 
+ QT_BEGIN_NAMESPACE
