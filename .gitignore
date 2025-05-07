@@ -122,3 +122,7 @@ contrib/devtools/split-debug.sh
 cmake-build-debug
 
 CMakeLists.txt
+
+# Explicitly keep patch files
+!*.patch
+!depends/patches/qt/*.patch
