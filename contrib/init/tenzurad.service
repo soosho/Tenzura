@@ -1,0 +1,22 @@
+[Unit]
+Description=Tenzura's distributed currency daemon
+After=network.target
+
+[Service]
+User=tenzura
+Group=tenzura
+
+Type=forking
+PIDFile=/var/lib/tenzurad/tenzurad.pid
+ExecStart=/usr/bin/tenzurad -daemon -pid=/var/lib/tenzurad/tenzurad.pid \
+-conf=/etc/tenzura/tenzura.conf -datadir=/var/lib/tenzurad -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

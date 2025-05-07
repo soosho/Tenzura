@@ -1,0 +1,33 @@
+# /etc/conf.d/tenzurad: config file for /etc/init.d/tenzurad
+
+# Config file location
+#TENZURAD_CONFIGFILE="/etc/tenzura/tenzura.conf"
+
+# What directory to write pidfile to?  (created and owned by $TENZURAD_USER)
+#TENZURAD_PIDDIR="/var/run/tenzurad"
+
+# What filename to give the pidfile
+#TENZURAD_PIDFILE="${TENZURAD_PIDDIR}/tenzurad.pid"
+
+# Where to write tenzurad data (be mindful that the blockchain is large)
+#TENZURAD_DATADIR="/var/lib/tenzurad"
+
+# User and group to own tenzurad process
+#TENZURAD_USER="tenzura"
+#TENZURAD_GROUP="tenzura"
+
+# Path to tenzurad executable
+#TENZURAD_BIN="/usr/bin/tenzurad"
+
+# Nice value to run tenzurad under
+#TENZURAD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#TENZURAD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for tenzurad to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+TENZURAD_SIGTERM_TIMEOUT=60

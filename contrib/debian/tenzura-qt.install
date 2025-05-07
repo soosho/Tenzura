@@ -1,0 +1,6 @@
+usr/local/bin/tenzura-qt usr/bin
+share/pixmaps/tenzura32.xpm usr/share/pixmaps
+share/pixmaps/tenzura16.xpm usr/share/pixmaps
+share/pixmaps/tenzura128.png usr/share/pixmaps
+debian/tenzura-qt.desktop usr/share/applications
+debian/tenzura-qt.protocol usr/share/kde4/services/

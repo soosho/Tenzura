@@ -1,0 +1,92 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/tenzura/.tenzura" ]; then
+	TENZURAD_DEFAULT_DATADIR="/var/lib/tenzura/.tenzura"
+else
+	TENZURAD_DEFAULT_DATADIR="/var/lib/tenzurad"
+fi
+
+TENZURAD_CONFIGFILE=${TENZURAD_CONFIGFILE:-/etc/tenzura/tenzura.conf}
+TENZURAD_PIDDIR=${TENZURAD_PIDDIR:-/var/run/tenzurad}
+TENZURAD_PIDFILE=${TENZURAD_PIDFILE:-${TENZURAD_PIDDIR}/tenzurad.pid}
+TENZURAD_DATADIR=${TENZURAD_DATADIR:-${TENZURAD_DEFAULT_DATADIR}}
+TENZURAD_USER=${TENZURAD_USER:-${TENZURA_USER:-tenzura}}
+TENZURAD_GROUP=${TENZURAD_GROUP:-tenzura}
+TENZURAD_BIN=${TENZURAD_BIN:-/usr/bin/tenzurad}
+TENZURAD_NICE=${TENZURAD_NICE:-${NICELEVEL:-0}}
+TENZURAD_OPTS="${TENZURAD_OPTS:-${TENZURA_OPTS}}"
+
+name="Tenzura Core Daemon"
+description="Tenzura cryptocurrency P2P network daemon"
+
+command="/usr/bin/tenzurad"
+command_args="-pid=\"${TENZURAD_PIDFILE}\" \
+		-conf=\"${TENZURAD_CONFIGFILE}\" \
+		-datadir=\"${TENZURAD_DATADIR}\" \
+		-daemon \
+		${TENZURAD_OPTS}"
+
+required_files="${TENZURAD_CONFIGFILE}"
+start_stop_daemon_args="-u ${TENZURAD_USER} \
+			-N ${TENZURAD_NICE} -w 2000"
+pidfile="${TENZURAD_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${TENZURAD_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${TENZURAD_USER}:${TENZURAD_GROUP}" \
+	"${TENZURAD_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${TENZURAD_USER}:${TENZURAD_GROUP}" \
+	"${TENZURAD_PIDDIR}"
+
+	checkpath -f \
+	-o ${TENZURAD_USER}:${TENZURAD_GROUP} \
+	-m 0660 \
+	${TENZURAD_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${TENZURAD_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run tenzurad."
+		eerror "The setting must appear in ${TENZURAD_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following "
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Tenzura Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

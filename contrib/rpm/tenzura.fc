@@ -1,0 +1,8 @@
+/usr/bin/tenzura-cli		--	gen_context(system_u:object_r:tenzura_exec_t,s0)
+/usr/sbin/tenzurad		--	gen_context(system_u:object_r:tenzura_exec_t,s0)
+/usr/lib(64)?/tenzura/tenzurad		--	gen_context(system_u:object_r:tenzura_exec_t,s0)
+
+/etc/tenzura(/.*)?		gen_context(system_u:object_r:tenzura_conf_t,s0)
+/var/lib/tenzura(/.*)?		gen_context(system_u:object_r:tenzura_var_lib_t,s0)
+
+(/var)?/run/tenzurad(/.*)?   gen_context(system_u:object_r:tenzura_var_run_t,s0)

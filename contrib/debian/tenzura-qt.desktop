@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Tenzura Core
+Comment=Connect to the Tenzura P2P Network
+Comment[de]=Verbinde mit dem Tenzura peer-to-peer Netzwerk
+Comment[fr]=Tenzura, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Tenzura, eşten eşe kriptografik sanal para birimi
+Exec=tenzura-qt %u
+Terminal=false
+Type=Application
+Icon=tenzura128
+MimeType=x-scheme-handler/tenzura;
+Categories=Office;Finance;
